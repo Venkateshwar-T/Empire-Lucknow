@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#090C13">
-  <meta name="description" content="Moonlight Cafe — Specialty coffee, artisanal bakery, curated vinyl sounds, and quiet ambient nooks in Gomti Nagar, Lucknow. Open daily until 2:00 AM.">
-  <title>Moonlight Cafe — Lucknow | Coffee, Bakery & Night Sanctuary</title>
+  <meta name="description" content="Moonlight Cafe — Specialty coffee, artisanal bakery, curated vinyl sounds, and cozy seating spaces in Gomti Nagar, Lucknow. Open daily until 2:00 AM.">
+  <title>Moonlight Cafe — Lucknow | Coffee, Bakery & Late-Night Sanctuary</title>
 
   <!-- Google Fonts: Italiana (Celestial Display), Fraunces (Tactile Editorial Serif), Outfit (Modern Clean Sans), Space Grotesk (Architectural Mono) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -172,7 +172,7 @@
     }
 
     /* =============================================================
-       2. REFINED NAVBAR (SPACIOUS & UNCONGESTED)
+       2. REFINED NAVBAR (NO HAMBURGER, NO CONGESTION)
        ============================================================= */
     .site-header {
       position: sticky;
@@ -297,7 +297,7 @@
       width: 100%;
     }
 
-    /* Header Actions */
+    /* Header Actions (Visible on Desktop & Mobile) */
     .header-actions {
       display: flex;
       align-items: center;
@@ -338,16 +338,17 @@
       font-weight: 600;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      padding: 0.55rem 1.15rem;
+      padding: 0.5rem 1.05rem;
       border-radius: var(--radius-full);
       box-shadow: var(--shadow-gold);
       white-space: nowrap;
       transition: all 0.25s ease;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       .btn-reserve-header {
-        display: none; /* Keep mobile header clean: wordmark + search + hamburger */
+        font-size: 0.74rem;
+        padding: 0.42rem 0.85rem;
       }
     }
 
@@ -356,120 +357,18 @@
       filter: brightness(1.08);
     }
 
-    /* Mobile Hamburger */
-    .mobile-menu-btn {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 38px;
-      height: 38px;
-      border-radius: var(--radius-sm);
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      gap: 5px;
-      cursor: pointer;
-    }
-
-    @media (min-width: 901px) {
-      .mobile-menu-btn {
-        display: none;
-      }
-    }
-
-    .mobile-menu-btn span {
-      width: 19px;
-      height: 2px;
-      background: var(--text-primary);
-      transition: all 0.25s ease;
-      transform-origin: center;
-    }
-
-    .mobile-menu-btn.active span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-    .mobile-menu-btn.active span:nth-child(2) {
-      opacity: 0;
-    }
-    .mobile-menu-btn.active span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    /* Mobile Drawer */
-    .mobile-drawer {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: rgba(9, 12, 19, 0.98);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      z-index: 850;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 5.5rem 1.75rem 4.5rem;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      overflow-y: auto;
-    }
-
-    .mobile-drawer.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .mobile-drawer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      list-style: none;
-    }
-
-    .mobile-drawer-link {
-      display: flex;
-      align-items: baseline;
-      gap: 0.85rem;
-      font-family: var(--font-display);
-      font-size: 1.75rem;
-      color: var(--text-primary);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .mobile-drawer-link span.num {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--moon-gold);
-    }
-
-    .mobile-drawer-link:hover,
-    .mobile-drawer-link:active {
-      color: var(--moon-gold);
-    }
-
-    .mobile-drawer-footer {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border-subtle);
-    }
-
     /* =============================================================
-       3. HERO SECTION: ARTISTIC SANCTUARY & UNCONVENTIONAL CTA DECK
+       3. HERO SECTION: ARTISTIC SANCTUARY & UNCONVENTIONAL ACTION DECK
        ============================================================= */
     .hero-section {
       position: relative;
-      padding: 2.5rem 0 4rem;
+      padding: 2.5rem 0 3.5rem;
       overflow: hidden;
     }
 
     @media (min-width: 992px) {
       .hero-section {
-        padding: 4rem 0 5.5rem;
+        padding: 4rem 0 5rem;
       }
     }
 
@@ -548,7 +447,7 @@
       line-height: 1.65;
     }
 
-    /* UNCONVENTIONAL HERO ACTION DECK (Not typical side-by-side buttons!) */
+    /* UNCONVENTIONAL ACTION DECK */
     .hero-action-deck {
       display: grid;
       grid-template-columns: 1fr;
@@ -641,72 +540,6 @@
       line-height: 1.4;
     }
 
-    /* Interactive Live Vinyl Widget */
-    .hero-vinyl-strip {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      padding: 0.75rem 1rem;
-      background: rgba(15, 20, 32, 0.6);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-full);
-      max-width: 520px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-
-    .hero-vinyl-strip:hover {
-      border-color: var(--border-gold);
-      background: rgba(15, 20, 32, 0.85);
-    }
-
-    .mini-spinning-disc {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #222 0%, #111 70%, #000 100%);
-      border: 1px solid #444;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      animation: spinVinyl 6s linear infinite;
-    }
-
-    .mini-spinning-disc::after {
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--moon-gold);
-      border: 1.5px solid #111;
-    }
-
-    @keyframes spinVinyl {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .vinyl-strip-info {
-      display: flex;
-      align-items: baseline;
-      gap: 0.5rem;
-      flex-grow: 1;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    .vinyl-strip-title {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
-    .vinyl-strip-artist {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-    }
-
     /* Hero Right: Arched Window Sanctuary Frame */
     .hero-visuals {
       position: relative;
@@ -719,7 +552,7 @@
       position: relative;
       width: 100%;
       max-width: 400px;
-      height: 440px;
+      height: 420px;
       border-radius: 200px 200px 20px 20px;
       overflow: hidden;
       border: 1px solid rgba(226, 192, 141, 0.25);
@@ -771,18 +604,18 @@
     }
 
     /* =============================================================
-       4. THE CURATED MENU (MOBILE 2-COLUMN GRID & ZERO-OVERFLOW FILTERS)
+       4. THE CURATED MENU (MOBILE 2-COLUMN GRID & ZERO OVERFLOW)
        ============================================================= */
     .menu-section {
-      padding: 4.5rem 0 5rem;
+      padding: 4rem 0 4.5rem;
       position: relative;
     }
 
     .section-header-compact {
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0.35rem;
     }
 
     .section-eyebrow {
@@ -916,7 +749,7 @@
       cursor: pointer;
     }
 
-    /* 2-COLUMN GRID ON MOBILE (Exact User Requirement!) */
+    /* 2-COLUMN GRID ON MOBILE */
     .menu-grid-2col {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -960,7 +793,7 @@
     .cafe-card-thumb {
       position: relative;
       width: 100%;
-      height: 115px; /* Compact mobile height */
+      height: 115px;
       overflow: hidden;
       background: #111;
     }
@@ -1072,27 +905,27 @@
     }
 
     /* =============================================================
-       5. THE 4 AMBIENT NOOKS (STREAMLINED SPACE CARDS)
+       5. SEATING SPACES (CLEAR, INTUITIVE EXPLORATION)
        ============================================================= */
-    .nooks-section {
-      padding: 4.5rem 0;
+    .spaces-section {
+      padding: 4rem 0;
       position: relative;
     }
 
-    .nooks-grid-compact {
+    .spaces-grid-compact {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 0.85rem;
     }
 
     @media (min-width: 768px) {
-      .nooks-grid-compact {
+      .spaces-grid-compact {
         grid-template-columns: repeat(4, 1fr);
         gap: 1.25rem;
       }
     }
 
-    .nook-box {
+    .space-box {
       position: relative;
       height: 240px;
       border-radius: var(--radius-md);
@@ -1103,29 +936,29 @@
     }
 
     @media (min-width: 768px) {
-      .nook-box {
+      .space-box {
         height: 320px;
       }
     }
 
-    .nook-box:hover {
+    .space-box:hover {
       transform: translateY(-4px);
       border-color: var(--border-gold);
       box-shadow: var(--shadow-card);
     }
 
-    .nook-box img {
+    .space-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.6s ease;
     }
 
-    .nook-box:hover img {
+    .space-box:hover img {
       transform: scale(1.06);
     }
 
-    .nook-overlay-compact {
+    .space-overlay-compact {
       position: absolute;
       inset: 0;
       background: linear-gradient(180deg, rgba(9, 12, 19, 0.1) 0%, rgba(9, 12, 19, 0.75) 60%, rgba(9, 12, 19, 0.96) 100%);
@@ -1136,14 +969,14 @@
       gap: 0.25rem;
     }
 
-    .nook-num {
+    .space-num {
       font-family: var(--font-mono);
       font-size: 0.65rem;
       color: var(--moon-gold);
       letter-spacing: 0.12em;
     }
 
-    .nook-heading {
+    .space-heading {
       font-family: var(--font-display);
       font-size: 1.15rem;
       color: var(--text-primary);
@@ -1151,22 +984,22 @@
     }
 
     @media (min-width: 768px) {
-      .nook-heading {
+      .space-heading {
         font-size: 1.35rem;
       }
     }
 
-    .nook-vibe {
+    .space-vibe {
       font-size: 0.7rem;
       color: var(--moon-mist);
       font-family: var(--font-mono);
     }
 
     /* =============================================================
-       6. RESERVATION SYSTEM (CALM, FAST & CLEAN)
+       6. TABLE RESERVATIONS (INTUITIVE & CLEAR)
        ============================================================= */
     .reserve-section {
-      padding: 4.5rem 0 5rem;
+      padding: 4rem 0 4.5rem;
       position: relative;
     }
 
@@ -1215,20 +1048,20 @@
       display: block;
     }
 
-    /* Nook Picker Pills */
-    .nook-picker-row {
+    /* Area Picker Pills */
+    .area-picker-row {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 0.6rem;
     }
 
     @media (min-width: 600px) {
-      .nook-picker-row {
+      .area-picker-row {
         grid-template-columns: repeat(4, 1fr);
       }
     }
 
-    .nook-pick-btn {
+    .area-pick-btn {
       padding: 0.75rem 0.6rem;
       border-radius: var(--radius-sm);
       background: rgba(255, 255, 255, 0.03);
@@ -1239,12 +1072,12 @@
       transition: all 0.2s ease;
     }
 
-    .nook-pick-btn:hover {
+    .area-pick-btn:hover {
       border-color: var(--moon-gold);
       color: var(--text-primary);
     }
 
-    .nook-pick-btn.selected {
+    .area-pick-btn.selected {
       background: rgba(226, 192, 141, 0.15);
       border-color: var(--moon-gold);
       color: var(--moon-gold);
@@ -1356,10 +1189,10 @@
     }
 
     /* =============================================================
-       7. FIND US & HOURS (COMPACT & MODERN)
+       7. LOCATION & HOURS (COMPACT & MODERN)
        ============================================================= */
     .location-strip-section {
-      padding: 3rem 0 5rem;
+      padding: 2.5rem 0 4.5rem;
     }
 
     .location-box-inner {
@@ -1685,7 +1518,7 @@
   <div class="celestial-orb orb-hero" aria-hidden="true"></div>
   <div class="celestial-orb orb-menu" aria-hidden="true"></div>
 
-  <!-- 1. CLEAN STICKY NAVBAR (No congested lines, no clutter) -->
+  <!-- 1. CLEAN STICKY NAVBAR (No hamburger, no congestion) -->
   <header class="site-header" id="siteHeader">
     <div class="container nav-container">
       <!-- Brand Logo -->
@@ -1702,13 +1535,13 @@
       <nav aria-label="Primary Navigation">
         <ul class="nav-links">
           <li><a href="#menu" class="nav-link">Brews & Bakery</a></li>
-          <li><a href="#nooks" class="nav-link">Ambient Nooks</a></li>
+          <li><a href="#spaces" class="nav-link">Seating Areas</a></li>
           <li><a href="#location" class="nav-link">Hours & Location</a></li>
-          <li><a href="#reserve" class="nav-link">Reserve Table</a></li>
+          <li><a href="#reserve" class="nav-link">Book a Table</a></li>
         </ul>
       </nav>
 
-      <!-- Right Header Actions -->
+      <!-- Right Header Actions (Both Desktop & Mobile) -->
       <div class="header-actions">
         <!-- Quick Search -->
         <button type="button" class="nav-search-trigger" id="openSearchBtn" aria-label="Search items">
@@ -1718,37 +1551,13 @@
           </svg>
         </button>
 
-        <!-- Desktop Reserve CTA -->
+        <!-- Book Table Button -->
         <a href="#reserve" class="btn-reserve-header">
-          <span>Reserve Nook</span>
+          <span>Book Table</span>
         </a>
-
-        <!-- Mobile Menu Toggle -->
-        <button type="button" class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle navigation drawer" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
     </div>
   </header>
-
-  <!-- Mobile Drawer Menu -->
-  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Menu">
-    <ul class="mobile-drawer-links">
-      <li><a href="#menu" class="mobile-drawer-link" data-close-drawer><span class="num">01</span> The Brews & Bites</a></li>
-      <li><a href="#nooks" class="mobile-drawer-link" data-close-drawer><span class="num">02</span> The 4 Ambient Nooks</a></li>
-      <li><a href="#reserve" class="mobile-drawer-link" data-close-drawer><span class="num">03</span> Reserve A Table</a></li>
-      <li><a href="#location" class="mobile-drawer-link" data-close-drawer><span class="num">04</span> Hours & Location</a></li>
-    </ul>
-
-    <div class="mobile-drawer-footer">
-      <a href="#reserve" class="btn-reserve-submit" style="text-align: center; display: block;" data-close-drawer>Reserve Table Now</a>
-      <p style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-align: center;">
-        🌙 Open 7:00 AM — 2:00 AM Daily • Gomti Nagar, Lucknow
-      </p>
-    </div>
-  </div>
 
   <main>
     <!-- =============================================================
@@ -1771,9 +1580,9 @@
             A tranquil midnight sanctuary in Gomti Nagar. Single-origin micro-lots, hand-poured V60 brews, freshly laminated brioche, and warm analog vinyl under low lamps.
           </p>
 
-          <!-- UNCONVENTIONAL ACTION DECK (Not the generic two buttons!) -->
+          <!-- UNCONVENTIONAL ACTION DECK -->
           <div class="hero-action-deck">
-            <!-- Pass 1: Menu Exploration Flight -->
+            <!-- Pass 1: Menu Flight -->
             <a href="#menu" class="sanctuary-pass-card">
               <div class="pass-header">
                 <span class="pass-tag">01 · Culinary Collection</span>
@@ -1783,25 +1592,15 @@
               <p class="pass-subtext">14 single-origin pours, ceremonial matcha cloud & warm French croissants.</p>
             </a>
 
-            <!-- Pass 2: Corner Reservation Pass -->
+            <!-- Pass 2: Table Reservations -->
             <a href="#reserve" class="sanctuary-pass-card">
               <div class="pass-header">
-                <span class="pass-tag">02 · Table Sanctuary</span>
+                <span class="pass-tag">02 · Table Reservations</span>
                 <span class="pass-arrow">↗</span>
               </div>
-              <h2 class="pass-headline">Reserve A Nook</h2>
-              <p class="pass-subtext">Vinyl Mezzanine, Glasshouse Solarium, or the Solo Reading Library.</p>
+              <h2 class="pass-headline">Book a Table</h2>
+              <p class="pass-subtext">Choose your area: Vinyl Lounge, Glasshouse, or Quiet Library.</p>
             </a>
-          </div>
-
-          <!-- Interactive Turntable Needle-Drop Bar -->
-          <div class="hero-vinyl-strip" id="heroVinylToggle" title="Tap to pause/spin vinyl">
-            <div class="mini-spinning-disc" id="vinylDisc"></div>
-            <div class="vinyl-strip-info">
-              <span class="vinyl-strip-title" id="vinylTitle">Bill Evans — Peace Piece</span>
-              <span class="vinyl-strip-artist">• 1959 Analog Vinyl</span>
-            </div>
-            <span style="font-size: 0.72rem; color: var(--moon-gold);">Playing</span>
           </div>
         </div>
 
@@ -2084,49 +1883,49 @@
     </section>
 
     <!-- =============================================================
-         4. THE FOUR AMBIENT NOOKS (CONCISE VISUAL TOUR)
+         5. SEATING SPACES (CLEAR, INTUITIVE EXPLORATION)
          ============================================================= -->
-    <section class="nooks-section" id="nooks">
+    <section class="spaces-section" id="spaces">
       <div class="container">
         <div class="section-header-compact">
           <span class="section-eyebrow">Atmospheric Spaces</span>
-          <h2 class="section-title">The Four Ambient Nooks</h2>
+          <h2 class="section-title">Explore Our Seating Areas</h2>
         </div>
 
-        <div class="nooks-grid-compact">
-          <div class="nook-box" data-nook="vinyl">
-            <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80" alt="Vinyl Mezzanine" loading="lazy">
-            <div class="nook-overlay-compact">
-              <span class="nook-num">NOOK 01</span>
-              <h3 class="nook-heading">Vinyl Mezzanine</h3>
-              <span class="nook-vibe">Vintage Tube Amps & Velvet</span>
+        <div class="spaces-grid-compact">
+          <div class="space-box" data-area="vinyl">
+            <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80" alt="Vinyl Lounge" loading="lazy">
+            <div class="space-overlay-compact">
+              <span class="space-num">AREA 01</span>
+              <h3 class="space-heading">Vinyl Lounge</h3>
+              <span class="space-vibe">Vintage Tube Amps & Velvet</span>
             </div>
           </div>
 
-          <div class="nook-box" data-nook="glasshouse">
+          <div class="space-box" data-area="glasshouse">
             <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Glasshouse Solarium" loading="lazy">
-            <div class="nook-overlay-compact">
-              <span class="nook-num">NOOK 02</span>
-              <h3 class="nook-heading">Glasshouse</h3>
-              <span class="nook-vibe">Tropical Plants & Starlight</span>
+            <div class="space-overlay-compact">
+              <span class="space-num">AREA 02</span>
+              <h3 class="space-heading">Glasshouse</h3>
+              <span class="space-vibe">Tropical Plants & Starlight</span>
             </div>
           </div>
 
-          <div class="nook-box" data-nook="library">
-            <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80" alt="Solo Library" loading="lazy">
-            <div class="nook-overlay-compact">
-              <span class="nook-num">NOOK 03</span>
-              <h3 class="nook-heading">Solo Library</h3>
-              <span class="nook-vibe">Brass Lamps & Whisper Rule</span>
+          <div class="space-box" data-area="library">
+            <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80" alt="Quiet Study Library" loading="lazy">
+            <div class="space-overlay-compact">
+              <span class="space-num">AREA 03</span>
+              <h3 class="space-heading">Study Library</h3>
+              <span class="space-vibe">Brass Lamps & Solo Focus</span>
             </div>
           </div>
 
-          <div class="nook-box" data-nook="slowbar">
-            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80" alt="Copper Slow Bar" loading="lazy">
-            <div class="nook-overlay-compact">
-              <span class="nook-num">NOOK 04</span>
-              <h3 class="nook-heading">Copper Slow Bar</h3>
-              <span class="nook-vibe">Front-Row Siphon Rituals</span>
+          <div class="space-box" data-area="slowbar">
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80" alt="Coffee Bar" loading="lazy">
+            <div class="space-overlay-compact">
+              <span class="space-num">AREA 04</span>
+              <h3 class="space-heading">Coffee Bar</h3>
+              <span class="space-vibe">Front-Row Brew Rituals</span>
             </div>
           </div>
         </div>
@@ -2134,25 +1933,25 @@
     </section>
 
     <!-- =============================================================
-         5. TABLE & NOOK RESERVATION (CLEAN, INTUITIVE)
+         6. TABLE RESERVATIONS (INTUITIVE & CLEAR)
          ============================================================= -->
     <section class="reserve-section" id="reserve">
       <div class="container">
         <div class="reserve-card-shell">
           <div class="reserve-header">
-            <span class="section-eyebrow">Table & Nook Bookings</span>
-            <h2>Reserve Your Corner</h2>
+            <span class="section-eyebrow">Table Reservations</span>
+            <h2>Book a Table</h2>
           </div>
 
           <form class="reserve-form" id="bookingFormClean">
-            <!-- Nook Selector -->
+            <!-- Area Selector -->
             <div>
-              <span class="form-lbl">1. Preferred Sanctuary Nook</span>
-              <div class="nook-picker-row">
-                <button type="button" class="nook-pick-btn selected" data-val="Vinyl Mezzanine">Vinyl Mezzanine</button>
-                <button type="button" class="nook-pick-btn" data-val="Glasshouse Solarium">Glasshouse</button>
-                <button type="button" class="nook-pick-btn" data-val="Solo Library">Solo Library</button>
-                <button type="button" class="nook-pick-btn" data-val="Copper Slow Bar">Copper Bar</button>
+              <span class="form-lbl">1. Choose Seating Area</span>
+              <div class="area-picker-row">
+                <button type="button" class="area-pick-btn selected" data-val="Vinyl Lounge">Vinyl Lounge</button>
+                <button type="button" class="area-pick-btn" data-val="Glasshouse Solarium">Glasshouse</button>
+                <button type="button" class="area-pick-btn" data-val="Study Library">Study Library</button>
+                <button type="button" class="area-pick-btn" data-val="Coffee Bar">Coffee Bar</button>
               </div>
             </div>
 
@@ -2166,7 +1965,7 @@
               <div class="input-box">
                 <label for="bookGuestsClean">Guests</label>
                 <select id="bookGuestsClean">
-                  <option value="1">1 Person (Solo Desk)</option>
+                  <option value="1">1 Person (Solo Table)</option>
                   <option value="2" selected>2 Guests (Intimate Table)</option>
                   <option value="3">3 Guests</option>
                   <option value="4">4 Guests</option>
@@ -2198,14 +1997,14 @@
               <input type="tel" id="bookPhoneClean" placeholder="+91 98765 43210" required>
             </div>
 
-            <button type="submit" class="btn-reserve-submit">Confirm Reservation</button>
+            <button type="submit" class="btn-reserve-submit">Confirm Table Booking</button>
           </form>
         </div>
       </div>
     </section>
 
     <!-- =============================================================
-         6. LOCATION & HOURS (COMPACT & MODERN)
+         7. LOCATION & HOURS (COMPACT & MODERN)
          ============================================================= -->
     <section class="location-strip-section" id="location">
       <div class="container">
@@ -2230,7 +2029,7 @@
               </div>
               <div class="spec-item">
                 <span>Fiber Internet</span>
-                <span>300 Mbps (Laptops till 19:30)</span>
+                <span>300 Mbps (Work friendly till 19:30)</span>
               </div>
               <div class="spec-item">
                 <span>Valet</span>
@@ -2268,7 +2067,7 @@
   </main>
 
   <!-- =============================================================
-       7. CLEAN MINIMAL FOOTER
+       8. CLEAN MINIMAL FOOTER
        ============================================================= -->
   <footer class="site-footer">
     <div class="container footer-row">
@@ -2279,8 +2078,8 @@
 
       <ul class="footer-links-row">
         <li><a href="#menu">Menu</a></li>
-        <li><a href="#nooks">Nooks</a></li>
-        <li><a href="#reserve">Reserve</a></li>
+        <li><a href="#spaces">Seating Areas</a></li>
+        <li><a href="#reserve">Book a Table</a></li>
         <li><a href="#location">Location</a></li>
       </ul>
 
@@ -2291,9 +2090,9 @@
   </footer>
 
   <!-- =============================================================
-       8. MOBILE FIXED BOTTOM DOCK (4 BALANCED ICONS)
+       9. MOBILE FIXED BOTTOM DOCK (4 BALANCED ICONS)
        ============================================================= -->
-  <nav class="mobile-bottom-dock" aria-label="Mobile Dock Navigation">
+  <nav class="mobile-bottom-dock" aria-label="Mobile Navigation Dock">
     <a href="#menu" class="dock-btn" aria-label="Menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
@@ -2305,11 +2104,11 @@
       <span>Brews</span>
     </a>
 
-    <a href="#nooks" class="dock-btn" aria-label="Nooks">
+    <a href="#spaces" class="dock-btn" aria-label="Spaces">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"></path>
       </svg>
-      <span>Nooks</span>
+      <span>Spaces</span>
     </a>
 
     <button type="button" class="dock-btn" id="dockSearchBtn" aria-label="Search">
@@ -2320,19 +2119,19 @@
       <span>Search</span>
     </button>
 
-    <a href="#reserve" class="dock-btn" aria-label="Reserve">
+    <a href="#reserve" class="dock-btn" aria-label="Book Table">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
         <line x1="16" y1="2" x2="16" y2="6"></line>
         <line x1="8" y1="2" x2="8" y2="6"></line>
         <line x1="3" y1="10" x2="21" y2="10"></line>
       </svg>
-      <span>Reserve</span>
+      <span>Book Table</span>
     </a>
   </nav>
 
   <!-- =============================================================
-       9. MOBILE SEARCH MODAL (INTEGRATED CLOSE)
+       10. MOBILE SEARCH MODAL (INTEGRATED CLOSE)
        ============================================================= -->
   <div class="mobile-search-modal" id="mobileSearchModal" role="dialog" aria-modal="true" aria-label="Search items">
     <div class="mobile-search-head">
@@ -2349,7 +2148,7 @@
   </div>
 
   <!-- =============================================================
-       10. TASTING NOTES DETAILS MODAL
+       11. ITEM TASTING MODAL & CONFIRMATION MODAL
        ============================================================= -->
   <div class="modal-backdrop" id="tastingModalClean" role="dialog" aria-modal="true" aria-label="Tasting Notes">
     <div class="modal-box">
@@ -2370,20 +2169,20 @@
             <p style="font-size: 0.8rem; font-weight: 500;" id="modalItemNotes"></p>
           </div>
         </div>
-        <a href="#reserve" class="btn-reserve-submit" style="text-align: center; display: block;" id="modalBookLink">Reserve A Table To Taste</a>
+        <a href="#reserve" class="btn-reserve-submit" style="text-align: center; display: block;" id="modalBookLink">Book A Table To Taste</a>
       </div>
     </div>
   </div>
 
   <!-- =============================================================
-       11. RESERVATION CONFIRMED MODAL
+       12. RESERVATION CONFIRMED MODAL
        ============================================================= -->
   <div class="modal-backdrop" id="reserveSuccessModal" role="dialog" aria-modal="true" aria-label="Confirmation">
     <div class="modal-box" style="padding: 2.2rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
       <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(226, 192, 141, 0.15); color: var(--moon-gold); display: flex; align-items: center; justify-content: center;">
         ✓
       </div>
-      <h3 style="font-family: var(--font-display); font-size: 1.6rem;">Corner Reserved</h3>
+      <h3 style="font-family: var(--font-display); font-size: 1.6rem;">Table Confirmed</h3>
       <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;" id="successModalText"></p>
       <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--moon-gold); background: rgba(255, 255, 255, 0.05); padding: 0.4rem 0.85rem; border-radius: var(--radius-full);" id="successModalRef">
         REF: #MLC-7419
@@ -2393,7 +2192,7 @@
   </div>
 
   <!-- =============================================================
-       12. JAVASCRIPT LOGIC
+       13. JAVASCRIPT LOGIC
        ============================================================= -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -2496,32 +2295,7 @@
         }
       });
 
-      /* 3. Mobile Navigation Drawer */
-      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-      const mobileDrawer = document.getElementById('mobileDrawer');
-      const closeDrawerLinks = document.querySelectorAll('[data-close-drawer]');
-
-      function toggleMobileDrawer() {
-        const isOpen = mobileDrawer.classList.contains('open');
-        if (isOpen) {
-          mobileDrawer.classList.remove('open');
-          mobileMenuToggle.classList.remove('active');
-          mobileMenuToggle.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        } else {
-          mobileDrawer.classList.add('open');
-          mobileMenuToggle.classList.add('active');
-          mobileMenuToggle.setAttribute('aria-expanded', 'true');
-          document.body.style.overflow = 'hidden';
-        }
-      }
-
-      mobileMenuToggle.addEventListener('click', toggleMobileDrawer);
-      closeDrawerLinks.forEach(l => l.addEventListener('click', () => {
-        if (mobileDrawer.classList.contains('open')) toggleMobileDrawer();
-      }));
-
-      /* 4. Filter Pills & Inline Search (Never Overflows) */
+      /* 3. Filter Pills & Inline Search (Never Overflows) */
       const filterPills = document.querySelectorAll('.filter-pill');
       const menuCards = document.querySelectorAll('.cafe-card-compact');
       const cleanMenuSearch = document.getElementById('cleanMenuSearch');
@@ -2576,7 +2350,7 @@
         cleanMenuSearch.focus();
       });
 
-      /* 5. Mobile Search Overlay */
+      /* 4. Mobile Search Overlay */
       const openSearchBtn = document.getElementById('openSearchBtn');
       const dockSearchBtn = document.getElementById('dockSearchBtn');
       const mobileSearchModal = document.getElementById('mobileSearchModal');
@@ -2648,7 +2422,7 @@
         renderMobileItems(e.target.value);
       });
 
-      /* 6. Tasting Notes Modal */
+      /* 5. Tasting Notes Modal */
       const tastingModalClean = document.getElementById('tastingModalClean');
       const closeTastingModalClean = document.getElementById('closeTastingModalClean');
       const modalHeroImg = document.getElementById('modalHeroImg');
@@ -2696,33 +2470,33 @@
         document.body.style.overflow = '';
       });
 
-      /* 7. Reservation System */
+      /* 6. Reservation System */
       const bookDateClean = document.getElementById('bookDateClean');
       const today = new Date().toISOString().split('T')[0];
       bookDateClean.value = today;
       bookDateClean.min = today;
 
-      const nookPickBtns = document.querySelectorAll('.nook-pick-btn');
-      let currentNook = 'Vinyl Mezzanine';
+      const areaPickBtns = document.querySelectorAll('.area-pick-btn');
+      let currentArea = 'Vinyl Lounge';
 
-      nookPickBtns.forEach(btn => {
+      areaPickBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          nookPickBtns.forEach(b => b.classList.remove('selected'));
+          areaPickBtns.forEach(b => b.classList.remove('selected'));
           btn.classList.add('selected');
-          currentNook = btn.getAttribute('data-val');
+          currentArea = btn.getAttribute('data-val');
         });
       });
 
-      // Quick Nook Cards Click
-      document.querySelectorAll('[data-nook]').forEach(card => {
+      // Quick Seating Area Card Click
+      document.querySelectorAll('[data-area]').forEach(card => {
         card.addEventListener('click', () => {
-          const target = card.getAttribute('data-nook');
-          let val = 'Vinyl Mezzanine';
+          const target = card.getAttribute('data-area');
+          let val = 'Vinyl Lounge';
           if (target === 'glasshouse') val = 'Glasshouse Solarium';
-          if (target === 'library') val = 'Solo Library';
-          if (target === 'slowbar') val = 'Copper Slow Bar';
+          if (target === 'library') val = 'Study Library';
+          if (target === 'slowbar') val = 'Coffee Bar';
 
-          const matchBtn = document.querySelector(`.nook-pick-btn[data-val="${val}"]`);
+          const matchBtn = document.querySelector(`.area-pick-btn[data-val="${val}"]`);
           if (matchBtn) matchBtn.click();
           document.getElementById('reserve').scrollIntoView({ behavior: 'smooth' });
         });
@@ -2752,7 +2526,7 @@
         const date = bookDateClean.value;
         const rand = Math.floor(1000 + Math.random() * 9000);
 
-        successModalText.innerHTML = `Table for <strong>${guests} guest(s)</strong> at <strong>${currentNook}</strong> confirmed for <strong>${name}</strong> on <strong>${date} at ${currentTime}</strong>.`;
+        successModalText.innerHTML = `Table for <strong>${guests} guest(s)</strong> at <strong>${currentArea}</strong> confirmed for <strong>${name}</strong> on <strong>${date} at ${currentTime}</strong>.`;
         successModalRef.textContent = `REF: #MLC-${rand}`;
 
         reserveSuccessModal.classList.add('active');
@@ -2771,19 +2545,6 @@
           reserveSuccessModal.classList.remove('active');
           document.body.style.overflow = '';
         }
-      });
-
-      /* 8. Hero Vinyl Turntable Interactive Needle Drop */
-      const heroVinylToggle = document.getElementById('heroVinylToggle');
-      const vinylDisc = document.getElementById('vinylDisc');
-      const vinylTitle = document.getElementById('vinylTitle');
-      let isSpinning = true;
-
-      heroVinylToggle.addEventListener('click', () => {
-        isSpinning = !isSpinning;
-        vinylDisc.style.animationPlayState = isSpinning ? 'running' : 'paused';
-        heroVinylToggle.querySelector('span:last-child').textContent = isSpinning ? 'Playing' : 'Paused';
-        heroVinylToggle.querySelector('span:last-child').style.color = isSpinning ? 'var(--moon-gold)' : 'var(--text-muted)';
       });
 
     });
