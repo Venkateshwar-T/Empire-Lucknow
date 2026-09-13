@@ -1,0 +1,4970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0B0E14">
+  <meta name="description" content="Empire — A modern table combining Awadhi heritage, contemporary fire, and dramatic hospitality in Gomti Nagar, Lucknow.">
+  <title>EMPIRE — Lucknow | Contemporary Indian Dining & Late Bar</title>
+
+  <!-- Google Fonts: Dramatic High-Contrast Serif & Grotesk Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =============================================================
+       1. DESIGN SYSTEM & CSS VARIABLES
+       ============================================================= */
+    :root {
+      /* Deep Midnight / Navy-Black Palette */
+      --bg-midnight: #0B0E14;
+      --bg-midnight-soft: #121721;
+      --bg-midnight-card: #171E2B;
+      --border-dark: rgba(245, 243, 237, 0.12);
+      --border-dark-hover: rgba(194, 122, 82, 0.45);
+
+      /* Warm Ivory / Light Alternating Sections */
+      --bg-ivory: #F7F4EE;
+      --bg-ivory-soft: #EDE8DE;
+      --bg-ivory-card: #FFFFFF;
+      --border-light: rgba(11, 14, 20, 0.1);
+      --border-light-hover: rgba(194, 122, 82, 0.5);
+
+      /* Editorial Brand Accents */
+      --copper: #C27A52;
+      --copper-hover: #D68C63;
+      --copper-glow: rgba(194, 122, 82, 0.25);
+      --clay: #8C7665;
+      --sage: #7A8679;
+      --olive: #434E41;
+      --amber-electric: #E66E38;
+
+      /* Text Hierarchy */
+      --text-dark-primary: #F6F4EE;
+      --text-dark-secondary: #9EA6B4;
+      --text-dark-muted: #646E7E;
+
+      --text-light-primary: #11151D;
+      --text-light-secondary: #565F6E;
+      --text-light-muted: #8E98A5;
+
+      /* Typography Stacks */
+      --font-display: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Space Grotesk', monospace;
+
+      /* Easing & Motion */
+      --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: 0.35s var(--ease-editorial);
+
+      /* Layout Specs */
+      --max-width: 1360px;
+      --nav-height: 76px;
+      --nav-height-mobile: 62px;
+      --bottom-nav-height: 60px;
+      --radius-sm: 4px;
+      --radius-md: 10px;
+      --radius-lg: 18px;
+    }
+
+    /* =============================================================
+       2. RESET & GLOBAL BASE
+       ============================================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      min-width: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      background-color: var(--bg-midnight);
+      color: var(--text-dark-primary);
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-midnight);
+      color: var(--text-dark-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        padding-bottom: var(--bottom-nav-height);
+      }
+    }
+
+    body.scroll-locked {
+      overflow: hidden;
+      touch-action: none;
+    }
+
+    /* Custom Editorial Slim Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #080B10;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--copper);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--copper-hover);
+    }
+
+    img {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: inherit;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    input, select, textarea {
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    @media (min-width: 768px) {
+      .container {
+        padding: 0 2.5rem;
+      }
+    }
+    @media (min-width: 1200px) {
+      .container {
+        padding: 0 3.5rem;
+      }
+    }
+
+    .editorial-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--copper);
+      font-weight: 500;
+    }
+
+    .editorial-label::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    /* =============================================================
+       3. SITE HEADER & RESPONSIVE ASYMMETRIC NAVIGATION
+       ============================================================= */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--nav-height);
+      z-index: 900;
+      background: rgba(11, 14, 20, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-dark);
+      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, height 0.3s ease;
+    }
+
+    @media (max-width: 991px) {
+      .site-header {
+        height: var(--nav-height-mobile);
+      }
+    }
+
+    .site-header.scrolled {
+      background: rgba(11, 14, 20, 0.98);
+      border-bottom-color: rgba(194, 122, 82, 0.25);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .nav-container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      z-index: 910;
+      flex-shrink: 0;
+    }
+
+    .brand-wordmark {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      letter-spacing: 0.22em;
+      font-weight: 700;
+      color: var(--text-dark-primary);
+      text-transform: uppercase;
+      line-height: 1;
+      transition: font-size 0.3s ease;
+    }
+
+    @media (max-width: 991px) {
+      .brand-wordmark {
+        font-size: 1.35rem;
+        letter-spacing: 0.16em;
+      }
+    }
+
+    .brand-subtext {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.32em;
+      color: var(--copper);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    @media (max-width: 991px) {
+      .brand-subtext {
+        font-size: 0.48rem;
+        letter-spacing: 0.24em;
+        margin-top: 2px;
+      }
+    }
+
+    /* Desktop Navigation Links */
+    .desktop-nav {
+      display: none;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    @media (min-width: 992px) {
+      .desktop-nav {
+        display: flex;
+      }
+    }
+
+    .nav-link {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-dark-secondary);
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background: var(--copper);
+      transition: width 0.3s var(--ease-editorial);
+    }
+
+    .nav-link:hover {
+      color: var(--text-dark-primary);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Header Right Actions */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 768px) {
+      .nav-actions {
+        gap: 1.2rem;
+      }
+    }
+
+    .btn-search-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--border-dark);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-dark-primary);
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 991px) {
+      .btn-search-trigger {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    .btn-search-trigger:hover {
+      border-color: var(--copper);
+      background: rgba(194, 122, 82, 0.12);
+      transform: translateY(-1px);
+      color: var(--copper);
+    }
+
+    .btn-search-trigger svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .btn-reserve-nav {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 600;
+      color: #0B0E14;
+      background: var(--copper);
+      padding: 0.6rem 1.3rem;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.3s var(--ease-editorial);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 991px) {
+      .btn-reserve-nav {
+        padding: 0.38rem 0.75rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+      }
+    }
+
+    .btn-reserve-nav:hover {
+      background: var(--copper-hover);
+      box-shadow: 0 4px 18px rgba(194, 122, 82, 0.4);
+      transform: translateY(-1px);
+    }
+
+    /* Mobile Hamburger Menu Toggle */
+    .btn-mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 35px;
+      height: 35px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-dark);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-dark-primary);
+      gap: 5px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      z-index: 920;
+    }
+
+    @media (max-width: 991px) {
+      .btn-mobile-menu-toggle {
+        display: flex;
+      }
+    }
+
+    .btn-mobile-menu-toggle:hover {
+      border-color: var(--copper);
+      background: rgba(194, 122, 82, 0.1);
+    }
+
+    .hamburger-line {
+      width: 17px;
+      height: 2px;
+      background-color: var(--text-dark-primary);
+      border-radius: 1px;
+      transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+    }
+
+    .btn-mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+      transform: translateY(3.5px) rotate(45deg);
+      background-color: var(--copper);
+    }
+
+    .btn-mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+      transform: translateY(-3.5px) rotate(-45deg);
+      background-color: var(--copper);
+    }
+
+    /* =============================================================
+       MOBILE NAVIGATION DRAWER
+       ============================================================= */
+    .mobile-menu-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 14, 20, 0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 890;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: calc(var(--nav-height-mobile) + 1.25rem) 1.5rem calc(var(--bottom-nav-height) + 1.25rem);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-12px);
+      transition: opacity 0.35s ease, transform 0.35s var(--ease-editorial), visibility 0.35s ease;
+      overflow-y: auto;
+    }
+
+    .mobile-menu-drawer.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-top: 0.5rem;
+    }
+
+    .mobile-nav-link-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.85rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .mobile-nav-num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      color: var(--copper);
+      font-weight: 600;
+      min-width: 22px;
+    }
+
+    .mobile-nav-text {
+      font-family: var(--font-display);
+      font-size: 1.38rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--text-dark-primary);
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .mobile-nav-link-item:hover .mobile-nav-text {
+      color: var(--copper);
+      transform: translateX(4px);
+    }
+
+    .mobile-menu-footer {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      border-top: 1px solid var(--border-dark);
+      padding-top: 1.15rem;
+    }
+
+    .btn-mobile-drawer-res {
+      width: 100%;
+      padding: 0.85rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #0B0E14;
+      background: var(--copper);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+    }
+
+    .drawer-info-line {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dark-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* =============================================================
+       4. HERO SECTION — EDITORIAL SPLIT COMPOSITION
+       ============================================================= */
+    .hero-section {
+      background-color: var(--bg-midnight);
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding-top: calc(var(--nav-height) + 1.25rem);
+      padding-bottom: 3.5rem;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    @media (max-width: 991px) {
+      .hero-section {
+        padding-top: calc(var(--nav-height-mobile) + 1.25rem);
+        min-height: auto;
+      }
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -15%;
+      right: -10%;
+      width: 600px;
+      max-width: 100%;
+      height: 600px;
+      background: radial-gradient(circle, rgba(194, 122, 82, 0.16) 0%, rgba(11, 14, 20, 0) 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.2rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    @media (min-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 3.5rem;
+      }
+    }
+
+    .hero-editorial-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 5.5vw, 4.6rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      color: var(--text-dark-primary);
+      word-break: break-word;
+    }
+
+    .hero-tagline em {
+      font-style: italic;
+      font-family: var(--font-serif);
+      color: var(--copper);
+      font-weight: 400;
+    }
+
+    .hero-statement {
+      font-size: clamp(0.95rem, 1.2vw, 1.12rem);
+      color: var(--text-dark-secondary);
+      max-width: 520px;
+      margin-bottom: 1.8rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .btn-primary {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 0.95rem 1.8rem;
+      background: var(--copper);
+      color: #0B0E14;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s var(--ease-editorial);
+    }
+
+    .btn-primary:hover {
+      background: var(--copper-hover);
+      box-shadow: 0 8px 24px rgba(194, 122, 82, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 0.95rem 1.8rem;
+      background: transparent;
+      color: var(--text-dark-primary);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--copper);
+      color: var(--copper);
+      background: rgba(194, 122, 82, 0.08);
+    }
+
+    /* Right Side: Responsive Crop */
+    .hero-visual-crop {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .hero-crop-frame {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      height: 500px;
+      overflow: hidden;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-dark);
+      background: var(--bg-midnight-card);
+    }
+
+    @media (max-width: 768px) {
+      .hero-crop-frame {
+        height: 230px;
+      }
+    }
+
+    .hero-crop-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.88) contrast(1.08);
+      transition: transform 1.2s var(--ease-editorial);
+    }
+
+    .hero-visual-crop:hover .hero-crop-frame img {
+      transform: scale(1.04);
+    }
+
+    .hero-crop-badge-top {
+      position: absolute;
+      top: 0.85rem;
+      left: 0.85rem;
+      background: rgba(11, 14, 20, 0.88);
+      backdrop-filter: blur(10px);
+      padding: 0.3rem 0.65rem;
+      border: 1px solid var(--border-dark);
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dark-primary);
+      max-width: calc(100% - 2rem);
+    }
+
+    .hero-crop-badge-bottom {
+      position: absolute;
+      bottom: 0.85rem;
+      right: 0.85rem;
+      background: rgba(11, 14, 20, 0.88);
+      backdrop-filter: blur(10px);
+      padding: 0.45rem 0.75rem;
+      border: 1px solid var(--border-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      max-width: calc(100% - 2rem);
+    }
+
+    .hero-crop-badge-bottom span:first-child {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--copper);
+    }
+
+    .hero-crop-badge-bottom span:last-child {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dark-secondary);
+    }
+
+    .scroll-indicator {
+      margin-top: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dark-muted);
+      transition: color 0.3s ease;
+    }
+
+    .scroll-indicator:hover {
+      color: var(--copper);
+    }
+
+    .scroll-arrow-anim {
+      display: inline-block;
+      animation: bounceArrow 2s infinite ease-in-out;
+    }
+
+    @keyframes bounceArrow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+
+    /* =============================================================
+       5. ESTABLISHMENT METADATA STRIP
+       ============================================================= */
+    .metadata-strip {
+      background: #080B10;
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 0.95rem 0;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dark-secondary);
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .metadata-flex {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1.6rem;
+    }
+
+    .metadata-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .metadata-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--copper);
+    }
+
+    /* =============================================================
+       6. BRAND STORY — "THE EMPIRE WAY" (WARM IVORY SECTION)
+       ============================================================= */
+    .story-section {
+      background-color: var(--bg-ivory);
+      color: var(--text-light-primary);
+      padding: 5.5rem 0;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .story-header {
+      max-width: 900px;
+      margin-bottom: 3.2rem;
+    }
+
+    .story-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      line-height: 1.18;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--text-light-primary);
+      margin-top: 0.9rem;
+      word-break: break-word;
+    }
+
+    .story-quote em {
+      font-style: italic;
+      color: var(--copper);
+    }
+
+    .story-principles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.6rem;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .story-principles-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    .principle-card {
+      padding: 2rem 1.6rem;
+      background: var(--bg-ivory-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      width: 100%;
+    }
+
+    .principle-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      border-color: var(--border-light-hover);
+    }
+
+    .principle-num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      color: var(--copper);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .principle-title {
+      font-family: var(--font-display);
+      font-size: 1.48rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.75rem;
+      color: var(--text-light-primary);
+      text-transform: uppercase;
+    }
+
+    .principle-desc {
+      font-size: 0.9rem;
+      color: var(--text-light-secondary);
+      line-height: 1.6;
+    }
+
+    /* =============================================================
+       7. FEATURED DISHES — "FROM THE KITCHEN" (DARK EDITORIAL)
+       ============================================================= */
+    .featured-section {
+      background-color: var(--bg-midnight);
+      color: var(--text-dark-primary);
+      padding: 5.5rem 0;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .section-header-editorial {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .section-header-editorial {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    }
+
+    .section-title-large {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--text-dark-primary);
+      margin-top: 0.6rem;
+      word-break: break-word;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.2rem;
+      width: 100%;
+    }
+
+    @media (min-width: 900px) {
+      .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.6rem 3rem;
+      }
+    }
+
+    .featured-card {
+      background: var(--bg-midnight-card);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: transform 0.4s var(--ease-editorial), border-color 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--copper);
+    }
+
+    .featured-media {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      height: 280px;
+      overflow: hidden;
+    }
+
+    .featured-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.9) contrast(1.05);
+      transition: transform 0.8s var(--ease-editorial);
+    }
+
+    .featured-card:hover .featured-media img {
+      transform: scale(1.06);
+    }
+
+    .featured-index-pill {
+      position: absolute;
+      top: 0.85rem;
+      left: 0.85rem;
+      background: rgba(11, 14, 20, 0.88);
+      backdrop-filter: blur(8px);
+      padding: 0.32rem 0.7rem;
+      border: 1px solid var(--border-dark);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--copper);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+    }
+
+    .featured-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .featured-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .tag-badge {
+      font-family: var(--font-mono);
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--sage);
+      background: rgba(122, 134, 121, 0.12);
+      padding: 0.2rem 0.55rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .featured-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .featured-dish-name {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--text-dark-primary);
+      word-break: break-word;
+    }
+
+    .featured-dish-price {
+      font-family: var(--font-mono);
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--copper);
+      white-space: nowrap;
+    }
+
+    .featured-dish-desc {
+      font-size: 0.9rem;
+      color: var(--text-dark-secondary);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+    }
+
+    .featured-action-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-dark);
+      padding-top: 1rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .featured-notes {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.86rem;
+      color: var(--text-dark-muted);
+    }
+
+    .featured-cta {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--copper);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .featured-cta:hover {
+      gap: 0.65rem;
+      color: var(--copper-hover);
+    }
+
+    /* =============================================================
+       8. FULL MENU EXPERIENCE (WARM IVORY SECTION)
+       ============================================================= */
+    .menu-section {
+      background-color: var(--bg-ivory);
+      color: var(--text-light-primary);
+      padding: 5.5rem 0;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .menu-editorial-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      position: relative;
+      width: 100%;
+    }
+
+    @media (min-width: 992px) {
+      .menu-editorial-grid {
+        grid-template-columns: 260px 1fr;
+        gap: 3rem;
+      }
+    }
+
+    .menu-sidebar {
+      position: static;
+      width: 100%;
+    }
+
+    @media (min-width: 992px) {
+      .menu-sidebar {
+        position: sticky;
+        top: calc(var(--nav-height) + 1.25rem);
+        align-self: start;
+      }
+    }
+
+    .menu-categories-list {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 0.45rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid var(--border-light);
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      width: 100%;
+    }
+
+    .menu-categories-list::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (min-width: 992px) {
+      .menu-categories-list {
+        flex-direction: column;
+        overflow-x: visible;
+        border-bottom: none;
+        padding-bottom: 0;
+        gap: 0.25rem;
+      }
+    }
+
+    .category-btn {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      text-align: left;
+      padding: 0.72rem 0.95rem;
+      border-radius: var(--radius-sm);
+      color: var(--text-light-secondary);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid transparent;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .category-btn span.cat-count {
+      font-size: 0.66rem;
+      color: var(--text-light-muted);
+      margin-left: 0.65rem;
+    }
+
+    .category-btn:hover {
+      color: var(--text-light-primary);
+      background: rgba(11, 14, 20, 0.04);
+    }
+
+    .category-btn.active {
+      color: var(--text-light-primary);
+      background: var(--bg-ivory-card);
+      border-color: var(--border-light);
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .category-btn.active span.cat-count {
+      color: var(--copper);
+    }
+
+    .menu-content-area {
+      display: flex;
+      flex-direction: column;
+      gap: 2.8rem;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .menu-category-block {
+      scroll-margin-top: calc(var(--nav-height) + 1.25rem);
+      width: 100%;
+    }
+
+    .menu-category-title-wrap {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 0.65rem;
+      margin-bottom: 1.1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .menu-category-heading {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--text-light-primary);
+    }
+
+    .menu-category-note {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--copper);
+    }
+
+    .menu-items-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+      width: 100%;
+    }
+
+    @media (min-width: 620px) and (max-width: 991px) {
+      .menu-items-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.85rem;
+      }
+    }
+
+    .menu-dish-row {
+      background: var(--bg-ivory-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.15rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .menu-dish-row:hover {
+      border-color: var(--border-light-hover);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .dish-thumb {
+      width: 72px;
+      height: 72px;
+      min-width: 72px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--bg-ivory-soft);
+      flex-shrink: 0;
+    }
+
+    .dish-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .menu-dish-row:hover .dish-thumb img {
+      transform: scale(1.1);
+    }
+
+    .dish-info {
+      flex-grow: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .dish-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.2rem;
+      flex-wrap: wrap;
+    }
+
+    .dish-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-light-primary);
+      word-break: break-word;
+    }
+
+    .dish-price {
+      font-family: var(--font-mono);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--copper);
+      white-space: nowrap;
+    }
+
+    .dish-desc {
+      font-size: 0.84rem;
+      color: var(--text-light-secondary);
+      line-height: 1.45;
+      word-break: break-word;
+    }
+
+    .dish-meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.35rem;
+      align-items: center;
+    }
+
+    .pill-diet {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.14rem 0.42rem;
+      border-radius: 2px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .pill-veg {
+      color: #2F693A;
+      background: rgba(47, 105, 58, 0.1);
+      border: 1px solid rgba(47, 105, 58, 0.2);
+    }
+
+    .pill-nonveg {
+      color: #9C382A;
+      background: rgba(156, 56, 42, 0.1);
+      border: 1px solid rgba(156, 56, 42, 0.2);
+    }
+
+    .pill-cocktail {
+      color: #9C672A;
+      background: rgba(156, 103, 42, 0.1);
+      border: 1px solid rgba(156, 103, 42, 0.2);
+    }
+
+    /* =============================================================
+       9. SPECIAL EXPERIENCE SECTION — "AFTER DARK"
+       ============================================================= */
+    .after-dark-section {
+      background: #080B10;
+      background: radial-gradient(circle at 80% 20%, rgba(194, 122, 82, 0.14) 0%, #080B10 60%);
+      color: var(--text-dark-primary);
+      padding: 5.5rem 0;
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .after-dark-intro {
+      max-width: 720px;
+      margin-bottom: 3.2rem;
+    }
+
+    .after-dark-desc {
+      font-size: 1.08rem;
+      color: var(--text-dark-secondary);
+      font-weight: 300;
+      margin-top: 0.8rem;
+      line-height: 1.65;
+    }
+
+    .timeline-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+      width: 100%;
+    }
+
+    @media (min-width: 600px) and (max-width: 991px) {
+      .timeline-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 992px) {
+      .timeline-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.4rem;
+      }
+    }
+
+    .timeline-step {
+      background: var(--bg-midnight-card);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      padding: 1.6rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.35s ease;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .timeline-step:hover {
+      border-color: var(--copper);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .timeline-time {
+      font-family: var(--font-mono);
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--copper);
+      line-height: 1;
+      margin-bottom: 0.85rem;
+    }
+
+    .timeline-phase {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 0.55rem;
+      color: var(--text-dark-primary);
+    }
+
+    .timeline-detail {
+      font-size: 0.85rem;
+      color: var(--text-dark-secondary);
+      line-height: 1.55;
+    }
+
+    .timeline-badge {
+      display: inline-block;
+      margin-top: 1.15rem;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    /* =============================================================
+       10. ATMOSPHERE / VIBE — "THE ROOM"
+       ============================================================= */
+    .room-section {
+      background-color: var(--bg-midnight);
+      color: var(--text-dark-primary);
+      padding: 5.5rem 0;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .room-editorial-quote {
+      text-align: center;
+      max-width: 840px;
+      margin: 0 auto 3.2rem;
+      width: 100%;
+    }
+
+    .room-quote-text {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.4vw, 2.9rem);
+      line-height: 1.25;
+      font-weight: 400;
+      color: var(--text-dark-primary);
+      word-break: break-word;
+    }
+
+    .room-quote-text em {
+      font-style: italic;
+      color: var(--copper);
+    }
+
+    .room-images-staggered {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.4rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .room-images-staggered {
+        grid-template-columns: 1fr 1.25fr 0.95fr;
+        gap: 1.6rem;
+      }
+    }
+
+    .room-panel {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-dark);
+      background: var(--bg-midnight-card);
+      width: 100%;
+    }
+
+    .room-panel:nth-child(1) { height: 350px; }
+    .room-panel:nth-child(2) { height: 440px; }
+    .room-panel:nth-child(3) { height: 310px; }
+
+    .room-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85) contrast(1.1);
+      transition: transform 0.8s var(--ease-editorial);
+    }
+
+    .room-panel:hover img {
+      transform: scale(1.05);
+    }
+
+    .room-panel-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 0.95rem;
+      background: linear-gradient(to top, rgba(11, 14, 20, 0.95) 0%, transparent 100%);
+      font-family: var(--font-mono);
+      font-size: 0.64rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dark-secondary);
+    }
+
+    /* =============================================================
+       11. REVIEWS & GOOGLE RATING (ZERO OVERFLOW MARQUEE)
+       ============================================================= */
+    .reviews-section {
+      background-color: var(--bg-ivory);
+      color: var(--text-light-primary);
+      padding: 5.5rem 0 6rem;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .reviews-header-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 2.8rem;
+      gap: 1.15rem;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .reviews-header-wrap {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    }
+
+    .google-badge-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.95rem;
+      background: var(--bg-ivory-card);
+      border: 1px solid var(--border-light);
+      padding: 0.8rem 1.3rem;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      max-width: 100%;
+    }
+
+    .google-g-icon {
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .google-rating-score {
+      font-family: var(--font-mono);
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--text-light-primary);
+    }
+
+    .google-stars {
+      color: #E28743;
+      font-size: 0.92rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.15rem;
+    }
+
+    .google-count {
+      font-family: var(--font-mono);
+      font-size: 0.64rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light-muted);
+    }
+
+    .marquee-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 1.15rem;
+      width: max-content;
+      will-change: transform;
+    }
+
+    .marquee-left {
+      animation: marqueeScrollLeft 48s linear infinite;
+    }
+
+    .marquee-right {
+      animation: marqueeScrollRight 48s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeScrollLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes marqueeScrollRight {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    @media (max-width: 768px) {
+      .marquee-row-secondary {
+        display: none;
+      }
+      .marquee-left {
+        animation-duration: 26s;
+      }
+    }
+
+    .review-card {
+      width: 310px;
+      max-width: 82vw;
+      background: var(--bg-ivory-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 1.45rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-shrink: 0;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      word-break: break-word;
+    }
+
+    .review-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-light-hover);
+    }
+
+    .review-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .review-stars {
+      color: #E28743;
+      font-size: 0.86rem;
+      letter-spacing: 0.12em;
+    }
+
+    .review-score {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-light-primary);
+    }
+
+    .review-text {
+      font-family: var(--font-serif);
+      font-size: 1.02rem;
+      line-height: 1.5;
+      font-style: italic;
+      color: var(--text-light-primary);
+      margin-bottom: 0.95rem;
+    }
+
+    .review-author {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--copper);
+      font-weight: 600;
+    }
+
+    /* =============================================================
+       12. LOCATION & HOURS — "FIND EMPIRE" (MONOCHROME MAP)
+       ============================================================= */
+    .location-section {
+      background-color: var(--bg-midnight);
+      color: var(--text-dark-primary);
+      padding: 5.5rem 0;
+      position: relative;
+      border-top: 1px solid var(--border-dark);
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.2rem;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    @media (min-width: 992px) {
+      .location-grid {
+        grid-template-columns: 1fr 1.2fr;
+        gap: 3.2rem;
+      }
+    }
+
+    .location-details-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .location-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      margin: 1.8rem 0;
+    }
+
+    .location-item-block h4 {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 0.3rem;
+    }
+
+    .location-item-block p {
+      font-size: 0.98rem;
+      color: var(--text-dark-primary);
+      line-height: 1.55;
+    }
+
+    .location-item-block p.hours-sub {
+      color: var(--text-dark-secondary);
+      font-size: 0.86rem;
+    }
+
+    .map-card-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      min-height: 360px;
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: #0D121A;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .map-svg-canvas {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      display: block;
+    }
+
+    .map-pin-overlay {
+      position: absolute;
+      top: 52%;
+      left: 58%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .map-pulse-ring {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(194, 122, 82, 0.35);
+      animation: pulseMap 2.2s infinite ease-out;
+    }
+
+    @keyframes pulseMap {
+      0% { transform: scale(0.4); opacity: 1; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+
+    .map-pin-core {
+      width: 16px;
+      height: 16px;
+      background: var(--copper);
+      border: 3px solid #0B0E14;
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--copper);
+      position: relative;
+      z-index: 2;
+    }
+
+    .map-label-bubble {
+      margin-top: 8px;
+      background: rgba(11, 14, 20, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--copper);
+      padding: 0.32rem 0.7rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.64rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dark-primary);
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+    }
+
+    .map-actions-bar {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 20;
+    }
+
+    .btn-maps-link {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #0B0E14;
+      background: var(--copper);
+      padding: 0.55rem 1.05rem;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn-maps-link:hover {
+      background: var(--copper-hover);
+      transform: translateY(-2px);
+    }
+
+    /* =============================================================
+       13. FOOTER — EDITORIAL BACK COVER
+       ============================================================= */
+    .site-footer {
+      background: #05070A;
+      color: var(--text-dark-primary);
+      border-top: 1px solid var(--border-dark);
+      padding: 4.5rem 0 3rem;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .footer-editorial-top {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.2rem;
+      margin-bottom: 3.5rem;
+      width: 100%;
+    }
+
+    @media (min-width: 900px) {
+      .footer-editorial-top {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 3.2rem;
+      }
+    }
+
+    .footer-brand-huge {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      letter-spacing: 0.15em;
+      font-weight: 700;
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--text-dark-primary);
+      margin-bottom: 1rem;
+      word-break: break-word;
+    }
+
+    .footer-statement {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-dark-secondary);
+      max-width: 440px;
+    }
+
+    .footer-col h5 {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 1.15rem;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .footer-links-list a {
+      font-size: 0.9rem;
+      color: var(--text-dark-secondary);
+      transition: color 0.25s ease, transform 0.25s ease;
+      display: inline-block;
+    }
+
+    .footer-links-list a:hover {
+      color: var(--copper);
+      transform: translateX(4px);
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dark-muted);
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .footer-bottom-bar {
+        flex-direction: row;
+        text-align: left;
+      }
+    }
+
+    /* =============================================================
+       14. MOBILE FIXED BOTTOM NAVIGATION (4 ICONS: BOOK REMOVED)
+       ============================================================= */
+    .mobile-bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: var(--bottom-nav-height);
+      background: rgba(11, 14, 20, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      z-index: 950;
+      padding: 0 0.5rem;
+    }
+
+    @media (min-width: 901px) {
+      .mobile-bottom-nav {
+        display: none;
+      }
+    }
+
+    .bottom-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      color: var(--text-dark-muted);
+      transition: color 0.2s ease;
+      padding: 0.35rem 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.56rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      flex: 1;
+      text-align: center;
+    }
+
+    .bottom-nav-item svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 1.6;
+    }
+
+    .bottom-nav-item.active {
+      color: var(--copper);
+    }
+
+    /* =============================================================
+       15. SEARCH SYSTEMS: DESKTOP & MOBILE INTEGRATED SEARCH MODE
+       ============================================================= */
+    .search-overlay-desktop {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 11, 16, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 1000;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 6rem 1.25rem 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .search-overlay-desktop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .search-panel-box {
+      width: 100%;
+      max-width: 680px;
+      background: var(--bg-midnight-card);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      overflow: hidden;
+      transform: translateY(-20px) scale(0.98);
+      transition: transform 0.35s var(--ease-editorial);
+      display: flex;
+      flex-direction: column;
+      max-height: 75vh;
+    }
+
+    .search-overlay-desktop.open .search-panel-box {
+      transform: translateY(0) scale(1);
+    }
+
+    .search-input-header {
+      display: flex;
+      align-items: center;
+      padding: 1.1rem 1.4rem;
+      border-bottom: 1px solid var(--border-dark);
+      gap: 0.85rem;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .search-input-header svg {
+      width: 19px;
+      height: 19px;
+      color: var(--copper);
+      flex-shrink: 0;
+    }
+
+    .search-input-field {
+      flex-grow: 1;
+      background: transparent;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      color: var(--text-dark-primary);
+      font-size: 1.08rem;
+      font-family: var(--font-sans);
+      -webkit-appearance: none;
+    }
+
+    .search-input-field:focus,
+    .search-input-field:focus-visible {
+      outline: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    .search-input-field::placeholder {
+      color: var(--text-dark-muted);
+      font-weight: 300;
+    }
+
+    .search-close-btn {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dark-muted);
+      padding: 0.28rem 0.55rem;
+      border: 1px solid var(--border-dark);
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .search-close-btn:hover {
+      color: var(--text-dark-primary);
+      border-color: var(--copper);
+    }
+
+    .search-suggestions-pills {
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      border-bottom: 1px solid var(--border-dark);
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .suggestion-pill {
+      font-family: var(--font-mono);
+      font-size: 0.64rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-dark);
+      border-radius: 20px;
+      color: var(--text-dark-secondary);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .suggestion-pill:hover {
+      background: rgba(194, 122, 82, 0.15);
+      border-color: var(--copper);
+      color: var(--copper);
+    }
+
+    .search-results-list {
+      overflow-y: auto;
+      padding: 0.95rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .search-result-item {
+      display: flex;
+      align-items: center;
+      gap: 0.95rem;
+      padding: 0.7rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .search-result-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--border-dark-hover);
+    }
+
+    .search-result-thumb {
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: #111;
+      flex-shrink: 0;
+    }
+
+    .search-result-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .search-result-details {
+      flex-grow: 1;
+      min-width: 0;
+    }
+
+    .search-result-title {
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--text-dark-primary);
+      margin-bottom: 0.15rem;
+      word-break: break-word;
+    }
+
+    .search-result-desc {
+      font-size: 0.76rem;
+      color: var(--text-dark-secondary);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .search-result-price {
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--copper);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .search-empty-state {
+      padding: 2.8rem 1.25rem;
+      text-align: center;
+      color: var(--text-dark-secondary);
+    }
+
+    /* -------------------------------------------------------------
+       MOBILE INTEGRATED SEARCH MODE (SMOOTH SLIDE & ZERO INNER BORDER)
+       ------------------------------------------------------------- */
+    .mobile-search-mode-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-midnight);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity 0.3s var(--ease-editorial), transform 0.3s var(--ease-editorial), visibility 0.3s ease;
+    }
+
+    body.mobile-search-active .mobile-search-mode-container {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    body.mobile-search-active .site-main,
+    body.mobile-search-active .site-footer {
+      display: none !important;
+    }
+
+    .mobile-search-header {
+      padding: 0.65rem 1rem;
+      background: rgba(11, 14, 20, 0.98);
+      border-bottom: 1px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* Integrated Search Bar with Integrated Close Icon & NO Inner Border */
+    .mobile-search-input-wrap {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg-midnight-card);
+      border: 1px solid rgba(194, 122, 82, 0.4);
+      border-radius: var(--radius-sm);
+      padding: 0.42rem 0.55rem 0.42rem 0.75rem;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      width: 100%;
+    }
+
+    .mobile-search-input-wrap:focus-within {
+      border-color: var(--copper);
+      box-shadow: 0 0 12px rgba(194, 122, 82, 0.25);
+    }
+
+    .mobile-search-input-wrap svg.search-lens-svg {
+      width: 16px;
+      height: 16px;
+      color: var(--copper);
+      flex-shrink: 0;
+    }
+
+    /* Input: strictly no inner border, outline, or highlight */
+    .mobile-search-input {
+      width: 100%;
+      background: transparent;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      color: var(--text-dark-primary);
+      font-size: 0.92rem;
+      -webkit-appearance: none;
+      -webkit-tap-highlight-color: transparent;
+      padding: 0;
+    }
+
+    .mobile-search-input:focus,
+    .mobile-search-input:focus-visible {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    .mobile-search-input::placeholder {
+      color: var(--text-dark-muted);
+      font-weight: 300;
+    }
+
+    /* Integrated Close Button (Replaces weird external button) */
+    .btn-integrated-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid transparent;
+      color: var(--text-dark-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 0;
+      flex-shrink: 0;
+      margin-left: 0.25rem;
+    }
+
+    .btn-integrated-close:hover,
+    .btn-integrated-close:active {
+      background: rgba(194, 122, 82, 0.22);
+      color: var(--copper);
+      border-color: rgba(194, 122, 82, 0.35);
+      transform: scale(1.05);
+    }
+
+    .btn-integrated-close svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .mobile-search-scroll-body {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      padding-bottom: calc(var(--bottom-nav-height) + 1.25rem);
+    }
+
+    /* =============================================================
+       16. RESERVATION SYSTEM (MODAL & BOTTOM SHEET)
+       ============================================================= */
+    .reservation-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 11, 16, 0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      z-index: 1050;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .reservation-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .reservation-card-modal {
+      width: 100%;
+      max-width: 560px;
+      background: var(--bg-midnight-card);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.7);
+      overflow: hidden;
+      transform: scale(0.95) translateY(15px);
+      transition: transform 0.4s var(--ease-editorial);
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .reservation-overlay.open .reservation-card-modal {
+      transform: scale(1) translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .reservation-overlay {
+        align-items: flex-end;
+        padding: 0;
+      }
+
+      .reservation-card-modal {
+        max-width: 100%;
+        border-radius: 20px 20px 0 0;
+        transform: translateY(100%);
+        border-bottom: none;
+        max-height: 88vh;
+      }
+
+      .reservation-overlay.open .reservation-card-modal {
+        transform: translateY(0);
+      }
+    }
+
+    .sheet-handle-bar {
+      display: none;
+      width: 44px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      margin: 12px auto 6px;
+    }
+
+    @media (max-width: 768px) {
+      .sheet-handle-bar {
+        display: block;
+      }
+    }
+
+    .modal-header-band {
+      padding: 1.25rem 1.6rem 0.85rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .modal-title-wrap h3 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--text-dark-primary);
+    }
+
+    .modal-title-wrap p {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-top: 0.2rem;
+    }
+
+    .modal-close-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark-secondary);
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .modal-close-icon:hover {
+      color: var(--text-dark-primary);
+      border-color: var(--copper);
+    }
+
+    .reservation-scroll-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+
+    .form-grid-two {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.95rem;
+      margin-bottom: 0.95rem;
+    }
+
+    @media (min-width: 540px) {
+      .form-grid-two {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .field-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dark-secondary);
+    }
+
+    .input-clean {
+      background: #0D121A;
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.9rem;
+      color: var(--text-dark-primary);
+      font-size: 0.9rem;
+      transition: border-color 0.25s ease;
+      width: 100%;
+    }
+
+    .input-clean:focus {
+      border-color: var(--copper);
+    }
+
+    .time-slots-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .time-chip {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      padding: 0.42rem 0.7rem;
+      background: #0D121A;
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      color: var(--text-dark-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .time-chip:hover {
+      border-color: var(--copper);
+      color: var(--text-dark-primary);
+    }
+
+    .time-chip.selected {
+      background: var(--copper);
+      color: #0B0E14;
+      border-color: var(--copper);
+      font-weight: 600;
+    }
+
+    .btn-submit-res {
+      width: 100%;
+      margin-top: 1.15rem;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 0.95rem;
+      background: var(--copper);
+      color: #0B0E14;
+      border-radius: var(--radius-sm);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-submit-res:hover {
+      background: var(--copper-hover);
+      box-shadow: 0 6px 20px rgba(194, 122, 82, 0.4);
+    }
+
+    .reservation-confirmation-view {
+      display: none;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .reservation-confirmation-view.show {
+      display: flex;
+    }
+
+    .confirm-symbol {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(194, 122, 82, 0.15);
+      border: 1px solid var(--copper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--copper);
+      margin-bottom: 1.15rem;
+    }
+
+    .confirm-title {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      color: var(--text-dark-primary);
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+
+    .confirm-ref-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      color: var(--copper);
+      margin-bottom: 1.4rem;
+    }
+
+    .confirm-details-card {
+      width: 100%;
+      background: #0D121A;
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      padding: 1.1rem;
+      margin-bottom: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-dark-secondary);
+      text-align: left;
+    }
+
+    .confirm-details-card strong {
+      color: var(--text-dark-primary);
+    }
+
+    .confirm-note {
+      font-size: 0.85rem;
+      color: var(--text-dark-muted);
+      line-height: 1.5;
+      margin-bottom: 1.6rem;
+      max-width: 420px;
+    }
+
+    /* =============================================================
+       17. MOBILE CARD & BUTTON PROPORTIONAL TUNING
+       Slightly smaller, ultra-crisp, and refined on mobile
+       ============================================================= */
+    @media (max-width: 768px) {
+      /* Buttons slightly smaller on mobile */
+      .btn-primary {
+        padding: 0.82rem 1.45rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+      }
+
+      .btn-secondary {
+        padding: 0.82rem 1.45rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+      }
+
+      .btn-reserve-nav {
+        padding: 0.38rem 0.75rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+      }
+
+      .btn-submit-res {
+        padding: 0.85rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+      }
+
+      .btn-maps-link {
+        padding: 0.48rem 0.95rem;
+        font-size: 0.66rem;
+        letter-spacing: 0.15em;
+      }
+
+      .category-btn {
+        padding: 0.65rem 0.85rem;
+        font-size: 0.72rem;
+      }
+
+      /* Principle cards slightly smaller */
+      .principle-card {
+        padding: 1.5rem 1.3rem;
+      }
+      .principle-num {
+        font-size: 0.72rem;
+        margin-bottom: 0.75rem;
+      }
+      .principle-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.6rem;
+      }
+      .principle-desc {
+        font-size: 0.86rem;
+        line-height: 1.55;
+      }
+
+      /* Featured cards slightly smaller */
+      .featured-media {
+        height: 190px;
+      }
+      .featured-body {
+        padding: 1.25rem;
+      }
+      .featured-dish-name {
+        font-size: 1.32rem;
+      }
+      .featured-dish-price {
+        font-size: 1.05rem;
+      }
+      .featured-dish-desc {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 1.1rem;
+      }
+      .featured-action-row {
+        padding-top: 0.85rem;
+      }
+      .featured-cta {
+        font-size: 0.68rem;
+      }
+
+      /* Menu rows slightly smaller */
+      .menu-dish-row {
+        padding: 0.75rem 0.9rem;
+        gap: 0.85rem;
+      }
+      .dish-thumb {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+      }
+      .dish-name {
+        font-size: 0.96rem;
+      }
+      .dish-price {
+        font-size: 0.92rem;
+      }
+      .dish-desc {
+        font-size: 0.76rem;
+        line-height: 1.35;
+      }
+      .dish-meta-pills {
+        margin-top: 0.32rem;
+      }
+
+      /* After Dark timeline steps slightly smaller */
+      .timeline-step {
+        padding: 1.35rem 1.15rem;
+      }
+      .timeline-time {
+        font-size: 1.65rem;
+        margin-bottom: 0.65rem;
+      }
+      .timeline-phase {
+        font-size: 1.15rem;
+        margin-bottom: 0.45rem;
+      }
+      .timeline-detail {
+        font-size: 0.82rem;
+        line-height: 1.5;
+      }
+      .timeline-badge {
+        margin-top: 0.85rem;
+        font-size: 0.58rem;
+      }
+
+      /* Room panels slightly smaller */
+      .room-panel:nth-child(1),
+      .room-panel:nth-child(2),
+      .room-panel:nth-child(3) {
+        height: 190px;
+      }
+      .room-panel-caption {
+        padding: 0.75rem;
+        font-size: 0.6rem;
+      }
+
+      /* Review cards slightly smaller */
+      .review-card {
+        width: 285px;
+        padding: 1.25rem;
+      }
+      .review-text {
+        font-size: 0.95rem;
+        line-height: 1.45;
+        margin-bottom: 0.85rem;
+      }
+      .review-author {
+        font-size: 0.66rem;
+      }
+
+      .google-badge-card {
+        padding: 0.7rem 1.1rem;
+        gap: 0.8rem;
+      }
+      .google-rating-score {
+        font-size: 1.42rem;
+      }
+
+      /* Map and Hero Crop slightly smaller */
+      .map-card-wrapper {
+        min-height: 260px;
+      }
+      .hero-crop-frame {
+        height: 220px;
+      }
+
+      /* Section Spacing slightly tighter */
+      .story-section,
+      .featured-section,
+      .menu-section,
+      .after-dark-section,
+      .room-section,
+      .reviews-section,
+      .location-section {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =============================================================
+       SITE HEADER / FULLY RESPONSIVE NAVBAR
+       ============================================================= -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="container nav-container">
+      <!-- Left: Empire Logo -->
+      <a href="#hero" class="brand-logo" aria-label="Empire Restaurant Home">
+        <span class="brand-wordmark">EMPIRE</span>
+        <span class="brand-subtext">LUCKNOW</span>
+      </a>
+
+      <!-- Center: Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="#story" class="nav-link">Story</a>
+        <a href="#featured" class="nav-link">From The Kitchen</a>
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#afterdark" class="nav-link">After Dark</a>
+        <a href="#room" class="nav-link">The Room</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+        <a href="#location" class="nav-link">Visit</a>
+      </nav>
+
+      <!-- Right: Responsive Actions -->
+      <div class="nav-actions">
+        <button type="button" class="btn-search-trigger" id="searchTriggerBtn" aria-label="Search Menu (Shortcut: /)" title="Search Menu (Press /)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button type="button" class="btn-reserve-nav" id="navReserveBtn" aria-haspopup="dialog">
+          <span>Reserve</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button type="button" class="btn-mobile-menu-toggle" id="mobileMenuToggleBtn" aria-label="Toggle Mobile Navigation" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =============================================================
+       MOBILE NAVIGATION DRAWER (FULL SCREEN EDITORIAL DRAWER)
+       ============================================================= -->
+  <div class="mobile-menu-drawer" id="mobileMenuDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+        <span class="editorial-label">Navigation</span>
+        <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--copper); letter-spacing: 0.2em;">EMPIRE · LUCKNOW</span>
+      </div>
+
+      <nav class="mobile-menu-links">
+        <a href="#story" class="mobile-nav-link-item">
+          <span class="mobile-nav-num">01</span>
+          <span class="mobile-nav-text">Story &amp; Philosophy</span>
+        </a>
+        <a href="#featured" class="mobile-nav-link-item">
+          <span class="mobile-nav-num">02</span>
+          <span class="mobile-nav-text">From The Kitchen</span>
+        </a>
+        <a href="#menu" class="mobile-nav-link-item">
+          <span class="mobile-nav-num">03</span>
+          <span class="mobile-nav-text">Culinary Menu</span>
+        </a>
+        <a href="#afterdark" class="mobile-nav-link-item">
+          <span class="mobile-nav-num">04</span>
+          <span class="mobile-nav-text">After Dark</span>
+        </a>
+        <a href="#room" class="mobile-nav-link-item">
+          <span class="mobile-nav-num">05</span>
+          <span class="mobile-nav-text">The Room</span>
+        </a>
+        <a href="#reviews" class="mobile-nav-link-item">
+          <span class="mobile-nav-num">06</span>
+          <span class="mobile-nav-text">Public Reviews</span>
+        </a>
+        <a href="#location" class="mobile-nav-link-item">
+          <span class="mobile-nav-num">07</span>
+          <span class="mobile-nav-text">Find Empire</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <button type="button" class="btn-mobile-drawer-res" id="drawerReserveBtn">
+        <span>Reserve A Table</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+
+      <div class="drawer-info-line">
+        <span>Gomti Nagar, Lucknow</span>
+        <span>Dinner 6PM — 12AM</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================================
+       MAIN CONTENT
+       ============================================================= -->
+  <main class="site-main" id="mainContent">
+
+    <!-- ===========================================================
+         HERO SECTION: EDITORIAL SPLIT COMPOSITION
+         =========================================================== -->
+    <section class="hero-section" id="hero" aria-label="Introduction">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-editorial-content">
+            <div class="editorial-label">Awadhi Soul · Contemporary Fire</div>
+            <h1 class="hero-tagline">
+              A modern table in the heart of <em>Lucknow.</em>
+            </h1>
+            <p class="hero-statement">
+              An evening worth dressing for. Empire honors centuries of slow-fire gastronomy, artisanal spices, and late-evening room conversations crafted for the discerning palate.
+            </p>
+            <div class="hero-cta-group">
+              <button type="button" class="btn-primary" id="heroReserveBtn">
+                <span>Reserve a table</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+              <a href="#menu" class="btn-secondary">Explore Menu</a>
+            </div>
+
+            <a href="#story" class="scroll-indicator" aria-label="Scroll to discover more">
+              <span>Scroll to explore</span>
+              <span class="scroll-arrow-anim">↓</span>
+            </a>
+          </div>
+
+          <div class="hero-visual-crop">
+            <div class="hero-crop-frame">
+              <img 
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" 
+                alt="Atmospheric candlelit dining table at Empire, Gomti Nagar" 
+                loading="eager"
+                width="800" 
+                height="1000"
+              >
+              <div class="hero-crop-badge-top">
+                EST. 2018 · LUCKNOW
+              </div>
+              <div class="hero-crop-badge-bottom">
+                <span>DINNER &amp; BAR</span>
+                <span>GOMTI NAGAR / UP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         ESTABLISHMENT METADATA STRIP
+         =========================================================== -->
+    <div class="metadata-strip" aria-label="Restaurant Metadata">
+      <div class="container">
+        <div class="metadata-flex">
+          <div class="metadata-item">
+            <span class="metadata-dot"></span>
+            <span>EST. 2018</span>
+          </div>
+          <div class="metadata-item">
+            <span class="metadata-dot"></span>
+            <span>LUCKNOW / INDIA</span>
+          </div>
+          <div class="metadata-item">
+            <span class="metadata-dot"></span>
+            <span>INDIAN / CONTEMPORARY</span>
+          </div>
+          <div class="metadata-item">
+            <span class="metadata-dot"></span>
+            <span>DINNER · 6PM—12AM</span>
+          </div>
+          <div class="metadata-item">
+            <span class="metadata-dot"></span>
+            <span>VINYL &amp; SPEAKEASY BAR</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===========================================================
+         BRAND STORY — "THE EMPIRE WAY" (WARM IVORY SECTION)
+         =========================================================== -->
+    <section class="story-section" id="story" aria-label="Brand Philosophy">
+      <div class="container">
+        <div class="story-header">
+          <div class="editorial-label">The Empire Way</div>
+          <h2 class="story-quote">
+            “Built around <em>slow evenings</em>, bold flavours, and tables that stay occupied.”
+          </h2>
+        </div>
+
+        <div class="story-principles-grid">
+          <article class="principle-card">
+            <div class="principle-num">01 — INGREDIENTS</div>
+            <h3 class="principle-title">Purity &amp; Spices</h3>
+            <p class="principle-desc">
+              Locally sourced seasonal produce, cold-pressed mustard oils, Kashmiri saffron threads, and hand-ground spices selected from generational purveyors across the Awadh valley.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <div class="principle-num">02 — FIRE</div>
+            <h3 class="principle-title">Charcoal &amp; Dum</h3>
+            <p class="principle-desc">
+              High-temperature tandoor clay ovens, hand-fanned wood charcoal, and sealed earthen vessels for slow dum-cooking that transforms patience into extraordinary depth.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <div class="principle-num">03 — TABLE</div>
+            <h3 class="principle-title">Dramatic Hospitality</h3>
+            <p class="principle-desc">
+              A dining room sculpted around unhurried conversation. Heavy linen, warm amber lamps, rare vinyl acoustics, and attentive service that knows when to linger and when to withdraw.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         FEATURED DISHES — "FROM THE KITCHEN" (DARK EDITORIAL SPREAD)
+         =========================================================== -->
+    <section class="featured-section" id="featured" aria-label="Signature Highlights">
+      <div class="container">
+        <div class="section-header-editorial">
+          <div>
+            <div class="editorial-label">Signatures</div>
+            <h2 class="section-title-large">From The Kitchen</h2>
+          </div>
+          <a href="#menu" class="btn-secondary" style="margin-top: 1rem;">View Full Menu (18)</a>
+        </div>
+
+        <div class="featured-grid">
+          <!-- Featured Dish 01 -->
+          <article class="featured-card">
+            <div class="featured-media">
+              <img 
+                src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1200&q=80" 
+                alt="Empire Dum Biryani served in a copper handi with fried onions"
+                loading="lazy"
+                width="600"
+                height="280"
+              >
+              <span class="featured-index-pill">01 / SIGNATURE</span>
+            </div>
+            <div class="featured-body">
+              <div>
+                <div class="featured-tags">
+                  <span class="tag-badge">Non-Veg</span>
+                  <span class="tag-badge">12-Hour Marination</span>
+                </div>
+                <div class="featured-title-row">
+                  <h3 class="featured-dish-name">Empire Dum Biryani</h3>
+                  <span class="featured-dish-price">₹885</span>
+                </div>
+                <p class="featured-dish-desc">
+                  Aged basmati perfumed with Kashmiri saffron, tender goat meat slow-steamed under a dough seal, and whole spices finished with burnt rose water.
+                </p>
+              </div>
+              <div class="featured-action-row">
+                <span class="featured-notes">Served with smoked burani raita</span>
+                <button type="button" class="featured-cta quick-reserve-trigger" data-dish="Empire Dum Biryani">
+                  <span>Reserve Table</span> →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Featured Dish 02 -->
+          <article class="featured-card">
+            <div class="featured-media">
+              <img 
+                src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=1200&q=80" 
+                alt="Empire Galouti Kebab plated with silken roomali roti and smoked cloves"
+                loading="lazy"
+                width="600"
+                height="280"
+              >
+              <span class="featured-index-pill">02 / HERITAGE</span>
+            </div>
+            <div class="featured-body">
+              <div>
+                <div class="featured-tags">
+                  <span class="tag-badge">Non-Veg</span>
+                  <span class="tag-badge">160 Spices Tradition</span>
+                </div>
+                <div class="featured-title-row">
+                  <h3 class="featured-dish-name">Empire Galouti Kebab</h3>
+                  <span class="featured-dish-price">₹725</span>
+                </div>
+                <p class="featured-dish-desc">
+                  Silken melt-in-mouth texture, smoked clove essence, raw papaya tenderization, cooked on inverted copper lagan and paired with ultra-thin roomali.
+                </p>
+              </div>
+              <div class="featured-action-row">
+                <span class="featured-notes">Traditional Awadhi recipe reimagined</span>
+                <button type="button" class="featured-cta quick-reserve-trigger" data-dish="Empire Galouti Kebab">
+                  <span>Reserve Table</span> →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Featured Dish 03 -->
+          <article class="featured-card">
+            <div class="featured-media">
+              <img 
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80" 
+                alt="Saffron Tres Leches soaked with Persian milk and crushed pistachios"
+                loading="lazy"
+                width="600"
+                height="280"
+              >
+              <span class="featured-index-pill">03 / CONFECTION</span>
+            </div>
+            <div class="featured-body">
+              <div>
+                <div class="featured-tags">
+                  <span class="tag-badge">Vegetarian</span>
+                  <span class="tag-badge">Persian Saffron</span>
+                </div>
+                <div class="featured-title-row">
+                  <h3 class="featured-dish-name">Saffron Tres Leches</h3>
+                  <span class="featured-dish-price">₹495</span>
+                </div>
+                <p class="featured-dish-desc">
+                  Airy sponge cake drenched in triple saffron milk reduction, adorned with roasted Iranian pistachio dust, candied wild rose petals, and silver leaf.
+                </p>
+              </div>
+              <div class="featured-action-row">
+                <span class="featured-notes">Plated cold at table</span>
+                <button type="button" class="featured-cta quick-reserve-trigger" data-dish="Saffron Tres Leches">
+                  <span>Reserve Table</span> →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Featured Dish 04 -->
+          <article class="featured-card">
+            <div class="featured-media">
+              <img 
+                src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80" 
+                alt="Empire Old Fashioned in rocks glass with hand-carved ice and smoked orange peel"
+                loading="lazy"
+                width="600"
+                height="280"
+              >
+              <span class="featured-index-pill">04 / BAR</span>
+            </div>
+            <div class="featured-body">
+              <div>
+                <div class="featured-tags">
+                  <span class="tag-badge">Artisanal Spirits</span>
+                  <span class="tag-badge">Smoked In-House</span>
+                </div>
+                <div class="featured-title-row">
+                  <h3 class="featured-dish-name">Empire Old Fashioned</h3>
+                  <span class="featured-dish-price">₹650</span>
+                </div>
+                <p class="featured-dish-desc">
+                  Oak-aged single malt whiskey infused with charred bitter orange peel, clove-spiced jaggery reduction, and hand-carved clear ice sphere.
+                </p>
+              </div>
+              <div class="featured-action-row">
+                <span class="featured-notes">Served after 7PM at the bar</span>
+                <button type="button" class="featured-cta quick-reserve-trigger" data-dish="Empire Old Fashioned">
+                  <span>Reserve Table</span> →
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         FULL MENU EXPERIENCE (WARM IVORY SECTION)
+         =========================================================== -->
+    <section class="menu-section" id="menu" aria-label="Curated Menu Experience">
+      <div class="container">
+        <div style="margin-bottom: 2.5rem;">
+          <div class="editorial-label">Gastronomy</div>
+          <h2 class="section-title-large" style="color: var(--text-light-primary);">The Culinary Selection</h2>
+        </div>
+
+        <div class="menu-editorial-grid">
+          <!-- Sidebar Category Nav -->
+          <aside class="menu-sidebar" aria-label="Menu Categories">
+            <div class="menu-categories-list" id="categoryNav">
+              <button type="button" class="category-btn active" data-category="all">
+                <span>All Offerings</span>
+                <span class="cat-count">18</span>
+              </button>
+              <button type="button" class="category-btn" data-category="small-plates">
+                <span>Small Plates</span>
+                <span class="cat-count">3</span>
+              </button>
+              <button type="button" class="category-btn" data-category="tandoor">
+                <span>Tandoor</span>
+                <span class="cat-count">3</span>
+              </button>
+              <button type="button" class="category-btn" data-category="mains">
+                <span>Mains</span>
+                <span class="cat-count">3</span>
+              </button>
+              <button type="button" class="category-btn" data-category="rice-biryani">
+                <span>Rice &amp; Biryani</span>
+                <span class="cat-count">3</span>
+              </button>
+              <button type="button" class="category-btn" data-category="desserts">
+                <span>Desserts</span>
+                <span class="cat-count">3</span>
+              </button>
+              <button type="button" class="category-btn" data-category="drinks">
+                <span>Drinks</span>
+                <span class="cat-count">3</span>
+              </button>
+            </div>
+          </aside>
+
+          <!-- Menu Content Area -->
+          <div class="menu-content-area" id="menuContentArea">
+
+            <!-- Category: Small Plates -->
+            <div class="menu-category-block" data-category-group="small-plates">
+              <div class="menu-category-title-wrap">
+                <h3 class="menu-category-heading">Small Plates</h3>
+                <span class="menu-category-note">To Begin</span>
+              </div>
+              <div class="menu-items-list">
+                <!-- 01 -->
+                <div class="menu-dish-row" data-name="Empire Galouti Kebab">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=400&q=80" alt="Empire Galouti Kebab" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Empire Galouti Kebab</h4>
+                      <span class="dish-price">₹725</span>
+                    </div>
+                    <p class="dish-desc">Silken texture, smoked clove, hand-pounded Awadhi aromatics, roomali roti.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-nonveg">Non-Veg</span>
+                      <span class="tag-badge">Signature</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 02 -->
+                <div class="menu-dish-row" data-name="Charred Paneer Skewers">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=400&q=80" alt="Charred Paneer Skewers" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Charred Paneer Skewers</h4>
+                      <span class="dish-price">₹585</span>
+                    </div>
+                    <p class="dish-desc">Green chilli, hung artisanal curd, fresh ground coriander, smoked black salt.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-veg">Veg</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 03 -->
+                <div class="menu-dish-row" data-name="Crisp Lotus Root">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" alt="Crisp Lotus Root" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Crisp Lotus Root</h4>
+                      <span class="dish-price">₹545</span>
+                    </div>
+                    <p class="dish-desc">Fermented black garlic reduction glaze, toasted sesame seeds, mountain pepper.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-veg">Veg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category: Tandoor -->
+            <div class="menu-category-block" data-category-group="tandoor">
+              <div class="menu-category-title-wrap">
+                <h3 class="menu-category-heading">Tandoor</h3>
+                <span class="menu-category-note">Live Fire</span>
+              </div>
+              <div class="menu-items-list">
+                <!-- 04 -->
+                <div class="menu-dish-row" data-name="Empire Chicken Tikka">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=400&q=80" alt="Empire Chicken Tikka" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Empire Chicken Tikka</h4>
+                      <span class="dish-price">₹695</span>
+                    </div>
+                    <p class="dish-desc">Charred lemon rind, sharp kasundi mustard brine, pickled shallot petals.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-nonveg">Non-Veg</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 05 -->
+                <div class="menu-dish-row" data-name="Lamb Seekh">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80" alt="Lamb Seekh" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Lamb Seekh</h4>
+                      <span class="dish-price">₹785</span>
+                    </div>
+                    <p class="dish-desc">Coarsely ground lamb, smoked green chilli butter, mint chutney emulsion.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-nonveg">Non-Veg</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 06 -->
+                <div class="menu-dish-row" data-name="Paneer Tikka">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=400&q=80" alt="Paneer Tikka" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Paneer Tikka</h4>
+                      <span class="dish-price">₹595</span>
+                    </div>
+                    <p class="dish-desc">Charred malai paneer, crushed coriander seed crust, kasundi mustard.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-veg">Veg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category: Mains -->
+            <div class="menu-category-block" data-category-group="mains">
+              <div class="menu-category-title-wrap">
+                <h3 class="menu-category-heading">Mains</h3>
+                <span class="menu-category-note">Awadhi Heritage</span>
+              </div>
+              <div class="menu-items-list">
+                <!-- 07 -->
+                <div class="menu-dish-row" data-name="Awadhi Mutton">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1545247181-516773cae7be?auto=format&fit=crop&w=400&q=80" alt="Awadhi Mutton" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Awadhi Mutton</h4>
+                      <span class="dish-price">₹895</span>
+                    </div>
+                    <p class="dish-desc">Slow cooked 12 hours, saffron, caramelized onion gravy, crushed cardamom.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-nonveg">Non-Veg</span>
+                      <span class="tag-badge">Chef Special</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 08 -->
+                <div class="menu-dish-row" data-name="Butter Chicken Empire Style">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=400&q=80" alt="Butter Chicken Empire Style" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Butter Chicken Empire Style</h4>
+                      <span class="dish-price">₹765</span>
+                    </div>
+                    <p class="dish-desc">Wood-charred plum tomatoes, churned white cultured butter, wild fenugreek.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-nonveg">Non-Veg</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 09 -->
+                <div class="menu-dish-row" data-name="Lucknowi Paneer Kofta">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=400&q=80" alt="Lucknowi Paneer Kofta" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Lucknowi Paneer Kofta</h4>
+                      <span class="dish-price">₹685</span>
+                    </div>
+                    <p class="dish-desc">Cottage cheese dumplings, roasted almond stuffing, silky mace gravy.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-veg">Veg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category: Rice & Biryani -->
+            <div class="menu-category-block" data-category-group="rice-biryani">
+              <div class="menu-category-title-wrap">
+                <h3 class="menu-category-heading">Rice &amp; Biryani</h3>
+                <span class="menu-category-note">Slow Dum Service</span>
+              </div>
+              <div class="menu-items-list">
+                <!-- 10 -->
+                <div class="menu-dish-row" data-name="Empire Dum Biryani">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=400&q=80" alt="Empire Dum Biryani" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Empire Dum Biryani</h4>
+                      <span class="dish-price">₹885</span>
+                    </div>
+                    <p class="dish-desc">Signature aged basmati, saffron yakhni broth, slow-cooked meat, sealed pot.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-nonveg">Non-Veg</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 11 -->
+                <div class="menu-dish-row" data-name="Saffron Chicken Biryani">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=400&q=80" alt="Saffron Chicken Biryani" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Saffron Chicken Biryani</h4>
+                      <span class="dish-price">₹795</span>
+                    </div>
+                    <p class="dish-desc">Farm chicken slow cooked in rich yakhni broth, yellow saffron rice, barberries.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-nonveg">Non-Veg</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 12 -->
+                <div class="menu-dish-row" data-name="Awadhi Mutton Biryani">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1545247181-516773cae7be?auto=format&fit=crop&w=400&q=80" alt="Awadhi Mutton Biryani" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Awadhi Mutton Biryani</h4>
+                      <span class="dish-price">₹915</span>
+                    </div>
+                    <p class="dish-desc">Tender Awadhi goat meat, fragrant long-grain rice, green cardamom, kewra.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-nonveg">Non-Veg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category: Desserts -->
+            <div class="menu-category-block" data-category-group="desserts">
+              <div class="menu-category-title-wrap">
+                <h3 class="menu-category-heading">Desserts</h3>
+                <span class="menu-category-note">Finales</span>
+              </div>
+              <div class="menu-items-list">
+                <!-- 13 -->
+                <div class="menu-dish-row" data-name="Saffron Tres Leches">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80" alt="Saffron Tres Leches" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Saffron Tres Leches</h4>
+                      <span class="dish-price">₹495</span>
+                    </div>
+                    <p class="dish-desc">Light sponge, saffron three-milk soak, ground Iranian pistachio, rosebuds.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-veg">Veg</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 14 -->
+                <div class="menu-dish-row" data-name="Dark Chocolate Kulfi">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=400&q=80" alt="Dark Chocolate Kulfi" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Dark Chocolate Kulfi</h4>
+                      <span class="dish-price">₹465</span>
+                    </div>
+                    <p class="dish-desc">Traditional rabri with 72% single-origin dark cacao, sea salt crystals, nibs.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-veg">Veg</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 15 -->
+                <div class="menu-dish-row" data-name="Burnt Gulab Jamun">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=400&q=80" alt="Burnt Gulab Jamun" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Burnt Gulab Jamun</h4>
+                      <span class="dish-price">₹445</span>
+                    </div>
+                    <p class="dish-desc">Caramelized torched crust, bitter cardamom syrup, Madagascar vanilla ice cream.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-veg">Veg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category: Drinks -->
+            <div class="menu-category-block" data-category-group="drinks">
+              <div class="menu-category-title-wrap">
+                <h3 class="menu-category-heading">Drinks &amp; Elixirs</h3>
+                <span class="menu-category-note">Mixology &amp; Zero-Proof</span>
+              </div>
+              <div class="menu-items-list">
+                <!-- 16 -->
+                <div class="menu-dish-row" data-name="Empire Old Fashioned">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=400&q=80" alt="Empire Old Fashioned" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Empire Old Fashioned</h4>
+                      <span class="dish-price">₹650</span>
+                    </div>
+                    <p class="dish-desc">Smoked Seville orange peel, aromatic bitters, raw jaggery syrup, artisanal ice.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-cocktail">Cocktail</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 17 -->
+                <div class="menu-dish-row" data-name="Saffron Lemonade">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=400&q=80" alt="Saffron Lemonade" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Saffron Lemonade</h4>
+                      <span class="dish-price">₹385</span>
+                    </div>
+                    <p class="dish-desc">Cold-brewed saffron syrup, pressed Gondhoraj lime, effervescent mountain soda.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-veg">Zero-Proof</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 18 -->
+                <div class="menu-dish-row" data-name="Jamun Spritz">
+                  <div class="dish-thumb">
+                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=400&q=80" alt="Jamun Spritz" loading="lazy">
+                  </div>
+                  <div class="dish-info">
+                    <div class="dish-header">
+                      <h4 class="dish-name">Jamun Spritz</h4>
+                      <span class="dish-price">₹425</span>
+                    </div>
+                    <p class="dish-desc">Pressed wild plum reduction, botanical tonic, pink citrus oils, Himalayan salt.</p>
+                    <div class="dish-meta-pills">
+                      <span class="pill-diet pill-veg">Zero-Proof</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         SPECIAL EXPERIENCE SECTION — "AFTER DARK" (MIDNIGHT / AMBER)
+         =========================================================== -->
+    <section class="after-dark-section" id="afterdark" aria-label="Night Service Transformation">
+      <div class="container">
+        <div class="after-dark-intro">
+          <div class="editorial-label">The Night Transformation</div>
+          <h2 class="section-title-large">After Dark at Empire</h2>
+          <p class="after-dark-desc">
+            As the clock strikes eight, the room undergoes a deliberate transformation. The chandeliers dim, vinyl turntables spin rare jazz and low-tempo soul, the bar crafts hand-carved ice cocktails, and private salons awaken.
+          </p>
+        </div>
+
+        <div class="timeline-container">
+          <div class="timeline-step">
+            <div>
+              <div class="timeline-time">18:00</div>
+              <h3 class="timeline-phase">Twilight Aperitif</h3>
+              <p class="timeline-detail">
+                Unrushed cocktails, early small plates, and warm golden hour light pouring through raw bronze screens.
+              </p>
+            </div>
+            <span class="timeline-badge">First Table Service</span>
+          </div>
+
+          <div class="timeline-step">
+            <div>
+              <div class="timeline-time">19:30</div>
+              <h3 class="timeline-phase">The Grand Dinner</h3>
+              <p class="timeline-detail">
+                Full dining room in motion. Slow-dum pots unsealed at tables, smoke from tandoor ovens, and full wine service.
+              </p>
+            </div>
+            <span class="timeline-badge">Full Kitchen Roster</span>
+          </div>
+
+          <div class="timeline-step">
+            <div>
+              <div class="timeline-time">21:00</div>
+              <h3 class="timeline-phase">Vinyl &amp; Spirits</h3>
+              <p class="timeline-detail">
+                Sound system shifts to warm analog vinyl. Speakeasy cocktails, barrel-aged spirits, and private table digestifs.
+              </p>
+            </div>
+            <span class="timeline-badge">Bar Special Programme</span>
+          </div>
+
+          <div class="timeline-step">
+            <div>
+              <div class="timeline-time">23:00</div>
+              <h3 class="timeline-phase">Midnight Gastronomy</h3>
+              <p class="timeline-detail">
+                Late night conversations, hand-rolled kulfi, single malts, and intimate booths for those who dine past midnight.
+              </p>
+            </div>
+            <span class="timeline-badge">Late Salon Lounge</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         ATMOSPHERE / VIBE — "THE ROOM" (STAGGERED EDITORIAL IMAGERY)
+         =========================================================== -->
+    <section class="room-section" id="room" aria-label="Interior Atmosphere">
+      <div class="container">
+        <div class="room-editorial-quote">
+          <div class="editorial-label" style="justify-content: center; margin-bottom: 1.1rem;">The Room</div>
+          <p class="room-quote-text">
+            “Low light. Burnt wood. Linen. Vinyl. <em>Conversations that run longer than dinner.</em>”
+          </p>
+        </div>
+
+        <div class="room-images-staggered">
+          <div class="room-panel">
+            <img 
+              src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" 
+              alt="Intimate candlelit leather booth inside Empire Lucknow" 
+              loading="lazy"
+            >
+            <div class="room-panel-caption">The Main Dining Salon</div>
+          </div>
+
+          <div class="room-panel">
+            <img 
+              src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=800&q=80" 
+              alt="Chef finishing live charcoal plating at the pass" 
+              loading="lazy"
+            >
+            <div class="room-panel-caption">The Fire &amp; Charcoal Station</div>
+          </div>
+
+          <div class="room-panel">
+            <img 
+              src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" 
+              alt="The bronze speakeasy bar with hand-carved ice setup" 
+              loading="lazy"
+            >
+            <div class="room-panel-caption">The After-Dark Bar Counter</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         REVIEWS & GOOGLE RATING (ZERO OVERFLOW MARQUEE)
+         =========================================================== -->
+    <section class="reviews-section" id="reviews" aria-label="Customer Reviews">
+      <div class="container">
+        <div class="reviews-header-wrap">
+          <div>
+            <div class="editorial-label">Accolades &amp; Notes</div>
+            <h2 class="section-title-large" style="color: var(--text-light-primary);">Public Voices</h2>
+          </div>
+
+          <div class="google-badge-card">
+            <div class="google-g-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="google-stars">★★★★★</div>
+              <div style="display: flex; align-items: baseline; gap: 0.4rem;">
+                <span class="google-rating-score">4.8</span>
+                <span class="google-count">Google Reviews (1,248)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zero-Blowout Marquee -->
+      <div class="marquee-wrapper">
+        <div class="marquee-track marquee-left">
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="review-stars">★★★★★</span>
+              <span class="review-score">5.0</span>
+            </div>
+            <p class="review-text">“Possibly the best galouti I've had outside the old city. The atmosphere is ridiculously good.”</p>
+            <span class="review-author">— Aarav S., Lucknow</span>
+          </div>
+
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="review-stars">★★★★★</span>
+              <span class="review-score">4.9</span>
+            </div>
+            <p class="review-text">“The after-dark transition with vinyl jazz and smoked cocktails is something Lucknow has never experienced before.”</p>
+            <span class="review-author">— Sunaina M., New Delhi</span>
+          </div>
+
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="review-stars">★★★★★</span>
+              <span class="review-score">5.0</span>
+            </div>
+            <p class="review-text">“The restraint in spice, the balance of saffron, and the sheer architectural grace of the room. A masterclass in modern dining.”</p>
+            <span class="review-author">— Vikramaditya R., Mumbai</span>
+          </div>
+
+          <!-- Seamless Duplicates -->
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="review-stars">★★★★★</span>
+              <span class="review-score">5.0</span>
+            </div>
+            <p class="review-text">“Possibly the best galouti I've had outside the old city. The atmosphere is ridiculously good.”</p>
+            <span class="review-author">— Aarav S., Lucknow</span>
+          </div>
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="review-stars">★★★★★</span>
+              <span class="review-score">4.9</span>
+            </div>
+            <p class="review-text">“The after-dark transition with vinyl jazz and smoked cocktails is something Lucknow has never experienced before.”</p>
+            <span class="review-author">— Sunaina M., New Delhi</span>
+          </div>
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="review-stars">★★★★★</span>
+              <span class="review-score">5.0</span>
+            </div>
+            <p class="review-text">“The restraint in spice, the balance of saffron, and the sheer architectural grace of the room. A masterclass in modern dining.”</p>
+            <span class="review-author">— Vikramaditya R., Mumbai</span>
+          </div>
+        </div>
+
+        <div class="marquee-track marquee-right marquee-row-secondary">
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="review-stars">★★★★★</span>
+              <span class="review-score">4.8</span>
+            </div>
+            <p class="review-text">“The Dum Biryani arrives sealed with whole dough, perfuming the entire table. Saffron Tres Leches was the finale of dreams.”</p>
+            <span class="review-author">— Meera K., Lucknow</span>
+          </div>
+
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="review-stars">★★★★★</span>
+              <span class="review-score">5.0</span>
+            </div>
+            <p class="review-text">“Unbelievable hospitality. They paired the Empire Old Fashioned with charred seekh kebabs. We stayed three hours past dinner.”</p>
+            <span class="review-author">— Kabir D., Bengaluru</span>
+          </div>
+
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="review-stars">★★★★★</span>
+              <span class="review-score">4.9</span>
+            </div>
+            <p class="review-text">“A dining room that feels like Milan and Lucknow collided in the most poetic way. An essential reservation.”</p>
+            <span class="review-author">— Zoya H., London</span>
+          </div>
+
+          <!-- Seamless Duplicates -->
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="review-stars">★★★★★</span>
+              <span class="review-score">4.8</span>
+            </div>
+            <p class="review-text">“The Dum Biryani arrives sealed with whole dough, perfuming the entire table. Saffron Tres Leches was the finale of dreams.”</p>
+            <span class="review-author">— Meera K., Lucknow</span>
+          </div>
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="review-stars">★★★★★</span>
+              <span class="review-score">5.0</span>
+            </div>
+            <p class="review-text">“Unbelievable hospitality. They paired the Empire Old Fashioned with charred seekh kebabs. We stayed three hours past dinner.”</p>
+            <span class="review-author">— Kabir D., Bengaluru</span>
+          </div>
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="review-stars">★★★★★</span>
+              <span class="review-score">4.9</span>
+            </div>
+            <p class="review-text">“A dining room that feels like Milan and Lucknow collided in the most poetic way. An essential reservation.”</p>
+            <span class="review-author">— Zoya H., London</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+       12. LOCATION & HOURS — "FIND EMPIRE" (MONOCHROME MAP)
+       ============================================================= -->
+    <section class="location-section" id="location" aria-label="Location and Hours">
+      <div class="container">
+        <div class="location-grid">
+          <div class="location-details-box">
+            <div>
+              <div class="editorial-label">Arrival</div>
+              <h2 class="section-title-large">Find Empire</h2>
+            </div>
+
+            <div class="location-info-list">
+              <div class="location-item-block">
+                <h4>Address</h4>
+                <p>Riverside Boulevard, Vibhuti Khand, Gomti Nagar</p>
+                <p class="hours-sub">Lucknow, Uttar Pradesh 226010, India</p>
+              </div>
+
+              <div class="location-item-block">
+                <h4>Dinner Hours</h4>
+                <p>Monday — Thursday: 6:00 PM — 11:00 PM</p>
+                <p>Friday — Sunday: 6:00 PM — 12:00 AM</p>
+                <p class="hours-sub">Bar &amp; Salon continues past midnight on weekends</p>
+              </div>
+
+              <div class="location-item-block">
+                <h4>Dress &amp; Valet</h4>
+                <p>Smart Evening / Contemporary Formal</p>
+                <p class="hours-sub">Complimentary valet parking available at porte-cochère</p>
+              </div>
+            </div>
+
+            <button type="button" class="btn-primary" id="locationReserveBtn" style="align-self: flex-start;">
+              <span>Book An Evening</span>
+            </button>
+          </div>
+
+          <!-- Stylized Monochrome Vector Map Card -->
+          <div class="map-card-wrapper" aria-label="Map illustration of Empire location in Gomti Nagar">
+            <svg class="map-svg-canvas" viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="600" height="450" fill="#0C1017"/>
+              <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+                <line x1="0" y1="90" x2="600" y2="90"/>
+                <line x1="0" y1="180" x2="600" y2="180"/>
+                <line x1="0" y1="270" x2="600" y2="270"/>
+                <line x1="0" y1="360" x2="600" y2="360"/>
+                <line x1="120" y1="0" x2="120" y2="450"/>
+                <line x1="240" y1="0" x2="240" y2="450"/>
+                <line x1="360" y1="0" x2="360" y2="450"/>
+                <line x1="480" y1="0" x2="480" y2="450"/>
+              </g>
+
+              <!-- Gomti River Curvature -->
+              <path d="M-20,110 Q140,160 260,130 T460,200 T620,180" fill="none" stroke="#162432" stroke-width="32" stroke-linecap="round"/>
+              <path d="M-20,110 Q140,160 260,130 T460,200 T620,180" fill="none" stroke="#1C2F42" stroke-width="14" stroke-linecap="round"/>
+              <text x="70" y="125" fill="rgba(255,255,255,0.18)" font-family="Space Grotesk, monospace" font-size="10" letter-spacing="3">GOMTI RIVER</text>
+
+              <!-- Arterial Roads -->
+              <path d="M0,280 L600,220" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="7"/>
+              <text x="320" y="240" fill="rgba(255,255,255,0.25)" font-family="Space Grotesk, monospace" font-size="9" letter-spacing="2" transform="rotate(-6 320 240)">LOHIA PATH</text>
+
+              <path d="M420,0 L520,450" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="6"/>
+              <text x="475" y="320" fill="rgba(255,255,255,0.25)" font-family="Space Grotesk, monospace" font-size="9" letter-spacing="2" transform="rotate(76 475 320)">AMAR SHAHEED PATH</text>
+
+              <!-- District Zone -->
+              <rect x="230" y="190" width="180" height="110" rx="6" fill="rgba(194, 122, 82, 0.05)" stroke="rgba(194, 122, 82, 0.2)" stroke-dasharray="4 4"/>
+              <text x="245" y="215" fill="rgba(194, 122, 82, 0.6)" font-family="Space Grotesk, monospace" font-size="10" letter-spacing="2.5">GOMTI NAGAR</text>
+              <text x="245" y="232" fill="rgba(255,255,255,0.3)" font-family="Space Grotesk, monospace" font-size="8" letter-spacing="1.5">VIBHUTI KHAND</text>
+
+              <text x="20" y="420" fill="rgba(255,255,255,0.2)" font-family="Space Grotesk, monospace" font-size="10" letter-spacing="2">26.8524° N, 80.9982° E</text>
+            </svg>
+
+            <!-- Map Location Pin -->
+            <div class="map-pin-overlay">
+              <div class="map-pulse-ring"></div>
+              <div class="map-pin-core"></div>
+              <div class="map-label-bubble">EMPIRE · LUCKNOW</div>
+            </div>
+
+            <!-- External Link -->
+            <div class="map-actions-bar">
+              <a href="https://www.google.com/maps/search/?api=1&query=Gomti+Nagar+Lucknow+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" class="btn-maps-link">
+                <span>Open in Google Maps</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============================================================
+       SITE FOOTER — EDITORIAL BACK COVER
+       ============================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-editorial-top">
+        <div>
+          <div class="footer-brand-huge">EMPIRE</div>
+          <p class="footer-statement">
+            A modern dining house and evening salon in Lucknow. Slow cooking, rare spices, and dramatic hospitality.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Direct Access</h5>
+          <ul class="footer-links-list">
+            <li><a href="#story">Our Philosophy</a></li>
+            <li><a href="#featured">Signature Selections</a></li>
+            <li><a href="#menu">Full Culinary Menu</a></li>
+            <li><a href="#afterdark">After Dark Experience</a></li>
+            <li><a href="#room">Atmosphere &amp; Salon</a></li>
+            <li><a href="#reviews">Customer Notes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Reservations &amp; Enquiries</h5>
+          <ul class="footer-links-list">
+            <li><a href="javascript:void(0)" class="quick-reserve-trigger">Request a Table</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram @EmpireLucknow</a></li>
+            <li><a href="tel:+915222001928">+91 (522) 200 1928</a></li>
+            <li><a href="mailto:concierge@empirelucknow.in">concierge@empirelucknow.in</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=Gomti+Nagar+Lucknow+Uttar+Pradesh" target="_blank" rel="noopener">Gomti Nagar, Lucknow, UP</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 EMPIRE HOSPITALITY. ALL RIGHTS RESERVED.</div>
+        <div>LUCKNOW · UTTER PRADESH · INDIA</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =============================================================
+       MOBILE FIXED BOTTOM NAVIGATION (4 ICONS: HOME, MENU, SEARCH, REVIEWS)
+       ============================================================= -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+    <a href="#hero" class="bottom-nav-item active" id="mobNavHome" aria-label="Home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Home</span>
+    </a>
+
+    <a href="#menu" class="bottom-nav-item" id="mobNavMenu" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <span>Menu</span>
+    </a>
+
+    <button type="button" class="bottom-nav-item" id="mobNavSearch" aria-label="Search Dishes">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <span>Search</span>
+    </button>
+
+    <a href="#reviews" class="bottom-nav-item" id="mobNavReviews" aria-label="Reviews">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+      </svg>
+      <span>Reviews</span>
+    </a>
+  </nav>
+
+  <!-- =============================================================
+       DESKTOP SEARCH FLOATING PANEL
+       ============================================================= -->
+  <div class="search-overlay-desktop" id="desktopSearchOverlay" role="dialog" aria-modal="true" aria-label="Menu Search Dialog">
+    <div class="search-panel-box">
+      <div class="search-input-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input 
+          type="text" 
+          id="desktopSearchInput" 
+          class="search-input-field" 
+          placeholder="Search by dish name, spice, or ingredient..."
+          autocomplete="off"
+        >
+        <button type="button" class="search-close-btn" id="closeDesktopSearchBtn">ESC</button>
+      </div>
+
+      <div class="search-suggestions-pills" id="desktopSuggestionPills">
+        <button type="button" class="suggestion-pill" data-query="biryani">Biryani</button>
+        <button type="button" class="suggestion-pill" data-query="paneer">Paneer</button>
+        <button type="button" class="suggestion-pill" data-query="galouti">Galouti</button>
+        <button type="button" class="suggestion-pill" data-query="mutton">Awadhi Mutton</button>
+        <button type="button" class="suggestion-pill" data-query="saffron">Saffron</button>
+      </div>
+
+      <div class="search-results-list" id="desktopSearchResults" role="region" aria-live="polite">
+        <!-- Live injected items -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================================
+       MOBILE DEDICATED SEARCH MODE (WITH INTEGRATED CLOSE ICON & SMOOTH MOTION)
+       ============================================================= -->
+  <div class="mobile-search-mode-container" id="mobileSearchContainer" role="dialog" aria-modal="true" aria-label="Mobile Dish Search">
+    <div class="mobile-search-header">
+      <div class="mobile-search-input-wrap">
+        <svg class="search-lens-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input 
+          type="text" 
+          id="mobileSearchInput" 
+          class="mobile-search-input" 
+          placeholder="Search dishes, spices, biryani..." 
+          autocomplete="off"
+          aria-label="Search dishes"
+        >
+        <button type="button" class="btn-integrated-close" id="exitMobileSearchBtn" aria-label="Close search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Suggestions before typing -->
+    <div class="search-suggestions-pills" id="mobileSuggestionPills">
+      <button type="button" class="suggestion-pill" data-query="biryani">Biryani</button>
+      <button type="button" class="suggestion-pill" data-query="paneer">Paneer</button>
+      <button type="button" class="suggestion-pill" data-query="galouti">Galouti</button>
+      <button type="button" class="suggestion-pill" data-query="mutton">Mutton</button>
+      <button type="button" class="suggestion-pill" data-query="cocktail">Drinks</button>
+    </div>
+
+    <div class="mobile-search-scroll-body" id="mobileSearchResults" role="region" aria-live="polite">
+      <!-- Live injected items -->
+    </div>
+  </div>
+
+  <!-- =============================================================
+       RESERVATION SYSTEM: MODAL & BOTTOM SHEET
+       ============================================================= -->
+  <div class="reservation-overlay" id="resOverlay" role="dialog" aria-modal="true" aria-labelledby="resModalHeading">
+    <div class="reservation-card-modal">
+      <div class="sheet-handle-bar" aria-hidden="true"></div>
+
+      <div class="modal-header-band">
+        <div class="modal-title-wrap">
+          <h3 id="resModalHeading">Your table awaits.</h3>
+          <p>Empire Dining Salon · Lucknow</p>
+        </div>
+        <button type="button" class="modal-close-icon" id="closeResModalBtn" aria-label="Close Reservation Modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Booking Form -->
+      <div class="reservation-scroll-body" id="reservationFormWrapper">
+        <form id="reservationForm">
+          <div class="form-grid-two">
+            <div class="field-group">
+              <label for="resDate" class="field-label">Select Date</label>
+              <input type="date" id="resDate" class="input-clean" required>
+            </div>
+
+            <div class="field-group">
+              <label for="resGuests" class="field-label">Party Size</label>
+              <select id="resGuests" class="input-clean" required>
+                <option value="1 Guest">1 Guest (Bar Salon)</option>
+                <option value="2 Guests" selected>2 Guests</option>
+                <option value="3 Guests">3 Guests</option>
+                <option value="4 Guests">4 Guests</option>
+                <option value="5 Guests">5 Guests</option>
+                <option value="6 Guests">6 Guests</option>
+                <option value="8+ Guests">Private Dining (8+ Guests)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Service Time</label>
+            <div class="time-slots-container" id="timeSlotsContainer">
+              <button type="button" class="time-chip" data-time="6:00 PM">6:00 PM</button>
+              <button type="button" class="time-chip" data-time="7:15 PM">7:15 PM</button>
+              <button type="button" class="time-chip selected" data-time="8:30 PM">8:30 PM</button>
+              <button type="button" class="time-chip" data-time="9:45 PM">9:45 PM</button>
+              <button type="button" class="time-chip" data-time="10:30 PM">10:30 PM</button>
+            </div>
+            <input type="hidden" id="selectedTimeValue" value="8:30 PM">
+          </div>
+
+          <div class="form-grid-two">
+            <div class="field-group">
+              <label for="resName" class="field-label">Guest Name</label>
+              <input type="text" id="resName" class="input-clean" placeholder="e.g. Kabir Mehrotra" required>
+            </div>
+
+            <div class="field-group">
+              <label for="resContact" class="field-label">Contact (Phone / WhatsApp)</label>
+              <input type="tel" id="resContact" class="input-clean" placeholder="+91 98765 43210" required>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="resOccasion" class="field-label">Occasion (Optional)</label>
+            <select id="resOccasion" class="input-clean">
+              <option value="Casual Fine Dining">Casual Fine Dining</option>
+              <option value="Anniversary / Date Night">Anniversary / Date Night</option>
+              <option value="Birthday Celebration">Birthday Celebration</option>
+              <option value="Executive Business Dinner">Executive Business Dinner</option>
+              <option value="Visiting Lucknow Special">Visiting Lucknow</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-submit-res" id="submitResBtn">
+            Request Reservation
+          </button>
+        </form>
+      </div>
+
+      <!-- Confirmation State -->
+      <div class="reservation-confirmation-view" id="reservationConfirmationView">
+        <div class="confirm-symbol">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h4 class="confirm-title">RESERVATION REQUESTED</h4>
+        <div class="confirm-ref-badge" id="confirmRefCode">REFERENCE #EMP-8942</div>
+
+        <div class="confirm-details-card">
+          <div>Guest: <strong id="confirmGuestName">—</strong></div>
+          <div>Date &amp; Time: <strong id="confirmDateTime">—</strong></div>
+          <div>Table for: <strong id="confirmParty">—</strong></div>
+          <div>Occasion: <strong id="confirmOccasion">—</strong></div>
+        </div>
+
+        <p class="confirm-note">
+          “Your table request has been received. Our concierge team in Gomti Nagar will contact you via WhatsApp / SMS shortly to finalize arrangements.”
+        </p>
+
+        <button type="button" class="btn-primary" id="confirmDoneBtn" style="width: 100%; justify-content: center;">
+          <span>Return to Empire</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================================
+       VANILLA JAVASCRIPT
+       ============================================================= -->
+  <script>
+    (function() {
+      'use strict';
+
+      /* -------------------------------------------------------------
+         1. COMPREHENSIVE DISHES DATA STORE (18 Items)
+         ------------------------------------------------------------- */
+      const DISHES_DATA = [
+        {
+          id: 1,
+          name: "Empire Galouti Kebab",
+          category: "Small Plates",
+          categorySlug: "small-plates",
+          price: 725,
+          desc: "Silken texture, smoked clove, hand-pounded Awadhi aromatics, roomali roti.",
+          tags: ["Non-Veg", "Signature", "Kebab", "Galouti", "Heritage"],
+          image: "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 2,
+          name: "Charred Paneer Skewers",
+          category: "Small Plates",
+          categorySlug: "small-plates",
+          price: 585,
+          desc: "Green chilli, hung curd, fresh ground coriander, smoked black salt.",
+          tags: ["Veg", "Paneer", "Charred Paneer", "Tandoor"],
+          image: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 3,
+          name: "Crisp Lotus Root",
+          category: "Small Plates",
+          categorySlug: "small-plates",
+          price: 545,
+          desc: "Black garlic glaze, toasted sesame seeds, mountain pepper.",
+          tags: ["Veg", "Crisp", "Appetizer"],
+          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 4,
+          name: "Empire Chicken Tikka",
+          category: "Tandoor",
+          categorySlug: "tandoor",
+          price: 695,
+          desc: "Charred lemon rind, sharp kasundi mustard brine, pickled shallot petals.",
+          tags: ["Non-Veg", "Chicken", "Tikka", "Tandoor"],
+          image: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 5,
+          name: "Lamb Seekh",
+          category: "Tandoor",
+          categorySlug: "tandoor",
+          price: 785,
+          desc: "Coarsely ground lamb, smoked green chilli butter, mint chutney emulsion.",
+          tags: ["Non-Veg", "Seekh", "Kebab", "Tandoor"],
+          image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 6,
+          name: "Paneer Tikka",
+          category: "Tandoor",
+          categorySlug: "tandoor",
+          price: 595,
+          desc: "Charred malai paneer, crushed coriander seed crust, kasundi mustard.",
+          tags: ["Veg", "Paneer", "Paneer Tikka", "Tandoor"],
+          image: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 7,
+          name: "Awadhi Mutton",
+          category: "Mains",
+          categorySlug: "mains",
+          price: 895,
+          desc: "Slow cooked 12 hours, saffron, caramelized onion gravy, crushed cardamom.",
+          tags: ["Non-Veg", "Mutton", "Awadhi Mutton", "Curry"],
+          image: "https://images.unsplash.com/photo-1545247181-516773cae7be?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 8,
+          name: "Butter Chicken Empire Style",
+          category: "Mains",
+          categorySlug: "mains",
+          price: 765,
+          desc: "Wood-charred plum tomatoes, churned white cultured butter, wild fenugreek.",
+          tags: ["Non-Veg", "Butter Chicken", "Curry"],
+          image: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 9,
+          name: "Lucknowi Paneer Kofta",
+          category: "Mains",
+          categorySlug: "mains",
+          price: 685,
+          desc: "Cottage cheese dumplings, roasted almond stuffing, silky mace gravy.",
+          tags: ["Veg", "Paneer", "Paneer Kofta", "Kofta"],
+          image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 10,
+          name: "Empire Dum Biryani",
+          category: "Rice & Biryani",
+          categorySlug: "rice-biryani",
+          price: 885,
+          desc: "Fragrant aged basmati, saffron yakhni broth, slow-cooked meat, sealed pot.",
+          tags: ["Non-Veg", "Biryani", "Empire Dum Biryani", "Dum"],
+          image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 11,
+          name: "Saffron Chicken Biryani",
+          category: "Rice & Biryani",
+          categorySlug: "rice-biryani",
+          price: 795,
+          desc: "Farm chicken, Lucknowi yakhni broth, saffron basmati, Persian barberries.",
+          tags: ["Non-Veg", "Biryani", "Saffron Chicken Biryani", "Chicken"],
+          image: "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 12,
+          name: "Awadhi Mutton Biryani",
+          category: "Rice & Biryani",
+          categorySlug: "rice-biryani",
+          price: 915,
+          desc: "Slow-cooked Awadhi goat meat, fragrant saffron rice, sealed clay handi.",
+          tags: ["Non-Veg", "Biryani", "Awadhi Mutton Biryani", "Mutton Biryani"],
+          image: "https://images.unsplash.com/photo-1545247181-516773cae7be?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 13,
+          name: "Saffron Tres Leches",
+          category: "Desserts",
+          categorySlug: "desserts",
+          price: 495,
+          desc: "Saffron three-milk soak sponge, Iranian pistachio dust, wild rose petals.",
+          tags: ["Veg", "Dessert", "Saffron", "Cake"],
+          image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 14,
+          name: "Dark Chocolate Kulfi",
+          category: "Desserts",
+          categorySlug: "desserts",
+          price: 465,
+          desc: "72% single-origin cacao rabri, sea salt crystals, roasted nibs.",
+          tags: ["Veg", "Dessert", "Kulfi", "Chocolate"],
+          image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 15,
+          name: "Burnt Gulab Jamun",
+          category: "Desserts",
+          categorySlug: "desserts",
+          price: 445,
+          desc: "Caramelized crust, bitter cardamom syrup, cold Madagascar vanilla ice cream.",
+          tags: ["Veg", "Dessert", "Gulab Jamun"],
+          image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 16,
+          name: "Empire Old Fashioned",
+          category: "Drinks",
+          categorySlug: "drinks",
+          price: 650,
+          desc: "Smoked orange peel, wood bitters, spiced jaggery reduction, clear ice.",
+          tags: ["Cocktail", "Whiskey", "Drinks", "Bar"],
+          image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 17,
+          name: "Saffron Lemonade",
+          category: "Drinks",
+          categorySlug: "drinks",
+          price: 385,
+          desc: "Cold-brewed saffron syrup, Gondhoraj lime, effervescent mountain soda.",
+          tags: ["Zero-Proof", "Lemonade", "Drinks", "Saffron"],
+          image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: 18,
+          name: "Jamun Spritz",
+          category: "Drinks",
+          categorySlug: "drinks",
+          price: 425,
+          desc: "Pressed wild plum reduction, botanical tonic, pink citrus oils, Himalayan salt.",
+          tags: ["Zero-Proof", "Spritz", "Drinks"],
+          image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=400&q=80"
+        }
+      ];
+
+      /* -------------------------------------------------------------
+         2. DOM REFERENCES
+         ------------------------------------------------------------- */
+      const siteHeader = document.getElementById('siteHeader');
+      
+      // Mobile Drawer Menu
+      const mobileMenuToggleBtn = document.getElementById('mobileMenuToggleBtn');
+      const mobileMenuDrawer = document.getElementById('mobileMenuDrawer');
+      const drawerReserveBtn = document.getElementById('drawerReserveBtn');
+
+      // Desktop Search
+      const searchTriggerBtn = document.getElementById('searchTriggerBtn');
+      const desktopSearchOverlay = document.getElementById('desktopSearchOverlay');
+      const desktopSearchInput = document.getElementById('desktopSearchInput');
+      const closeDesktopSearchBtn = document.getElementById('closeDesktopSearchBtn');
+      const desktopSearchResults = document.getElementById('desktopSearchResults');
+      const desktopSuggestionPills = document.getElementById('desktopSuggestionPills');
+
+      // Mobile Dedicated Search Mode
+      const mobileSearchContainer = document.getElementById('mobileSearchContainer');
+      const mobileSearchInput = document.getElementById('mobileSearchInput');
+      const exitMobileSearchBtn = document.getElementById('exitMobileSearchBtn');
+      const mobileSearchResults = document.getElementById('mobileSearchResults');
+      const mobileSuggestionPills = document.getElementById('mobileSuggestionPills');
+      const mobNavSearch = document.getElementById('mobNavSearch');
+
+      // Reservation System
+      const resOverlay = document.getElementById('resOverlay');
+      const closeResModalBtn = document.getElementById('closeResModalBtn');
+      const navReserveBtn = document.getElementById('navReserveBtn');
+      const heroReserveBtn = document.getElementById('heroReserveBtn');
+      const locationReserveBtn = document.getElementById('locationReserveBtn');
+      const reservationForm = document.getElementById('reservationForm');
+      const reservationFormWrapper = document.getElementById('reservationFormWrapper');
+      const reservationConfirmationView = document.getElementById('reservationConfirmationView');
+      const confirmDoneBtn = document.getElementById('confirmDoneBtn');
+      const timeSlotsContainer = document.getElementById('timeSlotsContainer');
+      const selectedTimeValue = document.getElementById('selectedTimeValue');
+      const resDateInput = document.getElementById('resDate');
+
+      // Category filter buttons & blocks
+      const categoryNav = document.getElementById('categoryNav');
+      const categoryBlocks = document.querySelectorAll('.menu-category-block');
+
+      // Quick reserve triggers
+      const quickReserveTriggers = document.querySelectorAll('.quick-reserve-trigger');
+
+      /* -------------------------------------------------------------
+         3. NAVBAR SCROLL EFFECT
+         ------------------------------------------------------------- */
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 30) {
+          siteHeader.classList.add('scrolled');
+        } else {
+          siteHeader.classList.remove('scrolled');
+        }
+      }, { passive: true });
+
+      /* -------------------------------------------------------------
+         4. MOBILE HAMBURGER MENU DRAWER
+         ------------------------------------------------------------- */
+      function openMobileMenu() {
+        mobileMenuDrawer.classList.add('open');
+        mobileMenuToggleBtn.classList.add('active');
+        mobileMenuToggleBtn.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('scroll-locked');
+      }
+
+      function closeMobileMenu() {
+        mobileMenuDrawer.classList.remove('open');
+        mobileMenuToggleBtn.classList.remove('active');
+        mobileMenuToggleBtn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('scroll-locked');
+      }
+
+      function toggleMobileMenu() {
+        if (mobileMenuDrawer.classList.contains('open')) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      }
+
+      if (mobileMenuToggleBtn) {
+        mobileMenuToggleBtn.addEventListener('click', toggleMobileMenu);
+      }
+
+      document.querySelectorAll('.mobile-nav-link-item').forEach(link => {
+        link.addEventListener('click', function() {
+          closeMobileMenu();
+        });
+      });
+
+      if (drawerReserveBtn) {
+        drawerReserveBtn.addEventListener('click', function() {
+          closeMobileMenu();
+          openReservationModal();
+        });
+      }
+
+      /* -------------------------------------------------------------
+         5. CATEGORY FILTERING (STICKY MENU BAR)
+         ------------------------------------------------------------- */
+      if (categoryNav) {
+        const catButtons = categoryNav.querySelectorAll('.category-btn');
+        catButtons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            catButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            const selectedCat = this.getAttribute('data-category');
+
+            categoryBlocks.forEach(block => {
+              const group = block.getAttribute('data-category-group');
+              if (selectedCat === 'all' || selectedCat === group) {
+                block.style.display = 'block';
+              } else {
+                block.style.display = 'none';
+              }
+            });
+          });
+        });
+      }
+
+      /* -------------------------------------------------------------
+         6. SEARCH FILTERING ALGORITHM
+         ------------------------------------------------------------- */
+      function filterDishes(query) {
+        const q = query.trim().toLowerCase();
+        if (!q) {
+          return DISHES_DATA;
+        }
+        return DISHES_DATA.filter(dish => {
+          return (
+            dish.name.toLowerCase().includes(q) ||
+            dish.desc.toLowerCase().includes(q) ||
+            dish.category.toLowerCase().includes(q) ||
+            dish.tags.some(tag => tag.toLowerCase().includes(q))
+          );
+        });
+      }
+
+      function renderSearchResults(items, containerElement) {
+        if (!items || items.length === 0) {
+          containerElement.innerHTML = `
+            <div class="search-empty-state">
+              <p style="font-family: var(--font-display); font-size: 1.15rem; color: var(--text-dark-primary); margin-bottom: 0.35rem;">No matching dishes found</p>
+              <p style="font-size: 0.82rem;">Try searching for “Biryani”, “Paneer”, “Galouti”, “Mutton”, or “Kulfi”.</p>
+            </div>
+          `;
+          return;
+        }
+
+        const html = items.map(dish => `
+          <div class="search-result-item" data-dish-name="${dish.name}" tabindex="0" role="button" aria-label="Reserve ${dish.name}">
+            <div class="search-result-thumb">
+              <img src="${dish.image}" alt="${dish.name}" loading="lazy">
+            </div>
+            <div class="search-result-details">
+              <div class="search-result-title">${dish.name}</div>
+              <div class="search-result-desc">${dish.desc}</div>
+              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--sage); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 2px;">${dish.category}</div>
+            </div>
+            <div class="search-result-price">₹${dish.price}</div>
+          </div>
+        `).join('');
+
+        containerElement.innerHTML = html;
+
+        containerElement.querySelectorAll('.search-result-item').forEach(el => {
+          el.addEventListener('click', function() {
+            const name = this.getAttribute('data-dish-name');
+            closeAllModals();
+            openReservationModal(name);
+          });
+          el.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+              const name = this.getAttribute('data-dish-name');
+              closeAllModals();
+              openReservationModal(name);
+            }
+          });
+        });
+      }
+
+      /* -------------------------------------------------------------
+         7. SEARCH EXPERIENCE (DESKTOP & MOBILE INTEGRATED)
+         ------------------------------------------------------------- */
+      function openDesktopSearch() {
+        desktopSearchOverlay.classList.add('open');
+        document.body.classList.add('scroll-locked');
+        desktopSearchInput.value = '';
+        desktopSuggestionPills.style.display = 'flex';
+        renderSearchResults(DISHES_DATA.slice(0, 6), desktopSearchResults);
+        setTimeout(() => desktopSearchInput.focus(), 80);
+      }
+
+      function closeDesktopSearch() {
+        desktopSearchOverlay.classList.remove('open');
+        document.body.classList.remove('scroll-locked');
+      }
+
+      function openMobileSearch() {
+        closeMobileMenu();
+        document.body.classList.add('mobile-search-active', 'scroll-locked');
+        mobileSearchInput.value = '';
+        mobileSuggestionPills.style.display = 'flex';
+        renderSearchResults(DISHES_DATA, mobileSearchResults);
+        setTimeout(() => mobileSearchInput.focus(), 100);
+      }
+
+      function closeMobileSearch() {
+        document.body.classList.remove('mobile-search-active', 'scroll-locked');
+        mobileSearchInput.value = '';
+      }
+
+      if (searchTriggerBtn) {
+        searchTriggerBtn.addEventListener('click', function() {
+          if (window.innerWidth < 768) {
+            openMobileSearch();
+          } else {
+            openDesktopSearch();
+          }
+        });
+      }
+
+      if (mobNavSearch) {
+        mobNavSearch.addEventListener('click', function(e) {
+          e.preventDefault();
+          openMobileSearch();
+        });
+      }
+
+      if (closeDesktopSearchBtn) closeDesktopSearchBtn.addEventListener('click', closeDesktopSearch);
+
+      // Integrated close icon inside searchbar
+      if (exitMobileSearchBtn) {
+        exitMobileSearchBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          closeMobileSearch();
+        });
+      }
+
+      desktopSearchOverlay.addEventListener('click', function(e) {
+        if (e.target === desktopSearchOverlay) {
+          closeDesktopSearch();
+        }
+      });
+
+      desktopSearchInput.addEventListener('input', function() {
+        const val = this.value.trim();
+        desktopSuggestionPills.style.display = val ? 'none' : 'flex';
+        renderSearchResults(filterDishes(val), desktopSearchResults);
+      });
+
+      mobileSearchInput.addEventListener('input', function() {
+        const val = this.value.trim();
+        mobileSuggestionPills.style.display = val ? 'none' : 'flex';
+        renderSearchResults(filterDishes(val), mobileSearchResults);
+      });
+
+      if (desktopSuggestionPills) {
+        desktopSuggestionPills.querySelectorAll('.suggestion-pill').forEach(pill => {
+          pill.addEventListener('click', function() {
+            const query = this.getAttribute('data-query');
+            desktopSearchInput.value = query;
+            desktopSuggestionPills.style.display = 'none';
+            renderSearchResults(filterDishes(query), desktopSearchResults);
+          });
+        });
+      }
+
+      if (mobileSuggestionPills) {
+        mobileSuggestionPills.querySelectorAll('.suggestion-pill').forEach(pill => {
+          pill.addEventListener('click', function() {
+            const query = this.getAttribute('data-query');
+            mobileSearchInput.value = query;
+            mobileSuggestionPills.style.display = 'none';
+            renderSearchResults(filterDishes(query), mobileSearchResults);
+          });
+        });
+      }
+
+      /* -------------------------------------------------------------
+         8. RESERVATION SYSTEM (MODAL & BOTTOM SHEET)
+         ------------------------------------------------------------- */
+      const todayIso = new Date().toISOString().split('T')[0];
+      if (resDateInput) {
+        resDateInput.min = todayIso;
+        resDateInput.value = todayIso;
+      }
+
+      function openReservationModal(dishContext) {
+        closeMobileMenu();
+        resOverlay.classList.add('open');
+        document.body.classList.add('scroll-locked');
+
+        reservationFormWrapper.style.display = 'block';
+        reservationConfirmationView.classList.remove('show');
+
+        if (dishContext) {
+          const occSelect = document.getElementById('resOccasion');
+          const existingOpt = occSelect.querySelector('option[data-dish-opt="true"]');
+          if (existingOpt) existingOpt.remove();
+
+          const opt = document.createElement('option');
+          opt.value = `Tasting Request: ${dishContext}`;
+          opt.textContent = `Tasting Request: ${dishContext}`;
+          opt.setAttribute('data-dish-opt', 'true');
+          opt.selected = true;
+          occSelect.prepend(opt);
+        }
+      }
+
+      function closeReservationModal() {
+        resOverlay.classList.remove('open');
+        document.body.classList.remove('scroll-locked');
+      }
+
+      function closeAllModals() {
+        closeMobileMenu();
+        closeDesktopSearch();
+        closeMobileSearch();
+        closeReservationModal();
+      }
+
+      if (navReserveBtn) navReserveBtn.addEventListener('click', () => openReservationModal());
+      if (heroReserveBtn) heroReserveBtn.addEventListener('click', () => openReservationModal());
+      if (locationReserveBtn) locationReserveBtn.addEventListener('click', () => openReservationModal());
+      if (closeResModalBtn) closeResModalBtn.addEventListener('click', closeReservationModal);
+
+      resOverlay.addEventListener('click', function(e) {
+        if (e.target === resOverlay) {
+          closeReservationModal();
+        }
+      });
+
+      quickReserveTriggers.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const dishName = this.getAttribute('data-dish') || "Signature Selection";
+          openReservationModal(dishName);
+        });
+      });
+
+      if (timeSlotsContainer) {
+        const timeChips = timeSlotsContainer.querySelectorAll('.time-chip');
+        timeChips.forEach(chip => {
+          chip.addEventListener('click', function() {
+            timeChips.forEach(c => c.classList.remove('selected'));
+            this.classList.add('selected');
+            selectedTimeValue.value = this.getAttribute('data-time');
+          });
+        });
+      }
+
+      if (reservationForm) {
+        reservationForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          const guestName = document.getElementById('resName').value.trim() || 'Valued Guest';
+          const guestDate = document.getElementById('resDate').value;
+          const guestTime = selectedTimeValue.value;
+          const guestParty = document.getElementById('resGuests').value;
+          const guestOccasion = document.getElementById('resOccasion').value;
+
+          let formattedDate = guestDate;
+          try {
+            const d = new Date(guestDate + 'T00:00:00');
+            formattedDate = d.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
+          } catch(err) {}
+
+          const randRef = Math.floor(1000 + Math.random() * 9000);
+          document.getElementById('confirmRefCode').textContent = `CONFIRMATION #EMP-${randRef}`;
+          document.getElementById('confirmGuestName').textContent = guestName;
+          document.getElementById('confirmDateTime').textContent = `${formattedDate} · ${guestTime}`;
+          document.getElementById('confirmParty').textContent = guestParty;
+          document.getElementById('confirmOccasion').textContent = guestOccasion;
+
+          reservationFormWrapper.style.display = 'none';
+          reservationConfirmationView.classList.add('show');
+        });
+      }
+
+      if (confirmDoneBtn) {
+        confirmDoneBtn.addEventListener('click', function() {
+          closeReservationModal();
+        });
+      }
+
+      /* -------------------------------------------------------------
+         9. KEYBOARD SHORTCUTS & ESCAPE HANDLER
+         ------------------------------------------------------------- */
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeAllModals();
+        }
+
+        if (e.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
+          e.preventDefault();
+          if (window.innerWidth < 768) {
+            openMobileSearch();
+          } else {
+            openDesktopSearch();
+          }
+        }
+      });
+
+      /* -------------------------------------------------------------
+         10. MOBILE BOTTOM NAVIGATION SCROLL-SPY (HOME, MENU, REVIEWS)
+         ------------------------------------------------------------- */
+      const navLinks = [
+        { el: document.getElementById('mobNavHome'), target: document.getElementById('hero') },
+        { el: document.getElementById('mobNavMenu'), target: document.getElementById('menu') },
+        { el: document.getElementById('mobNavReviews'), target: document.getElementById('reviews') }
+      ];
+
+      window.addEventListener('scroll', function() {
+        const scrollPos = window.scrollY + 200;
+        navLinks.forEach(item => {
+          if (!item.target || !item.el) return;
+          const top = item.target.offsetTop;
+          const height = item.target.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            item.el.classList.add('active');
+          } else {
+            item.el.classList.remove('active');
+          }
+        });
+      }, { passive: true });
+
+      // Direct menu row reservation trigger
+      document.querySelectorAll('.menu-dish-row').forEach(row => {
+        row.addEventListener('click', function() {
+          const dishName = this.getAttribute('data-name');
+          openReservationModal(dishName);
+        });
+      });
+
+    })();
+  </script>
+</body>
+</html>
