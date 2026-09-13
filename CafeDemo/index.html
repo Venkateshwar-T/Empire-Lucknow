@@ -1,0 +1,4375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0D111A">
+  <meta name="description" content="Moonlight Cafe — Specialty micro-lot coffee, artisanal bakery, curated vinyl sounds, and quiet ambient nooks in Gomti Nagar, Lucknow. Open until 2:00 AM.">
+  <title>Moonlight Cafe — Artisan Coffee, Vinyl & Night Sanctuary | Lucknow</title>
+
+  <!-- Google Fonts: Italiana (Celestial Display), Fraunces (Tactile Cozy Serif), Outfit (Modern Clean Sans), Space Grotesk (Architectural Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Italiana&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =============================================================
+       1. MOONLIGHT CAFE DESIGN SYSTEM & CSS VARIABLES
+       ============================================================= */
+    :root {
+      /* Nocturnal & Celestial Palette */
+      --bg-void: #090C13;
+      --bg-dusk: #0F1420;
+      --bg-slate: #151B2A;
+      --bg-card: rgba(23, 30, 46, 0.7);
+      --bg-card-solid: #171F30;
+      --bg-card-hover: rgba(29, 39, 59, 0.85);
+
+      /* Soft Warm Oat & Moonlight Contrast */
+      --bg-cream: #F5EFE6;
+      --bg-cream-soft: #EAE2D5;
+      --text-cream-dark: #1A1F2C;
+      --text-cream-muted: #586174;
+
+      /* Celestial Luminescence & Accent Tones */
+      --moon-gold: #E2C08D;
+      --moon-gold-bright: #F7D8A8;
+      --moon-gold-glow: rgba(226, 192, 141, 0.22);
+      --moon-mist: #8CA0B8;
+      --mauve-twilight: #B68688;
+      --sage-calm: #7E9685;
+      --terracotta-warm: #C67D5A;
+
+      /* Text Hierarchy (Dark Mode) */
+      --text-primary: #F8F6F0;
+      --text-secondary: #A3B1C6;
+      --text-muted: #67758D;
+
+      /* Glass Borders & Shadows */
+      --border-subtle: rgba(248, 246, 240, 0.08);
+      --border-light: rgba(248, 246, 240, 0.15);
+      --border-glow: rgba(226, 192, 141, 0.35);
+      --shadow-glass: 0 16px 36px -10px rgba(0, 0, 0, 0.65), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+      --shadow-gold: 0 10px 30px rgba(226, 192, 141, 0.18);
+
+      /* Typography Families */
+      --font-display: 'Italiana', serif;
+      --font-serif: 'Fraunces', Georgia, serif;
+      --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Space Grotesk', monospace;
+
+      /* Layout Dimensions */
+      --nav-height: 78px;
+      --nav-height-mobile: 64px;
+      --bottom-nav-height: 62px;
+      --container-max: 1280px;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+    }
+
+    /* Universal Resets */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      min-width: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    body {
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        padding-bottom: var(--bottom-nav-height);
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      outline: none;
+    }
+
+    /* Selection & Scrollbar */
+    ::selection {
+      background: var(--moon-gold);
+      color: var(--bg-void);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-void);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(226, 192, 141, 0.25);
+      border-radius: var(--radius-full);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--moon-gold);
+    }
+
+    /* Container Utility */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        padding: 0 2.5rem;
+      }
+    }
+
+    /* Ambient Celestial Background Glow */
+    .celestial-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    .orb-hero {
+      top: -100px;
+      right: -100px;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(226, 192, 141, 0.16) 0%, rgba(13, 17, 26, 0) 70%);
+    }
+
+    .orb-mid {
+      top: 40%;
+      left: -120px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(140, 160, 184, 0.14) 0%, rgba(13, 17, 26, 0) 70%);
+    }
+
+    .orb-footer {
+      bottom: 0;
+      right: 15%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(182, 134, 136, 0.12) 0%, rgba(13, 17, 26, 0) 70%);
+    }
+
+    /* =============================================================
+       2. TOP TICKER & NOTICE STRIP
+       ============================================================= */
+    .top-notice-bar {
+      background: linear-gradient(90deg, #090C13 0%, #151C2C 50%, #090C13 100%);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.5rem 1rem;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--moon-gold);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 100;
+      overflow: hidden;
+      font-family: var(--font-mono);
+    }
+
+    .top-notice-bar span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--moon-gold);
+      box-shadow: 0 0 8px var(--moon-gold);
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+
+    /* =============================================================
+       3. FLOATING GLASS NAVBAR
+       ============================================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 900;
+      background: rgba(9, 12, 19, 0.75);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.3s ease;
+    }
+
+    .site-header.scrolled {
+      background: rgba(9, 12, 19, 0.94);
+      border-bottom-color: rgba(226, 192, 141, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-height);
+      gap: 1.5rem;
+    }
+
+    /* Logo */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .moon-icon-wrapper {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(226, 192, 141, 0.08);
+      border: 1px solid rgba(226, 192, 141, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--moon-gold);
+      transition: transform 0.4s ease, border-color 0.4s ease;
+    }
+
+    .brand-logo:hover .moon-icon-wrapper {
+      transform: rotate(15deg);
+      border-color: var(--moon-gold);
+      box-shadow: 0 0 14px var(--moon-gold-glow);
+    }
+
+    .moon-icon-wrapper svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      letter-spacing: 0.08em;
+      color: var(--text-primary);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      color: var(--moon-gold);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* Desktop Navigation Links */
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    @media (min-width: 901px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    .nav-link {
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--moon-gold);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--moon-gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Header Action Buttons */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .vinyl-now-playing-btn {
+      display: none;
+      align-items: center;
+      gap: 0.65rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    @media (min-width: 1100px) {
+      .vinyl-now-playing-btn {
+        display: flex;
+      }
+    }
+
+    .vinyl-now-playing-btn:hover {
+      border-color: var(--moon-gold);
+      color: var(--text-primary);
+      background: rgba(226, 192, 141, 0.08);
+    }
+
+    .vinyl-mini-disc {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #111;
+      border: 1px solid #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: spinVinyl 6s linear infinite;
+    }
+
+    .vinyl-mini-disc::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--moon-gold);
+    }
+
+    @keyframes spinVinyl {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .nav-search-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      transition: all 0.25s ease;
+    }
+
+    .nav-search-trigger:hover {
+      border-color: var(--moon-gold);
+      color: var(--moon-gold);
+      background: rgba(226, 192, 141, 0.08);
+    }
+
+    .nav-search-trigger svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .btn-reserve-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--moon-gold) 0%, #C49E69 100%);
+      color: #0B0E14;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-gold);
+      transition: all 0.3s ease;
+    }
+
+    .btn-reserve-header:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(226, 192, 141, 0.3);
+      filter: brightness(1.06);
+    }
+
+    /* Mobile Hamburger */
+    .mobile-menu-btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    @media (min-width: 901px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+    }
+
+    .mobile-menu-btn span {
+      width: 20px;
+      height: 2px;
+      background: var(--text-primary);
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .mobile-menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-btn.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Fullscreen Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(9, 12, 19, 0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 850;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 6.5rem 2rem 5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+      overflow-y: auto;
+    }
+
+    .mobile-drawer.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-drawer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .mobile-drawer-link {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .mobile-drawer-link span.num {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--moon-gold);
+    }
+
+    .mobile-drawer-link:hover,
+    .mobile-drawer-link:active {
+      color: var(--moon-gold);
+    }
+
+    .mobile-drawer-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .mobile-drawer-info {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* =============================================================
+       4. HERO SECTION: "THE MIDNIGHT SANCTUARY"
+       ============================================================= */
+    .hero-section {
+      position: relative;
+      padding: 3rem 0 5rem;
+      overflow: hidden;
+    }
+
+    @media (min-width: 992px) {
+      .hero-section {
+        padding: 4.5rem 0 6.5rem;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 4rem;
+      }
+    }
+
+    /* Hero Left: Editorial Content */
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      width: fit-content;
+      background: rgba(226, 192, 141, 0.08);
+      border: 1px solid rgba(226, 192, 141, 0.25);
+      padding: 0.4rem 0.95rem;
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      color: var(--moon-gold);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5.8vw, 4.4rem);
+      line-height: 1.08;
+      font-weight: 400;
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--moon-gold-bright);
+      background: linear-gradient(135deg, #F8F6F0 0%, var(--moon-gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.1rem;
+      padding-top: 0.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      background: linear-gradient(135deg, var(--moon-gold) 0%, #C49E69 100%);
+      color: #0B0E14;
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      padding: 0.85rem 1.75rem;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-gold);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(226, 192, 141, 0.35);
+      filter: brightness(1.08);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-light);
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      padding: 0.85rem 1.65rem;
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: var(--moon-gold);
+      color: var(--moon-gold);
+      transform: translateY(-2px);
+    }
+
+    /* Live Roastery Metadata Badges */
+    .hero-meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .hero-meta-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-val {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* Hero Right: Layered Visual Sanctuary Composition */
+    .hero-visuals {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image-frame {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      height: 480px;
+      border-radius: 200px 200px 24px 24px; /* Celestial Arched Window */
+      overflow: hidden;
+      border: 1px solid rgba(226, 192, 141, 0.3);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(226, 192, 141, 0.15);
+    }
+
+    @media (max-width: 600px) {
+      .hero-image-frame {
+        max-width: 100%;
+        height: 380px;
+      }
+    }
+
+    .hero-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 0.8s ease;
+    }
+
+    .hero-image-frame:hover img {
+      transform: scale(1.06);
+    }
+
+    /* Floating Widget: Vinyl Record Player */
+    .floating-vinyl-card {
+      position: absolute;
+      bottom: -24px;
+      left: -20px;
+      background: rgba(15, 20, 32, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(226, 192, 141, 0.25);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+      z-index: 5;
+      max-width: 280px;
+    }
+
+    @media (max-width: 600px) {
+      .floating-vinyl-card {
+        bottom: -15px;
+        left: 10px;
+        padding: 0.65rem 0.85rem;
+      }
+    }
+
+    .vinyl-disc-spin {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #252830 0%, #11141A 60%, #000000 100%);
+      border: 1px solid #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex-shrink: 0;
+      animation: spinVinyl 8s linear infinite;
+    }
+
+    .vinyl-disc-spin::after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--moon-gold);
+      border: 2px solid #111;
+    }
+
+    .vinyl-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .vinyl-tag {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--moon-gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .vinyl-track {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 170px;
+    }
+
+    .vinyl-artist {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* Floating Widget: Bean Origin Pill */
+    .floating-origin-card {
+      position: absolute;
+      top: 30px;
+      right: -15px;
+      background: rgba(15, 20, 32, 0.9);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      z-index: 5;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 600px) {
+      .floating-origin-card {
+        top: 15px;
+        right: 10px;
+        padding: 0.6rem 0.8rem;
+      }
+    }
+
+    .origin-badge {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--moon-mist);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .origin-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .origin-notes {
+      font-size: 0.72rem;
+      color: var(--moon-gold);
+      font-style: italic;
+    }
+
+    /* =============================================================
+       5. INTERACTIVE SECTION: "BREWS BY THE MOOD & HOUR"
+       ============================================================= */
+    .mood-section {
+      padding: 5rem 0;
+      background: linear-gradient(180deg, var(--bg-void) 0%, #0F1420 50%, var(--bg-void) 100%);
+      position: relative;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-header-center {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--moon-gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.2vw, 3.2rem);
+      line-height: 1.15;
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    .section-subtitle {
+      font-size: 0.96rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* Interactive Time Selector Chips */
+    .hour-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hour-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+    }
+
+    .hour-tab-btn:hover {
+      border-color: var(--moon-gold);
+      color: var(--text-primary);
+      background: rgba(226, 192, 141, 0.05);
+    }
+
+    .hour-tab-btn.active {
+      background: rgba(226, 192, 141, 0.15);
+      border-color: var(--moon-gold);
+      color: var(--moon-gold);
+      box-shadow: 0 0 18px var(--moon-gold-glow);
+    }
+
+    /* The Showcase Dynamic Card */
+    .mood-showcase-card {
+      background: rgba(21, 27, 42, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr;
+      box-shadow: var(--shadow-glass);
+      transition: all 0.4s ease;
+    }
+
+    @media (min-width: 900px) {
+      .mood-showcase-card {
+        grid-template-columns: 1fr 1.15fr;
+      }
+    }
+
+    .mood-card-image {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+    }
+
+    @media (min-width: 900px) {
+      .mood-card-image {
+        height: 100%;
+        min-height: 420px;
+      }
+    }
+
+    .mood-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .mood-card-content {
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 1024px) {
+      .mood-card-content {
+        padding: 3.2rem;
+      }
+    }
+
+    .mood-time-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--moon-gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mood-card-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+      color: var(--text-primary);
+      line-height: 1.25;
+      font-weight: 400;
+    }
+
+    .mood-card-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .mood-details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .mood-detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .mood-detail-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .mood-detail-val {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* =============================================================
+       6. THE ARTISANAL MENU & LIVE SEARCH
+       ============================================================= */
+    .menu-section {
+      padding: 5.5rem 0;
+      position: relative;
+    }
+
+    .menu-controls-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .menu-controls-bar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    /* Category Filter Pills */
+    .menu-categories-scroll {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scrollbar-width: none;
+    }
+
+    .menu-categories-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .menu-cat-btn {
+      white-space: nowrap;
+      padding: 0.55rem 1.15rem;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.25s ease;
+    }
+
+    .menu-cat-btn:hover {
+      border-color: var(--moon-gold);
+      color: var(--text-primary);
+    }
+
+    .menu-cat-btn.active {
+      background: var(--moon-gold);
+      color: #0B0E14;
+      border-color: var(--moon-gold);
+      font-weight: 600;
+      box-shadow: 0 4px 14px var(--moon-gold-glow);
+    }
+
+    /* Inline Search Bar (Smooth, Zero Inner Border) */
+    .menu-search-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .search-input-box {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      background: rgba(21, 27, 42, 0.6);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-full);
+      padding: 0.45rem 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .search-input-box:focus-within {
+      border-color: var(--moon-gold);
+      box-shadow: 0 0 16px var(--moon-gold-glow);
+      background: rgba(21, 27, 42, 0.95);
+    }
+
+    .search-input-box svg.search-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--text-muted);
+      margin-right: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    .search-field {
+      width: 100%;
+      background: transparent !important;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      color: var(--text-primary);
+      font-size: 0.85rem;
+      font-family: inherit;
+    }
+
+    .search-field::placeholder {
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .btn-search-clear {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-secondary);
+      font-size: 0.65rem;
+      cursor: pointer;
+      margin-left: 0.5rem;
+    }
+
+    .btn-search-clear:hover {
+      background: var(--moon-gold);
+      color: #000;
+    }
+
+    /* Menu Items Grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.8rem;
+      }
+    }
+
+    /* Individual Modern Cafe Card */
+    .cafe-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+      position: relative;
+    }
+
+    .cafe-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-glow);
+      box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.7);
+    }
+
+    .cafe-card-media {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .cafe-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .cafe-card:hover .cafe-card-media img {
+      transform: scale(1.08);
+    }
+
+    .card-badge-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(9, 12, 19, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--moon-gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card-price-pill {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(9, 12, 19, 0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(226, 192, 141, 0.3);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--moon-gold-bright);
+    }
+
+    .cafe-card-body {
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .card-text-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .card-dish-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      line-height: 1.3;
+      font-weight: 500;
+    }
+
+    .card-dish-desc {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .card-footer-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .card-origin-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .btn-card-tasting {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--moon-gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.2s ease;
+    }
+
+    .btn-card-tasting:hover {
+      color: var(--text-primary);
+    }
+
+    /* No search results notice */
+    .menu-empty-notice {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--border-subtle);
+      display: none;
+    }
+
+    /* =============================================================
+       7. THE AMBIENT NOOKS (SPACE GALLERY)
+       ============================================================= */
+    .nooks-section {
+      padding: 6rem 0;
+      background: linear-gradient(180deg, var(--bg-void) 0%, #121824 50%, var(--bg-void) 100%);
+      position: relative;
+    }
+
+    .nooks-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .nooks-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .nooks-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .nook-card {
+      position: relative;
+      height: 380px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+
+    .nook-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--moon-gold);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .nook-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .nook-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .nook-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9, 12, 19, 0.1) 0%, rgba(9, 12, 19, 0.88) 75%, rgba(9, 12, 19, 0.98) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.75rem;
+      gap: 0.5rem;
+    }
+
+    .nook-number {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--moon-gold);
+      letter-spacing: 0.15em;
+    }
+
+    .nook-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .nook-caption {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .nook-vibe-tag {
+      margin-top: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--moon-mist);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* =============================================================
+       8. CAFE PHILOSOPHY (CREAM CONTRAST SECTION)
+       ============================================================= */
+    .philosophy-section {
+      background-color: var(--bg-cream);
+      color: var(--text-cream-dark);
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    @media (min-width: 992px) {
+      .philosophy-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+      }
+    }
+
+    .philosophy-quote-block {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .philosophy-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta-warm);
+    }
+
+    .philosophy-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+      line-height: 1.25;
+      font-weight: 300;
+      color: var(--text-cream-dark);
+    }
+
+    .philosophy-quote em {
+      font-style: italic;
+      color: var(--terracotta-warm);
+    }
+
+    .philosophy-author {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-cream-muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* Three Pillars */
+    .pillars-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .pillar-item {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.25rem;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(27, 31, 44, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .pillar-item:hover {
+      transform: translateX(6px);
+      background: #FFFFFF;
+      box-shadow: 0 10px 25px rgba(27, 31, 44, 0.08);
+    }
+
+    .pillar-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(198, 125, 90, 0.12);
+      color: var(--terracotta-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .pillar-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .pillar-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-cream-dark);
+    }
+
+    .pillar-desc {
+      font-size: 0.84rem;
+      color: var(--text-cream-muted);
+      line-height: 1.6;
+    }
+
+    /* =============================================================
+       9. THE NIGHT SESSIONS (VINYL & LIVE SCHEDULE)
+       ============================================================= */
+    .sessions-section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .sessions-table {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .session-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.85rem;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    @media (min-width: 768px) {
+      .session-row {
+        grid-template-columns: 160px 1.5fr 1fr auto;
+        gap: 1.5rem;
+      }
+    }
+
+    .session-row:hover {
+      border-color: var(--moon-gold);
+      transform: translateY(-2px);
+      background: var(--bg-card-hover);
+    }
+
+    .session-day-time {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .session-day {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--moon-gold);
+      letter-spacing: 0.05em;
+    }
+
+    .session-time {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .session-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .session-event-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--text-primary);
+    }
+
+    .session-event-desc {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    .session-genre-pill {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--moon-mist);
+      background: rgba(140, 160, 184, 0.08);
+      border: 1px solid rgba(140, 160, 184, 0.2);
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      width: fit-content;
+    }
+
+    /* =============================================================
+       10. NOOK & TABLE RESERVATION SYSTEM
+       ============================================================= */
+    .reservation-section {
+      padding: 6rem 0;
+      background: linear-gradient(180deg, var(--bg-void) 0%, #101522 50%, var(--bg-void) 100%);
+      position: relative;
+    }
+
+    .booking-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      background: rgba(21, 27, 42, 0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      box-shadow: var(--shadow-glass);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .booking-wrapper {
+        padding: 3.5rem;
+      }
+    }
+
+    .booking-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .booking-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      color: var(--text-primary);
+    }
+
+    .booking-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      font-weight: 300;
+    }
+
+    .booking-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    /* Step 1: Select Your Nook */
+    .form-group-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--moon-gold);
+      margin-bottom: 0.85rem;
+      display: block;
+    }
+
+    .nook-select-chips {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .nook-select-chips {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .nook-chip {
+      padding: 0.85rem 0.75rem;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .nook-chip:hover {
+      border-color: var(--moon-gold);
+      color: var(--text-primary);
+    }
+
+    .nook-chip.selected {
+      background: rgba(226, 192, 141, 0.15);
+      border-color: var(--moon-gold);
+      color: var(--moon-gold);
+      font-weight: 500;
+      box-shadow: 0 0 14px var(--moon-gold-glow);
+    }
+
+    /* Form Fields Row */
+    .form-row-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .form-row-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .input-field-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .input-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .custom-input,
+    .custom-select {
+      width: 100%;
+      background: rgba(9, 12, 19, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      color: var(--text-primary);
+      font-size: 0.85rem;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .custom-input:focus,
+    .custom-select:focus {
+      border-color: var(--moon-gold);
+      box-shadow: 0 0 12px var(--moon-gold-glow);
+    }
+
+    .custom-select option {
+      background: #0F1420;
+      color: #FFF;
+    }
+
+    /* Time Slot Pills */
+    .time-slots-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+    }
+
+    @media (min-width: 640px) {
+      .time-slots-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+
+    .time-slot-btn {
+      padding: 0.6rem 0.5rem;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+
+    .time-slot-btn:hover {
+      border-color: var(--moon-gold);
+      color: var(--text-primary);
+    }
+
+    .time-slot-btn.active {
+      background: var(--moon-gold);
+      color: #0B0E14;
+      font-weight: 600;
+      border-color: var(--moon-gold);
+      box-shadow: 0 2px 10px var(--moon-gold-glow);
+    }
+
+    .btn-submit-booking {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--moon-gold) 0%, #C49E69 100%);
+      color: #0B0E14;
+      font-weight: 600;
+      font-size: 0.92rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-gold);
+      margin-top: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-submit-booking:hover {
+      filter: brightness(1.08);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(226, 192, 141, 0.35);
+    }
+
+    /* Confirmation Modal */
+    .booking-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 12, 19, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.35s ease;
+    }
+
+    .booking-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .booking-modal-card {
+      background: #131826;
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      transform: scale(0.95);
+      transition: transform 0.35s ease;
+    }
+
+    .booking-modal-overlay.active .booking-modal-card {
+      transform: scale(1);
+    }
+
+    .modal-moon-glyph {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(226, 192, 141, 0.12);
+      border: 1px solid var(--moon-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--moon-gold);
+    }
+
+    .modal-ref-pill {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px dashed var(--border-light);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-full);
+      color: var(--moon-gold);
+      letter-spacing: 0.1em;
+    }
+
+    /* =============================================================
+       11. MIDNIGHT NOTES & COMMUNITY GUESTBOOK
+       ============================================================= */
+    .guestbook-section {
+      padding: 5.5rem 0;
+      position: relative;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .notes-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .note-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.85rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .note-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(226, 192, 141, 0.3);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+    }
+
+    .note-stars {
+      display: flex;
+      gap: 0.25rem;
+      color: var(--moon-gold);
+      font-size: 0.85rem;
+    }
+
+    .note-text {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--text-primary);
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .note-author-block {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .note-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(226, 192, 141, 0.15);
+      color: var(--moon-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .note-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .note-author-name {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .note-time {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    /* =============================================================
+       12. LOCATION & MAP CARD
+       ============================================================= */
+    .location-section {
+      padding: 5rem 0 6rem;
+      position: relative;
+    }
+
+    .location-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr;
+      box-shadow: var(--shadow-glass);
+    }
+
+    @media (min-width: 900px) {
+      .location-card {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+    }
+
+    .location-content {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .location-content {
+        padding: 3.5rem;
+      }
+    }
+
+    .location-specs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .location-spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .location-spec-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--moon-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .location-spec-val {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .map-container {
+      position: relative;
+      height: 350px;
+      background: #0B0F19;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    @media (min-width: 900px) {
+      .map-container {
+        height: 100%;
+      }
+    }
+
+    .map-container svg {
+      width: 100%;
+      height: 100%;
+      opacity: 0.85;
+    }
+
+    /* =============================================================
+       13. FOOTER
+       ============================================================= */
+    .site-footer {
+      background: #06090F;
+      border-top: 1px solid var(--border-subtle);
+      padding: 5rem 0 3rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      max-width: 380px;
+    }
+
+    .footer-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .footer-links-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--moon-gold);
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-link {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--moon-gold);
+    }
+
+    .footer-bottom-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 768px) {
+      .footer-bottom-bar {
+        flex-direction: row;
+      }
+    }
+
+    .moon-phases {
+      letter-spacing: 0.4em;
+      color: var(--moon-gold);
+    }
+
+    /* =============================================================
+       14. MOBILE FIXED BOTTOM FLOATING DOCK (4 BALANCED ICONS)
+       ============================================================= */
+    .mobile-bottom-dock {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: var(--bottom-nav-height);
+      background: rgba(9, 12, 19, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      z-index: 800;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 901px) {
+      .mobile-bottom-dock {
+        display: none;
+      }
+    }
+
+    .dock-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .dock-item svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .dock-item.active,
+    .dock-item:hover {
+      color: var(--moon-gold);
+    }
+
+    /* =============================================================
+       15. MOBILE INTEGRATED DEDICATED SEARCH OVERLAY
+       ============================================================= */
+    .mobile-search-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(9, 12, 19, 0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 950;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .mobile-search-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-search-top {
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(15, 20, 32, 0.9);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Integrated Search Bar with Integrated Close Icon & Zero Inner Border */
+    .mobile-search-pill-wrap {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      background: rgba(23, 31, 48, 0.8);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-full);
+      padding: 0.5rem 0.85rem;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .mobile-search-pill-wrap:focus-within {
+      border-color: var(--moon-gold);
+      box-shadow: 0 0 14px var(--moon-gold-glow);
+    }
+
+    .mobile-search-pill-wrap svg.search-icon {
+      width: 17px;
+      height: 17px;
+      color: var(--text-muted);
+      margin-right: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    .mobile-search-input {
+      width: 100%;
+      background: transparent !important;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+
+    .mobile-search-input::placeholder {
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* Integrated Close Button inside search bar */
+    .btn-mobile-search-close {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+      margin-left: 0.4rem;
+    }
+
+    .btn-mobile-search-close:hover {
+      background: var(--moon-gold);
+      color: #000;
+    }
+
+    .mobile-search-results-area {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* Suggestions */
+    .search-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .search-tag-chip {
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.75rem;
+      color: var(--moon-gold);
+      cursor: pointer;
+    }
+
+    /* =============================================================
+       16. DISH TASTING MODAL (QUICK NOTES INSPECTOR)
+       ============================================================= */
+    .tasting-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 12, 19, 0.88);
+      backdrop-filter: blur(18px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .tasting-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .tasting-modal-card {
+      background: #141A28;
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-lg);
+      max-width: 520px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .tasting-modal-hero {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .tasting-modal-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .btn-close-modal {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(9, 12, 19, 0.7);
+      backdrop-filter: blur(8px);
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1px solid var(--border-light);
+      transition: all 0.2s ease;
+    }
+
+    .btn-close-modal:hover {
+      background: var(--moon-gold);
+      color: #000;
+    }
+
+    .tasting-modal-body {
+      padding: 1.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .tasting-modal-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--text-primary);
+    }
+
+    .tasting-modal-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .tasting-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .spec-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .spec-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--moon-gold);
+      text-transform: uppercase;
+    }
+
+    .spec-val {
+      font-size: 0.82rem;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Decorative Luminescence -->
+  <div class="celestial-orb orb-hero" aria-hidden="true"></div>
+  <div class="celestial-orb orb-mid" aria-hidden="true"></div>
+  <div class="celestial-orb orb-footer" aria-hidden="true"></div>
+
+  <!-- 1. TOP NOTICE & TICKER STRIP -->
+  <div class="top-notice-bar">
+    <span><span class="pulse-dot"></span> OPEN UNTIL 2:00 AM TONIGHT</span>
+    <span class="desktop-only">•</span>
+    <span>LATE NIGHT ROASTERY & VINYL SESSIONS</span>
+    <span class="desktop-only">•</span>
+    <span>GOMTI NAGAR, LUCKNOW</span>
+  </div>
+
+  <!-- 2. STICKY GLASS HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <!-- Brand Wordmark & Crescent -->
+      <a href="#hero" class="brand-logo" aria-label="Moonlight Cafe Home">
+        <div class="moon-icon-wrapper">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Moonlight</span>
+          <span class="brand-subtitle">Artisan Roastery</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#brews" class="nav-link">Brews & Bakery</a></li>
+          <li><a href="#mood" class="nav-link">By The Hour</a></li>
+          <li><a href="#nooks" class="nav-link">Ambient Nooks</a></li>
+          <li><a href="#philosophy" class="nav-link">Philosophy</a></li>
+          <li><a href="#sessions" class="nav-link">Night Sessions</a></li>
+          <li><a href="#location" class="nav-link">Find Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <!-- Vinyl Audio Mood Widget -->
+        <button type="button" class="vinyl-now-playing-btn" id="headerVinylBtn" title="Now playing on vinyl">
+          <div class="vinyl-mini-disc"></div>
+          <span>Bill Evans — Peace Piece</span>
+        </button>
+
+        <!-- Search Trigger -->
+        <button type="button" class="nav-search-trigger" id="openSearchBtn" aria-label="Search Coffee & Bites">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- Reserve Nook Trigger -->
+        <a href="#reserve" class="btn-reserve-header">
+          <span>Reserve Nook</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button type="button" class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle navigation drawer" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Fullscreen Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Menu">
+    <ul class="mobile-drawer-links">
+      <li><a href="#brews" class="mobile-drawer-link" data-close-drawer><span class="num">01</span> The Brews</a></li>
+      <li><a href="#mood" class="mobile-drawer-link" data-close-drawer><span class="num">02</span> By The Hour</a></li>
+      <li><a href="#nooks" class="mobile-drawer-link" data-close-drawer><span class="num">03</span> Ambient Nooks</a></li>
+      <li><a href="#philosophy" class="mobile-drawer-link" data-close-drawer><span class="num">04</span> Philosophy</a></li>
+      <li><a href="#sessions" class="mobile-drawer-link" data-close-drawer><span class="num">05</span> Night Sessions</a></li>
+      <li><a href="#reserve" class="mobile-drawer-link" data-close-drawer><span class="num">06</span> Book A Table</a></li>
+      <li><a href="#location" class="mobile-drawer-link" data-close-drawer><span class="num">07</span> Directions</a></li>
+    </ul>
+
+    <div class="mobile-drawer-footer">
+      <a href="#reserve" class="btn-primary" style="width: 100%; justify-content: center;" data-close-drawer>Reserve A Table / Nook</a>
+      <div class="mobile-drawer-info">
+        <p>🌙 Open 7:00 AM — 2:00 AM Daily</p>
+        <p>📍 Gomti Nagar, Lucknow, UP</p>
+        <p>☕ Single-Origin Micro-Lots & Vinyl</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- =============================================================
+         3. HERO: "WHERE TWILIGHT POURS INTO QUIET CUPS"
+         ============================================================= -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <!-- Content Side -->
+        <div class="hero-content">
+          <div class="hero-badge-pill">
+            <span class="pulse-dot"></span>
+            <span>Micro-Lot Roastery & Late-Night Sanctuary</span>
+          </div>
+
+          <h1 class="hero-title">
+            Where twilight pours into <em>quiet cups.</em>
+          </h1>
+
+          <p class="hero-description">
+            A tranquil retreat combining precision single-origin extractions, twice-baked French brioche, and warm analog vinyl beneath low amber lamps. Built for midnight thinkers, slow mornings, and quiet conversations.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#brews" class="btn-primary">
+              <span>Explore The Brews</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#nooks" class="btn-secondary">
+              <span>Tour The Nooks</span>
+            </a>
+          </div>
+
+          <div class="hero-meta-strip">
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Hours</span>
+              <span class="hero-meta-val">7:00 AM — 2:00 AM</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Slow Bar</span>
+              <span class="hero-meta-val">V60 · Siphon · Aeropress</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Sound</span>
+              <span class="hero-meta-val">Analog Vinyl & Acoustic</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Location</span>
+              <span class="hero-meta-val">Gomti Nagar, Lucknow</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Sanctuary Side -->
+        <div class="hero-visuals">
+          <div class="hero-image-frame">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80" alt="Moonlight Cafe warm cozy interior with amber lamps" loading="eager">
+          </div>
+
+          <!-- Interactive Vinyl Card -->
+          <div class="floating-vinyl-card" id="vinylHeroCard">
+            <div class="vinyl-disc-spin"></div>
+            <div class="vinyl-info">
+              <span class="vinyl-tag">Now Spinning • Vinyl</span>
+              <span class="vinyl-track">Peace Piece</span>
+              <span class="vinyl-artist">Bill Evans Trio (1959)</span>
+            </div>
+          </div>
+
+          <!-- Featured Bean Card -->
+          <div class="floating-origin-card">
+            <span class="origin-badge">Roaster's Pick • Lot #07</span>
+            <span class="origin-title">Ethiopia Yirgacheffe G1</span>
+            <span class="origin-notes">Jasmine · Bergamot · Dried Peach</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         4. INTERACTIVE: "BREWS BY THE MOOD & HOUR"
+         ============================================================= -->
+    <section class="mood-section" id="mood">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-eyebrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Chronology of Flavor
+          </span>
+          <h2 class="section-title">Brews curated by the hour</h2>
+          <p class="section-subtitle">Coffee is temporal. From brisk sunrise roasts to meditative midnight decafs, each hour at Moonlight holds its own sensory profile.</p>
+        </div>
+
+        <!-- Hour Switcher Tabs -->
+        <div class="hour-tabs" role="tablist">
+          <button type="button" class="hour-tab-btn active" data-hour="dawn" role="tab" aria-selected="true">
+            <span>☀️ 08:00 AM • First Pour</span>
+          </button>
+          <button type="button" class="hour-tab-btn" data-hour="midday" role="tab" aria-selected="false">
+            <span>☕ 13:30 PM • Afternoon Focus</span>
+          </button>
+          <button type="button" class="hour-tab-btn" data-hour="dusk" role="tab" aria-selected="false">
+            <span>🌅 18:30 PM • Twilight Hour</span>
+          </button>
+          <button type="button" class="hour-tab-btn" data-hour="midnight" role="tab" aria-selected="false">
+            <span>🌙 23:00 PM • Midnight Sanctuary</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Showcase Card -->
+        <div class="mood-showcase-card" id="moodShowcase">
+          <div class="mood-card-image">
+            <img id="moodImg" src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=80" alt="Latte art pour">
+          </div>
+          <div class="mood-card-content">
+            <span class="mood-time-badge" id="moodBadge">08:00 AM — SUNRISE RITUAL</span>
+            <h3 class="mood-card-title" id="moodTitle">The Morning Bloom & Cinnamon Twist</h3>
+            <p class="mood-card-desc" id="moodDesc">
+              Soft sunlight pierces the solarium. We grind light-roasted Ethiopian beans for bright, floral aromatics, paired alongside warm cardamom cinnamon brioche fresh from the morning oven.
+            </p>
+            <div class="mood-details-grid">
+              <div class="mood-detail-item">
+                <span class="mood-detail-lbl">Recommended Brew</span>
+                <span class="mood-detail-val" id="moodBrew">Ethiopia V60 Single Origin</span>
+              </div>
+              <div class="mood-detail-item">
+                <span class="mood-detail-lbl">Bakery Pairing</span>
+                <span class="mood-detail-val" id="moodPairing">Cardamom Morning Bun</span>
+              </div>
+              <div class="mood-detail-item">
+                <span class="mood-detail-lbl">Atmosphere</span>
+                <span class="mood-detail-val" id="moodVibe">Lush acoustic guitar & morning calm</span>
+              </div>
+              <div class="mood-detail-item">
+                <span class="mood-detail-lbl">Best Nook</span>
+                <span class="mood-detail-val" id="moodNook">The Glasshouse Solarium</span>
+              </div>
+            </div>
+            <a href="#reserve" class="btn-primary" style="width: fit-content;">Reserve This Moment</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         5. THE MENU & INTEGRATED SEARCH
+         ============================================================= -->
+    <section class="menu-section" id="brews">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-eyebrow">The Culinary Collection</span>
+          <h2 class="section-title">The Curated Menu</h2>
+          <p class="section-subtitle">Crafted with single-origin beans, house-infused botanicals, and slow-fermented bakery doughs.</p>
+        </div>
+
+        <!-- Controls: Category Tabs + Live Search Bar -->
+        <div class="menu-controls-bar">
+          <div class="menu-categories-scroll" role="tablist">
+            <button type="button" class="menu-cat-btn active" data-cat="all">All Items</button>
+            <button type="button" class="menu-cat-btn" data-cat="espresso">Espresso & Lattes</button>
+            <button type="button" class="menu-cat-btn" data-cat="pourover">Slow Pour-Over</button>
+            <button type="button" class="menu-cat-btn" data-cat="bakery">Artisanal Bakery</button>
+            <button type="button" class="menu-cat-btn" data-cat="elixirs">Botanical Elixirs</button>
+            <button type="button" class="menu-cat-btn" data-cat="tartines">Savory Tartines</button>
+          </div>
+
+          <!-- Integrated Search Box with Smooth Focus & Clear Button -->
+          <div class="menu-search-wrapper">
+            <div class="search-input-box">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input 
+                type="text" 
+                id="menuSearchInput" 
+                class="search-field" 
+                placeholder="Search coffee, matcha, croissant..."
+                autocomplete="off"
+              >
+              <button type="button" class="btn-search-clear" id="menuSearchClear" aria-label="Clear search">✕</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 18 Hand-Crafted Cafe Items Grid -->
+        <div class="menu-grid" id="menuGrid">
+          <!-- Item 1 -->
+          <article class="cafe-card" data-category="espresso" data-title="Moonlit Lavender Honey Latte" data-notes="lavender espresso wild honey oat milk foam">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=80" alt="Lavender Honey Latte" loading="lazy">
+              <span class="card-badge-tag">House Signature</span>
+              <span class="card-price-pill">₹340</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Moonlit Lavender Honey Latte</h3>
+                <p class="card-dish-desc">Slow-steeped organic French lavender, raw mountain honey, double ristretto espresso, and velvety oat milk foam.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">House Blend • Medium Roast</span>
+                <button type="button" class="btn-card-tasting" data-item-id="1">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 2 -->
+          <article class="cafe-card" data-category="espresso" data-title="Smoked Sea Salt Cortado" data-notes="cortado ristretto maldon smoked salt vanilla">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=80" alt="Smoked Sea Salt Cortado" loading="lazy">
+              <span class="card-badge-tag">Barista Pick</span>
+              <span class="card-price-pill">₹290</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Smoked Sea Salt Cortado</h3>
+                <p class="card-dish-desc">Equal parts intense double ristretto and textured whole milk, touched with Madagascan vanilla and Maldon oak-smoked salt.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Colombia Huila • Washed</span>
+                <button type="button" class="btn-card-tasting" data-item-id="2">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 3 -->
+          <article class="cafe-card" data-category="pourover" data-title="Panama Geisha Reserve Pour-Over" data-notes="geisha pourover jasmine peach rare single origin">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80" alt="Panama Geisha Pour-Over" loading="lazy">
+              <span class="card-badge-tag">Rare Micro-Lot</span>
+              <span class="card-price-pill">₹550</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Panama Geisha Reserve V60</h3>
+                <p class="card-dish-desc">One of the world's most coveted coffees. Remarkable jasmine florals, white peach, bergamot tea texture, and clean crystalline finish.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Boquete, Panama • 1,800m</span>
+                <button type="button" class="btn-card-tasting" data-item-id="3">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 4 -->
+          <article class="cafe-card" data-category="pourover" data-title="Ethiopia Yirgacheffe G1 Slow Bar" data-notes="ethiopia yirgacheffe v60 blueberry jasmine pourover">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1587734195503-904fca47e0e9?auto=format&fit=crop&w=900&q=80" alt="Ethiopia Yirgacheffe V60" loading="lazy">
+              <span class="card-badge-tag">Natural Process</span>
+              <span class="card-price-pill">₹350</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Ethiopia Yirgacheffe G1 V60</h3>
+                <p class="card-dish-desc">Sun-dried on raised African beds. Delivers vibrant notes of wild blueberry compote, candied lemon, and sweet blossom honey.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Yirgacheffe • 1,950m</span>
+                <button type="button" class="btn-card-tasting" data-item-id="4">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 5 -->
+          <article class="cafe-card" data-category="espresso" data-title="Midnight Kyoto Cold Drip Tower" data-notes="cold brew drip tower tonic orange late night">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=900&q=80" alt="Midnight Kyoto Cold Drip" loading="lazy">
+              <span class="card-badge-tag">12-Hour Extraction</span>
+              <span class="card-price-pill">₹360</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Midnight Kyoto Cold Drip</h3>
+                <p class="card-dish-desc">Drop-by-drop extraction through our Japanese glass towers. Served over hand-carved ice sphere with artisan tonic and dehydrated blood orange.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Estate Blend • Dark Roast</span>
+                <button type="button" class="btn-card-tasting" data-item-id="5">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 6 -->
+          <article class="cafe-card" data-category="bakery" data-title="Almond Frangipane Croissant" data-notes="croissant almond french pastry butter">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=80" alt="Almond Frangipane Croissant" loading="lazy">
+              <span class="card-badge-tag">Baked Daily</span>
+              <span class="card-price-pill">₹310</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Almond Frangipane Croissant</h3>
+                <p class="card-dish-desc">Twice-baked laminated French butter dough filled with almond frangipane cream, bathed in citrus syrup, and blanketed in toasted almonds.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Normandy Butter • 72 Layers</span>
+                <button type="button" class="btn-card-tasting" data-item-id="6">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 7 -->
+          <article class="cafe-card" data-category="bakery" data-title="Cardamom Morning Knot" data-notes="cardamom bun cinnamon brioche swedish">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="Cardamom Morning Knot" loading="lazy">
+              <span class="card-badge-tag">Swedish Style</span>
+              <span class="card-price-pill">₹260</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Cardamom Morning Knot</h3>
+                <p class="card-dish-desc">Traditional Scandinavian twisted brioche laced with freshly mortared green cardamom seeds, brown butter glaze, and pearl sugar crystals.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Cardamom • Brown Butter</span>
+                <button type="button" class="btn-card-tasting" data-item-id="7">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 8 -->
+          <article class="cafe-card" data-category="bakery" data-title="Basque Burnt Shiro Miso Cheesecake" data-notes="cheesecake basque miso burnt caramelized dessert">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=900&q=80" alt="Basque Burnt Cheesecake" loading="lazy">
+              <span class="card-badge-tag">Award Winner</span>
+              <span class="card-price-pill">₹390</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Basque Burnt Miso Cheesecake</h3>
+                <p class="card-dish-desc">Charred deep brown exterior giving way to an oozing, molten cream center balanced by white shiro miso umami and tart blackberry coulis.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Kyoto Miso • Vanilla Bean</span>
+                <button type="button" class="btn-card-tasting" data-item-id="8">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 9 -->
+          <article class="cafe-card" data-category="elixirs" data-title="Ceremonial Cloud Matcha Latte" data-notes="matcha green tea uji coconut foam japanese">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=900&q=80" alt="Ceremonial Cloud Matcha" loading="lazy">
+              <span class="card-badge-tag">First Harvest Uji</span>
+              <span class="card-price-pill">₹380</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Ceremonial Cloud Matcha</h3>
+                <p class="card-dish-desc">Stone-ground ceremonial grade matcha from Uji, Kyoto. Layered with subtle Madagascar white chocolate essence and whipped coconut cold cloud.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Uji, Japan • Dairy Free</span>
+                <button type="button" class="btn-card-tasting" data-item-id="9">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 10 -->
+          <article class="cafe-card" data-category="elixirs" data-title="Blue Lotus & Chamomile Nightcap" data-notes="tea herbal lotus chamomile caffeine free nightcap">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=900&q=80" alt="Blue Lotus Nightcap" loading="lazy">
+              <span class="card-badge-tag">Caffeine Free</span>
+              <span class="card-price-pill">₹320</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Blue Lotus & Chamomile Nightcap</h3>
+                <p class="card-dish-desc">Egyptian whole chamomile blossoms, organic sacred blue lotus petals, soothing lavender, and wild honey. Designed for serene night hours.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Herbal Botanical Infusion</span>
+                <button type="button" class="btn-card-tasting" data-item-id="10">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 11 -->
+          <article class="cafe-card" data-category="tartines" data-title="Truffle Wild Mushroom Tartine" data-notes="sourdough toast mushrooms truffle savory tartine">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80" alt="Truffle Wild Mushroom Tartine" loading="lazy">
+              <span class="card-badge-tag">Warm Kitchen</span>
+              <span class="card-price-pill">₹440</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Truffle Wild Mushroom Tartine</h3>
+                <p class="card-dish-desc">Wood-fired country sourdough toasted with herb butter, whipped black pepper ricotta, pan-seared chanterelle mushrooms, and black truffle oil.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">36-Hr Sourdough • Truffle</span>
+                <button type="button" class="btn-card-tasting" data-item-id="11">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 12 -->
+          <article class="cafe-card" data-category="tartines" data-title="Burrata, Fig & Spiced Honey Toast" data-notes="burrata fig honey sourdough savory sweet cheese">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80" alt="Burrata Fig Honey Toast" loading="lazy">
+              <span class="card-badge-tag">House Favorite</span>
+              <span class="card-price-pill">₹460</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Burrata & Black Fig Toast</h3>
+                <p class="card-dish-desc">Creamy artisanal burrata torn over charred brioche sourdough, sliced black mission figs, fresh thyme sprigs, and Kashmiri chili hot honey.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Fresh Burrata • Hot Honey</span>
+                <button type="button" class="btn-card-tasting" data-item-id="12">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 13 -->
+          <article class="cafe-card" data-category="espresso" data-title="Moonlight Affogato Nocturne" data-notes="affogato gelato espresso hazelnut dessert">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1594488518063-221d6f22d56a?auto=format&fit=crop&w=900&q=80" alt="Moonlight Affogato Nocturne" loading="lazy">
+              <span class="card-badge-tag">Late Night Bite</span>
+              <span class="card-price-pill">₹360</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Moonlight Affogato Nocturne</h3>
+                <p class="card-dish-desc">Two scoops of Madagascar vanilla bean gelato drenched with piping hot double ristretto, roasted hazelnut reduction, and crushed amaretti biscuit.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Artisan Gelato • Double Ristretto</span>
+                <button type="button" class="btn-card-tasting" data-item-id="13">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 14 -->
+          <article class="cafe-card" data-category="pourover" data-title="Sumatra Mandheling French Press" data-notes="sumatra french press dark chocolate cedar heavy body">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1587734195503-904fca47e0e9?auto=format&fit=crop&w=900&q=80" alt="Sumatra Mandheling French Press" loading="lazy">
+              <span class="card-badge-tag">Dark Roast</span>
+              <span class="card-price-pill">₹320</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Sumatra Mandheling French Press</h3>
+                <p class="card-dish-desc">Rich and velvety with notes of dark cacao nibs, cedarwood, pipe tobacco, and smoky brown sugar syrup. Robust and comforting.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Lintong, Sumatra • Giling Basah</span>
+                <button type="button" class="btn-card-tasting" data-item-id="14">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 15 -->
+          <article class="cafe-card" data-category="elixirs" data-title="Roasted Hojicha Tea Cloud" data-notes="hojicha tea roasted oat milk kyoto japan">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=900&q=80" alt="Roasted Hojicha Tea Cloud" loading="lazy">
+              <span class="card-badge-tag">Low Caffeine</span>
+              <span class="card-price-pill">₹340</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Roasted Hojicha Tea Cloud</h3>
+                <p class="card-dish-desc">Charcoal-roasted green tea from Kyoto whisked with rich oat milk and toasted sesame caramel. Nutty, smoky, and gentle on the stomach.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Kyoto Roasted Green Tea</span>
+                <button type="button" class="btn-card-tasting" data-item-id="15">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 16 -->
+          <article class="cafe-card" data-category="bakery" data-title="Pistachio Rose Brioche Knot" data-notes="pistachio rose pastry brioche sweet glaze">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="Pistachio Rose Brioche Knot" loading="lazy">
+              <span class="card-badge-tag">Chef Special</span>
+              <span class="card-price-pill">₹290</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Pistachio Rose Brioche Knot</h3>
+                <p class="card-dish-desc">Flaky braided sourdough brioche rolled with Sicilian bronte pistachio butter and glazed with subtle Damascus rosewater syrup.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Bronte Pistachio • Rosewater</span>
+                <button type="button" class="btn-card-tasting" data-item-id="16">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 17 -->
+          <article class="cafe-card" data-category="tartines" data-title="Hass Avocado & Dukkah Crunch" data-notes="avocado sourdough toast dukkah tomatoes vegan">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80" alt="Hass Avocado Crostini" loading="lazy">
+              <span class="card-badge-tag">Plant Based</span>
+              <span class="card-price-pill">₹380</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Hass Avocado & Dukkah Crunch</h3>
+                <p class="card-dish-desc">Crushed ripe Hass avocado on seeded rye sourdough, blistered cherry heirloom tomatoes, Egyptian Egyptian hazelnut dukkah, and lime zest.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Seeded Sourdough • 100% Vegan</span>
+                <button type="button" class="btn-card-tasting" data-item-id="17">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 18 -->
+          <article class="cafe-card" data-category="elixirs" data-title="Cascara Coffee Cherry Tonic Fizz" data-notes="cascara fizz tonic sparkling refreshing citrus">
+            <div class="cafe-card-media">
+              <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=900&q=80" alt="Cascara Fizz" loading="lazy">
+              <span class="card-badge-tag">Upcycled Harvest</span>
+              <span class="card-price-pill">₹310</span>
+            </div>
+            <div class="cafe-card-body">
+              <div class="card-text-block">
+                <h3 class="card-dish-name">Cascara Coffee Cherry Fizz</h3>
+                <p class="card-dish-desc">Brewed sun-dried coffee fruit husks, craft Indian tonic, fresh garden mint, and a twist of Meyer lemon. Tart, sparkling, and deeply refreshing.</p>
+              </div>
+              <div class="card-footer-meta">
+                <span class="card-origin-tag">Cascara Botanicals • Effervescent</span>
+                <button type="button" class="btn-card-tasting" data-item-id="18">Tasting Notes ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Empty Search State -->
+          <div class="menu-empty-notice" id="menuEmptyNotice">
+            <h4 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text-primary);">No items matched your search</h4>
+            <p style="color: var(--text-secondary); font-size: 0.85rem;">Try searching for "espresso", "pourover", "croissant", "matcha", or clear the filter.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         6. THE 4 AMBIENT NOOKS (SPACE TOUR)
+         ============================================================= */ -->
+    <section class="nooks-section" id="nooks">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-eyebrow">Atmospheric Spaces</span>
+          <h2 class="section-title">The Four Ambient Nooks</h2>
+          <p class="section-subtitle">Moonlight Cafe is architected into distinct micro-atmospheres designed for different states of mind.</p>
+        </div>
+
+        <div class="nooks-grid">
+          <!-- Nook 1 -->
+          <div class="nook-card" data-reserve-nook="vinyl">
+            <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=1000&q=80" alt="Vinyl Mezzanine Lounge" loading="lazy">
+            <div class="nook-overlay">
+              <span class="nook-number">NOOK 01</span>
+              <h3 class="nook-title">The Vinyl Mezzanine</h3>
+              <p class="nook-caption">Velvet armchairs, vintage Marantz tube amplifiers, and 1,200 curated jazz and ambient records.</p>
+              <span class="nook-vibe-tag">Audiophile • Conversational</span>
+            </div>
+          </div>
+
+          <!-- Nook 2 -->
+          <div class="nook-card" data-reserve-nook="glasshouse">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80" alt="Solarium & Glasshouse" loading="lazy">
+            <div class="nook-overlay">
+              <span class="nook-number">NOOK 02</span>
+              <h3 class="nook-title">The Glasshouse Solarium</h3>
+              <p class="nook-caption">Floor-to-ceiling iron glasshouse surrounded by ficus trees, tropical palms, and starry Gomti skies.</p>
+              <span class="nook-vibe-tag">Breezy • Daytime Sun & Starlight</span>
+            </div>
+          </div>
+
+          <!-- Nook 3 -->
+          <div class="nook-card" data-reserve-nook="library">
+            <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1000&q=80" alt="Reading Library & Hearth" loading="lazy">
+            <div class="nook-overlay">
+              <span class="nook-number">NOOK 03</span>
+              <h3 class="nook-title">The Solo Library</h3>
+              <p class="nook-caption">Dark walnut booths, brass banker lamps, whisper policy, and an extensive collection of design books.</p>
+              <span class="nook-vibe-tag">Deep Focus • Hushed Sanctuary</span>
+            </div>
+          </div>
+
+          <!-- Nook 4 -->
+          <div class="nook-card" data-reserve-nook="slowbar">
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=80" alt="The Copper Slow Bar" loading="lazy">
+            <div class="nook-overlay">
+              <span class="nook-number">NOOK 04</span>
+              <h3 class="nook-title">The Copper Slow Bar</h3>
+              <p class="nook-caption">Front-row seats to precision brewing. Converse with head roasters while watching siphon and V60 rituals.</p>
+              <span class="nook-vibe-tag">Interactive • Cupping Rituals</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         7. PHILOSOPHY & PILLARS (CREAM CONTRAST SECTION)
+         ============================================================= -->
+    <section class="philosophy-section" id="philosophy">
+      <div class="container philosophy-grid">
+        <div class="philosophy-quote-block">
+          <span class="philosophy-eyebrow">The Ethos</span>
+          <blockquote class="philosophy-quote">
+            “We do not roast coffee to rush your day. We roast to give you back your <em>evenings and late hours</em>.”
+          </blockquote>
+          <span class="philosophy-author">— Kabir Saxena, Founder & Head Roaster</span>
+        </div>
+
+        <div class="pillars-stack">
+          <div class="pillar-item">
+            <div class="pillar-icon-box">01</div>
+            <div class="pillar-body">
+              <h4 class="pillar-title">Direct Micro-Lot Ethics</h4>
+              <p class="pillar-desc">We buy directly from smallholder farms in Chikmagalur, Yirgacheffe, and Boquete at double Fair Trade rates to preserve heirloom varietals.</p>
+            </div>
+          </div>
+
+          <div class="pillar-item">
+            <div class="pillar-icon-box">02</div>
+            <div class="pillar-body">
+              <h4 class="pillar-title">No Algorithmic Audio</h4>
+              <p class="pillar-desc">Every track played in Moonlight is pressed on physical analog vinyl. We believe the crackle and warmth of a needle elevates flavor.</p>
+            </div>
+          </div>
+
+          <div class="pillar-item">
+            <div class="pillar-icon-box">03</div>
+            <div class="pillar-body">
+              <h4 class="pillar-title">The 2:00 AM Open Door</h4>
+              <p class="pillar-desc">Great cities need late-night cultural sanctuaries that don't serve alcohol. Moonlight is your quiet haven long after the rest of Lucknow sleeps.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         8. THE NIGHT SESSIONS (WEEKLY SOUND & VINYL)
+         ============================================================= -->
+    <section class="sessions-section" id="sessions">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-eyebrow">Late Night Soundscape</span>
+          <h2 class="section-title">The Weekly Night Sessions</h2>
+          <p class="section-subtitle">Live needle drops, acoustic jazz quartets, and intimate cupping workshops under the stars.</p>
+        </div>
+
+        <div class="sessions-table">
+          <div class="session-row">
+            <div class="session-day-time">
+              <span class="session-day">Thursday</span>
+              <span class="session-time">20:30 — 00:30 HRS</span>
+            </div>
+            <div class="session-details">
+              <h3 class="session-event-title">Analog Japanese City Pop & Ambient</h3>
+              <p class="session-event-desc">Selectors spin rare 1980s Tokyo vinyl alongside delicate cold brews.</p>
+            </div>
+            <span class="session-genre-pill">Vinyl Needle Drop</span>
+            <a href="#reserve" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Reserve Table</a>
+          </div>
+
+          <div class="session-row">
+            <div class="session-day-time">
+              <span class="session-day">Friday</span>
+              <span class="session-time">21:00 — 01:00 HRS</span>
+            </div>
+            <div class="session-details">
+              <h3 class="session-event-title">Midnight Acoustic Strings</h3>
+              <p class="session-event-desc">Unplugged cello and flamenco guitar arrangements in the Glasshouse Solarium.</p>
+            </div>
+            <span class="session-genre-pill">Live Unplugged</span>
+            <a href="#reserve" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Reserve Table</a>
+          </div>
+
+          <div class="session-row">
+            <div class="session-day-time">
+              <span class="session-day">Saturday</span>
+              <span class="session-time">21:30 — 01:30 HRS</span>
+            </div>
+            <div class="session-details">
+              <h3 class="session-event-title">Lo-Fi Beats & Nocturnal Poetry</h3>
+              <p class="session-event-desc">Gentle tape loops, mellow piano improvisations, and quiet spoken word readings.</p>
+            </div>
+            <span class="session-genre-pill">Analog Tape & Beats</span>
+            <a href="#reserve" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Reserve Table</a>
+          </div>
+
+          <div class="session-row">
+            <div class="session-day-time">
+              <span class="session-day">Sunday</span>
+              <span class="session-time">16:30 — 18:00 HRS</span>
+            </div>
+            <div class="session-details">
+              <h3 class="session-event-title">Sunday Slow Bar Cupping Workshop</h3>
+              <p class="session-event-desc">Guided blind coffee tasting of 5 international origins with our head roaster.</p>
+            </div>
+            <span class="session-genre-pill">Roaster Workshop</span>
+            <a href="#reserve" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         9. RESERVATION SYSTEM (NOOK & TABLE BOOKING)
+         ============================================================= -->
+    <section class="reservation-section" id="reserve">
+      <div class="container">
+        <div class="booking-wrapper">
+          <div class="booking-header">
+            <span class="section-eyebrow">Table & Nook Reservations</span>
+            <h2 class="booking-title">Reserve Your Corner</h2>
+            <p class="booking-subtitle">Choose your preferred ambiance, date, and hour. We hold reserved tables for 20 minutes past booking time.</p>
+          </div>
+
+          <form class="booking-form" id="bookingForm">
+            <!-- Step 1: Nook Selection -->
+            <div>
+              <label class="form-group-label">1. Select Your Space / Nook</label>
+              <div class="nook-select-chips">
+                <button type="button" class="nook-chip selected" data-nook-value="vinyl">
+                  <span style="font-weight: 600;">Vinyl Mezzanine</span>
+                  <span style="font-size: 0.68rem; color: var(--text-muted);">Audio lounge</span>
+                </button>
+                <button type="button" class="nook-chip" data-nook-value="glasshouse">
+                  <span style="font-weight: 600;">Glasshouse Solarium</span>
+                  <span style="font-size: 0.68rem; color: var(--text-muted);">Plants & stars</span>
+                </button>
+                <button type="button" class="nook-chip" data-nook-value="library">
+                  <span style="font-weight: 600;">Quiet Library</span>
+                  <span style="font-size: 0.68rem; color: var(--text-muted);">Solo reading</span>
+                </button>
+                <button type="button" class="nook-chip" data-nook-value="slowbar">
+                  <span style="font-weight: 600;">Copper Slow Bar</span>
+                  <span style="font-size: 0.68rem; color: var(--text-muted);">Barista counter</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Date, Guests, Contact -->
+            <div class="form-row-grid">
+              <div class="input-field-wrap">
+                <label class="input-label" for="bookDate">Date</label>
+                <input type="date" id="bookDate" class="custom-input" required>
+              </div>
+
+              <div class="input-field-wrap">
+                <label class="input-label" for="bookGuests">Guests</label>
+                <select id="bookGuests" class="custom-select">
+                  <option value="1">1 Person (Solo Sanctuary)</option>
+                  <option value="2" selected>2 Guests (Intimate Table)</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="6">5–6 Guests (Mezzanine Sofa)</option>
+                </select>
+              </div>
+
+              <div class="input-field-wrap">
+                <label class="input-label" for="bookName">Your Name</label>
+                <input type="text" id="bookName" class="custom-input" placeholder="e.g. Ananya Sharma" required>
+              </div>
+            </div>
+
+            <!-- Step 3: Time Slot Chips -->
+            <div>
+              <label class="form-group-label">2. Select Desired Time Slot</label>
+              <div class="time-slots-grid">
+                <button type="button" class="time-slot-btn" data-time="08:30 AM">08:30 AM</button>
+                <button type="button" class="time-slot-btn" data-time="11:00 AM">11:00 AM</button>
+                <button type="button" class="time-slot-btn" data-time="15:00 PM">15:00 PM</button>
+                <button type="button" class="time-slot-btn" data-time="18:30 PM">18:30 PM</button>
+                <button type="button" class="time-slot-btn active" data-time="21:30 PM">21:30 PM</button>
+                <button type="button" class="time-slot-btn" data-time="23:30 PM">23:30 PM</button>
+              </div>
+            </div>
+
+            <!-- Step 4: Phone & Notes -->
+            <div class="form-row-grid" style="grid-template-columns: 1fr 1fr;">
+              <div class="input-field-wrap">
+                <label class="input-label" for="bookPhone">Contact Phone</label>
+                <input type="tel" id="bookPhone" class="custom-input" placeholder="+91 98765 43210" required>
+              </div>
+
+              <div class="input-field-wrap">
+                <label class="input-label" for="bookNotes">Special Notes (Optional)</label>
+                <input type="text" id="bookNotes" class="custom-input" placeholder="e.g. Birthday slice, quiet lamp desk">
+              </div>
+            </div>
+
+            <button type="submit" class="btn-submit-booking">
+              <span>Confirm Nook Reservation</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         10. MIDNIGHT GUESTBOOK & COMMUNITY NOTES
+         ============================================================= -->
+    <section class="guestbook-section">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-eyebrow">Community Notes</span>
+          <h2 class="section-title">Letters from Midnight Regulars</h2>
+          <p class="section-subtitle">Excerpts from the guestbook resting on the library table.</p>
+        </div>
+
+        <div class="notes-grid">
+          <article class="note-card">
+            <div class="note-stars">★★★★★</div>
+            <p class="note-text">
+              “Finally, a space in Lucknow where you can write until 1:00 AM with a pristine V60 and no loud club bass. The Lavender Latte is sublime.”
+            </p>
+            <div class="note-author-block">
+              <div class="note-avatar">RS</div>
+              <div class="note-meta">
+                <span class="note-author-name">Rhea Singhania</span>
+                <span class="note-time">Architect & Novelist • Visited 23:45</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="note-card">
+            <div class="note-stars">★★★★★</div>
+            <p class="note-text">
+              “The Vinyl Mezzanine feels like a cozy apartment in Kyoto. Hearing Coltrane spin while sipping Panama Geisha is genuine magic.”
+            </p>
+            <div class="note-author-block">
+              <div class="note-avatar">AK</div>
+              <div class="note-meta">
+                <span class="note-author-name">Arjun Kapoor</span>
+                <span class="note-time">Music Producer • Visited 22:15</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="note-card">
+            <div class="note-stars">★★★★★</div>
+            <p class="note-text">
+              “The Burnt Miso Basque Cheesecake alone is worth the drive to Gomti Nagar. Warm, thoughtful hospitality and gorgeous lighting.”
+            </p>
+            <div class="note-author-block">
+              <div class="note-avatar">MV</div>
+              <div class="note-meta">
+                <span class="note-author-name">Meera Varma</span>
+                <span class="note-time">Graphic Designer • Visited 19:30</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         11. LOCATION & AMENITIES
+         ============================================================= -->
+    <section class="location-section" id="location">
+      <div class="container">
+        <div class="location-card">
+          <!-- Text Info -->
+          <div class="location-content">
+            <span class="section-eyebrow">Find Your Way</span>
+            <h2 class="section-title">Gomti Nagar Sanctuary</h2>
+            <p class="section-subtitle">Tucked into a quiet leafy lane right off Riverside Boulevard, insulated from city honks.</p>
+
+            <div class="location-specs">
+              <div class="location-spec-item">
+                <span class="location-spec-label">Address</span>
+                <span class="location-spec-val">Plot 14, Riverside Walk, Gomti Nagar, Lucknow</span>
+              </div>
+              <div class="location-spec-item">
+                <span class="location-spec-label">Operating Hours</span>
+                <span class="location-spec-val">Daily 7:00 AM — 2:00 AM</span>
+              </div>
+              <div class="location-spec-item">
+                <span class="location-spec-label">High-Speed Fiber</span>
+                <span class="location-spec-val">300 Mbps (Laptops welcome till 19:30)</span>
+              </div>
+              <div class="location-spec-item">
+                <span class="location-spec-label">Parking</span>
+                <span class="location-spec-val">Complimentary Valet Available</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="https://maps.google.com/?q=Gomti+Nagar+Lucknow" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <span>Open in Google Maps ↗</span>
+              </a>
+              <a href="tel:+919876543210" class="btn-secondary">
+                <span>Call Roastery: +91 98765 43210</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Stylized Dark Vector Map -->
+          <div class="map-container">
+            <svg viewBox="0 0 600 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="600" height="450" fill="#0B101A"/>
+              
+              <!-- Subtle Grid -->
+              <path d="M0 75H600 M0 150H600 M0 225H600 M0 300H600 M0 375H600" stroke="#162030" stroke-width="1"/>
+              <path d="M75 0V450 M150 0V450 M225 0V450 M300 0V450 M375 0V450 M450 0V450 M525 0V450" stroke="#162030" stroke-width="1"/>
+              
+              <!-- Gomti River Curve -->
+              <path d="M-20 400C120 380 200 280 320 250C440 220 500 120 620 90" stroke="#25354D" stroke-width="28" stroke-linecap="round"/>
+              <path d="M-20 400C120 380 200 280 320 250C440 220 500 120 620 90" stroke="#1D2A3D" stroke-width="20" stroke-linecap="round"/>
+
+              <!-- Main Roads -->
+              <path d="M50 450L350 0" stroke="#222C3D" stroke-width="6"/>
+              <path d="M0 260L600 210" stroke="#222C3D" stroke-width="5"/>
+              <path d="M220 450L550 50" stroke="#263449" stroke-width="4"/>
+
+              <!-- Moonlight Cafe Location Marker -->
+              <circle cx="345" cy="215" r="40" fill="rgba(226, 192, 141, 0.08)"/>
+              <circle cx="345" cy="215" r="22" fill="rgba(226, 192, 141, 0.2)"/>
+              <circle cx="345" cy="215" r="8" fill="#E2C08D"/>
+
+              <rect x="370" y="195" width="165" height="42" rx="8" fill="#131926" stroke="#E2C08D" stroke-width="1"/>
+              <text x="382" y="213" fill="#F8F6F0" font-family="'Italiana', serif" font-size="14" font-weight="600">MOONLIGHT CAFE</text>
+              <text x="382" y="228" fill="#E2C08D" font-family="'Space Grotesk', monospace" font-size="9">GOMTI NAGAR · OPEN</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =============================================================
+       12. EDITORIAL FOOTER
+       ============================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="footer-title">Moonlight</span>
+          <p class="footer-desc">
+            A quiet late-night sanctuary in Gomti Nagar, Lucknow. Specialty micro-lot roasts, analog vinyl sessions, and slow conversation beneath the stars.
+          </p>
+          <div class="moon-phases">🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘</div>
+        </div>
+
+        <div class="footer-links-col">
+          <span class="footer-col-title">Navigation</span>
+          <ul class="footer-links-list">
+            <li><a href="#brews" class="footer-link">The Brews & Bites</a></li>
+            <li><a href="#mood" class="footer-link">Brews By The Hour</a></li>
+            <li><a href="#nooks" class="footer-link">The 4 Ambient Nooks</a></li>
+            <li><a href="#sessions" class="footer-link">Night Sessions Schedule</a></li>
+            <li><a href="#reserve" class="footer-link">Reserve Table / Nook</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <span class="footer-col-title">Hours & Contact</span>
+          <ul class="footer-links-list">
+            <li class="footer-link">Open Daily: 7:00 AM — 2:00 AM</li>
+            <li class="footer-link">Riverside Walk, Gomti Nagar</li>
+            <li class="footer-link">hello@moonlightcafe.in</li>
+            <li class="footer-link">+91 98765 43210</li>
+            <li class="footer-link" style="color: var(--moon-gold);">Fictional Client Presentation Demo</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>© 2026 MOONLIGHT CAFE. ALL RIGHTS RESERVED.</span>
+        <span>WHERE TWILIGHT POURS INTO QUIET CUPS.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =============================================================
+       13. MOBILE FIXED BOTTOM DOCK (4 BALANCED ICONS)
+       ============================================================= -->
+  <nav class="mobile-bottom-dock" aria-label="Mobile Navigation Dock">
+    <a href="#brews" class="dock-item" id="dockMenu" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+        <line x1="6" y1="1" x2="6" y2="4"></line>
+        <line x1="10" y1="1" x2="10" y2="4"></line>
+        <line x1="14" y1="1" x2="14" y2="4"></line>
+      </svg>
+      <span>Brews</span>
+    </a>
+
+    <a href="#nooks" class="dock-item" id="dockNooks" aria-label="Ambient Nooks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"></path>
+      </svg>
+      <span>Nooks</span>
+    </a>
+
+    <button type="button" class="dock-item" id="dockSearch" aria-label="Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <span>Search</span>
+    </button>
+
+    <a href="#reserve" class="dock-item" id="dockReserve" aria-label="Reserve Table">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      <span>Reserve</span>
+    </a>
+  </nav>
+
+  <!-- =============================================================
+       14. MOBILE DEDICATED SEARCH OVERLAY (WITH INTEGRATED CLOSE ICON)
+       ============================================================= -->
+  <div class="mobile-search-overlay" id="mobileSearchOverlay" role="dialog" aria-modal="true" aria-label="Mobile Search">
+    <div class="mobile-search-top">
+      <div class="mobile-search-pill-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input 
+          type="text" 
+          id="mobileSearchInput" 
+          class="mobile-search-input" 
+          placeholder="Search coffee, matcha, toast..."
+          autocomplete="off"
+        >
+        <!-- Integrated close button inside search bar -->
+        <button type="button" class="btn-mobile-search-close" id="mobileSearchClose" aria-label="Close search">✕</button>
+      </div>
+    </div>
+
+    <div class="mobile-search-results-area" id="mobileSearchResults">
+      <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Popular Searches</span>
+      <div class="search-tags-row">
+        <span class="search-tag-chip" data-query="geisha">Panama Geisha</span>
+        <span class="search-tag-chip" data-query="lavender">Lavender Latte</span>
+        <span class="search-tag-chip" data-query="matcha">Cloud Matcha</span>
+        <span class="search-tag-chip" data-query="croissant">Almond Croissant</span>
+        <span class="search-tag-chip" data-query="cheesecake">Basque Cheesecake</span>
+        <span class="search-tag-chip" data-query="tartine">Truffle Tartine</span>
+      </div>
+      <div id="mobileItemsInjected" style="display: flex; flex-direction: column; gap: 0.85rem;"></div>
+    </div>
+  </div>
+
+  <!-- =============================================================
+       15. RESERVATION CONFIRMATION MODAL
+       ============================================================= -->
+  <div class="booking-modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-label="Booking Confirmation">
+    <div class="booking-modal-card">
+      <div class="modal-moon-glyph">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+      <h3 style="font-family: var(--font-display); font-size: 1.8rem; color: var(--text-primary);">Table Confirmed</h3>
+      <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" id="modalMessage">
+        Your corner at Moonlight Cafe has been reserved. A confirmation SMS has been dispatched.
+      </p>
+      <div class="modal-ref-pill" id="modalRefCode">REF: #MLC-8492</div>
+      <button type="button" class="btn-primary" style="width: 100%; margin-top: 0.5rem;" id="closeBookingModal">
+        <span>Back to Moonlight</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =============================================================
+       16. DISH TASTING NOTES MODAL
+       ============================================================= -->
+  <div class="tasting-modal-overlay" id="tastingModal" role="dialog" aria-modal="true" aria-label="Tasting Notes Details">
+    <div class="tasting-modal-card">
+      <div class="tasting-modal-hero">
+        <img id="tastingHeroImg" src="" alt="Dish preview">
+        <button type="button" class="btn-close-modal" id="closeTastingModal" aria-label="Close modal">✕</button>
+      </div>
+      <div class="tasting-modal-body">
+        <h3 class="tasting-modal-title" id="tastingTitle"></h3>
+        <p class="tasting-modal-desc" id="tastingDesc"></p>
+
+        <div class="tasting-specs-grid">
+          <div class="spec-box">
+            <span class="spec-label">Origin / Varietal</span>
+            <span class="spec-val" id="tastingOrigin"></span>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">Roast / Extraction</span>
+            <span class="spec-val" id="tastingProcess"></span>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">Tasting Notes</span>
+            <span class="spec-val" id="tastingNotes"></span>
+          </div>
+          <div class="spec-box">
+            <span class="spec-label">Suggested Hour</span>
+            <span class="spec-val" id="tastingHour"></span>
+          </div>
+        </div>
+
+        <a href="#reserve" class="btn-primary" style="justify-content: center;" id="modalReserveLink">
+          <span>Reserve Table To Taste</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================================
+       17. VANILLA JAVASCRIPT LOGIC
+       ============================================================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* -------------------------------------------------------------
+         A. Data Store: Tasting Notes for 18 Items
+         ------------------------------------------------------------- */
+      const dishData = {
+        1: {
+          title: "Moonlit Lavender Honey Latte",
+          desc: "Steeped French lavender blossoms combined with organic wild mountain honey, double ristretto, and oat milk microfoam.",
+          origin: "House Blend (Ethiopia & Colombia)",
+          process: "Medium Roast · 9 Bar Espresso",
+          notes: "Floral Lavender · Wild Honey · Creamy Biscuit",
+          hour: "18:00 — 23:00 (Twilight & Night)",
+          img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=80"
+        },
+        2: {
+          title: "Smoked Sea Salt Cortado",
+          desc: "Precision double ristretto cut with equal parts whole milk, Madagascar bourbon vanilla, and oak-smoked Maldon salt flakes.",
+          origin: "Colombia Huila (Single Estate)",
+          process: "Washed · 1:1 Cortado Ratio",
+          notes: "Smoked Wood · Vanilla Bean · Dark Toffee",
+          hour: "14:00 — 18:00 (Afternoon Focus)",
+          img: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=80"
+        },
+        3: {
+          title: "Panama Geisha Reserve V60",
+          desc: "Award-winning rare micro-lot cultivated at 1,800m altitude. Highly complex, tea-like body with intense floral aroma.",
+          origin: "Boquete, Panama",
+          process: "Slow Hario V60 · 92°C Extraction",
+          notes: "Jasmine Flowers · White Peach · Lemongrass",
+          hour: "09:00 — 15:00 (Mindful Morning)",
+          img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80"
+        },
+        4: {
+          title: "Ethiopia Yirgacheffe G1 V60",
+          desc: "Sun-dried natural coffee processed on raised beds. Extraordinary fruit-forward bouquet with sparkling acidity.",
+          origin: "Yirgacheffe, Ethiopia (1,950m)",
+          process: "Natural · Medium-Light Roast",
+          notes: "Wild Blueberry · Dried Apricot · Bergamot",
+          hour: "08:00 — 12:00 (First Pour)",
+          img: "https://images.unsplash.com/photo-1587734195503-904fca47e0e9?auto=format&fit=crop&w=900&q=80"
+        },
+        5: {
+          title: "Midnight Kyoto Cold Drip",
+          desc: "Extracted drop-by-drop through iced borosilicate towers over 12 hours. Zero bitterness with liquor-like depth.",
+          origin: "Estate Blend (Dark Chocolate Profile)",
+          process: "Slow Kyoto Cold Tower · 12 Hours",
+          notes: "Dark Chocolate · Spiced Fig · Orange Peel",
+          hour: "21:00 — 02:00 (Midnight Vinyl)",
+          img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=900&q=80"
+        },
+        6: {
+          title: "Almond Frangipane Croissant",
+          desc: "72 laminated butter layers baked twice with rich almond cream filling and crunchy sliced almonds.",
+          origin: "Normandy French Butter & Sicilian Almonds",
+          process: "Twice Baked · Orange Blossom Syrup",
+          notes: "Toasted Almond · Citrus Zest · Flaky Butter",
+          hour: "08:00 — 16:00 (Morning & Tea)",
+          img: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=80"
+        },
+        7: {
+          title: "Cardamom Morning Knot",
+          desc: "Twisted brioche woven with coarsely ground cardamom seeds, caramelised butter, and Swedish pearl crystals.",
+          origin: "Heirloom Green Cardamom",
+          process: "Slow Fermentation · Brown Butter Glaze",
+          notes: "Cardamom Spice · Caramel · Rich Brioche",
+          hour: "08:00 — 13:00 (Sunrise Routine)",
+          img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80"
+        },
+        8: {
+          title: "Basque Burnt Miso Cheesecake",
+          desc: "Caramelized dark crust enclosing a molten cream core elevated by white shiro miso savory contrast.",
+          origin: "Kyoto Shiro Miso & Cream Cheese",
+          process: "High Heat Caramelization · Molten Center",
+          notes: "Burnt Caramel · Umami Miso · Velvety Cream",
+          hour: "19:00 — 02:00 (Late Night Sweet)",
+          img: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=900&q=80"
+        },
+        9: {
+          title: "Ceremonial Cloud Matcha",
+          desc: "First harvest stone-ground Uji matcha hand-whisked with bamboo chasen and topped with coconut cream cloud.",
+          origin: "Uji, Kyoto (Japan)",
+          process: "Traditional Chasen Whisk · Cold Cloud",
+          notes: "Vibrant Umami · White Chocolate · Sweet Cream",
+          hour: "11:00 — 17:00 (Gentle Energy)",
+          img: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=900&q=80"
+        },
+        10: {
+          title: "Blue Lotus & Chamomile Nightcap",
+          desc: "Relaxing whole flower tea combining blue lotus petals with whole chamomile flowers and gentle mountain honey.",
+          origin: "Egypt & Kashmir",
+          process: "Loose Flower Infusion · 90°C Water",
+          notes: "Floral Honey · Dried Apple · Soothing Herb",
+          hour: "22:00 — 02:00 (Sleep Sanctuary)",
+          img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=900&q=80"
+        },
+        11: {
+          title: "Truffle Wild Mushroom Tartine",
+          desc: "Thick sourdough slice toasted in clarified butter, spread with whipped peppered ricotta and sautéed mushrooms.",
+          origin: "Local Wild Foraged Chanterelles",
+          process: "Wood Fire Toasted · Truffle Glaze",
+          notes: "Earthy Mushroom · Black Truffle · Crusty Sour",
+          hour: "12:00 — 22:00 (Lunch & Supper)",
+          img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80"
+        },
+        12: {
+          title: "Burrata & Black Fig Toast",
+          desc: "Whole burrata torn warm over sourdough, adorned with sliced fresh figs, thyme, and hot chili-infused blossom honey.",
+          origin: "Fresh Daily Artisanal Burrata",
+          process: "Charred Sourdough · Hot Honey Drizzle",
+          notes: "Creamy Burrata · Honey Sweet · Chili Zing",
+          hour: "13:00 — 23:00 (Afternoon & Night)",
+          img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80"
+        },
+        13: {
+          title: "Moonlight Affogato Nocturne",
+          desc: "Rich vanilla bean gelato drowned in fresh double ristretto with hazelnut reduction and crunchy amaretti biscuit.",
+          origin: "Madagascar Vanilla Bean",
+          process: "Double Extraction over Chilled Gelato",
+          notes: "Hot Espresso Contrast · Nutty Hazelnut · Ice",
+          hour: "20:00 — 02:00 (Late Night Pairing)",
+          img: "https://images.unsplash.com/photo-1594488518063-221d6f22d56a?auto=format&fit=crop&w=900&q=80"
+        },
+        14: {
+          title: "Sumatra Mandheling French Press",
+          desc: "Earthy, low-acidity dark roast with robust body and undertones of cedarwood, dark cocoa nibs, and molasses.",
+          origin: "Lintong, Sumatra",
+          process: "Giling Basah Wet-Hulled · French Press",
+          notes: "Cedarwood · 85% Dark Cacao · Molasses",
+          hour: "10:00 — 16:00 (Deep Concentration)",
+          img: "https://images.unsplash.com/photo-1587734195503-904fca47e0e9?auto=format&fit=crop&w=900&q=80"
+        },
+        15: {
+          title: "Roasted Hojicha Tea Cloud",
+          desc: "Charcoal-roasted green tea whisked with rich oat milk and toasted sesame caramel. Smoky, nutty, and comforting.",
+          origin: "Kyoto, Japan",
+          process: "Charcoal Roast · Micro-Foam",
+          notes: "Roasted Barley · Sesame · Toasty Caramel",
+          hour: "15:00 — 22:00 (Cozy Afternoon)",
+          img: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=900&q=80"
+        },
+        16: {
+          title: "Pistachio Rose Brioche Knot",
+          desc: "Braided flaky sourdough brioche with Sicilian Bronte pistachio butter and subtle Damascus rosewater glaze.",
+          origin: "Bronte Pistachios & Rosewater",
+          process: "Laminated Sourdough · Hand Braided",
+          notes: "Pistachio Cream · Delicate Rose · Butter",
+          hour: "09:00 — 17:00 (Coffee Accompaniment)",
+          img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80"
+        },
+        17: {
+          title: "Hass Avocado & Dukkah Crunch",
+          desc: "Smashed ripe Hass avocado on seeded rye sourdough, heirloom tomatoes, roasted hazelnut dukkah, and lime zest.",
+          origin: "100% Plant-Based Artisanal Bakery",
+          process: "Seeded Sourdough Toast · Olive Oil",
+          notes: "Creamy Avocado · Nutty Dukkah · Citrus",
+          hour: "08:00 — 15:00 (All-Day Brunch)",
+          img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80"
+        },
+        18: {
+          title: "Cascara Coffee Cherry Tonic Fizz",
+          desc: "Sun-dried coffee cherry cascara steeped into tonic water with crushed garden mint and a twist of Meyer lemon.",
+          origin: "Chikmagalur Coffee Estate Husks",
+          process: "Cold Steep · Carbonated Fizz",
+          notes: "Tart Cherry · Effervescent Citrus · Mint",
+          hour: "12:00 — 19:00 (Sunny Refresher)",
+          img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=900&q=80"
+        }
+      };
+
+      /* -------------------------------------------------------------
+         B. Header Scroll Glassmorphic Effect
+         ------------------------------------------------------------- */
+      const siteHeader = document.getElementById('siteHeader');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          siteHeader.classList.add('scrolled');
+        } else {
+          siteHeader.classList.remove('scrolled');
+        }
+      });
+
+      /* -------------------------------------------------------------
+         C. Mobile Navigation Drawer
+         ------------------------------------------------------------- */
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const drawerLinks = document.querySelectorAll('[data-close-drawer]');
+
+      function toggleMobileDrawer() {
+        const isOpen = mobileDrawer.classList.contains('open');
+        if (isOpen) {
+          mobileDrawer.classList.remove('open');
+          mobileMenuToggle.classList.remove('active');
+          mobileMenuToggle.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        } else {
+          mobileDrawer.classList.add('open');
+          mobileMenuToggle.classList.add('active');
+          mobileMenuToggle.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      mobileMenuToggle.addEventListener('click', toggleMobileDrawer);
+      drawerLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (mobileDrawer.classList.contains('open')) {
+            toggleMobileDrawer();
+          }
+        });
+      });
+
+      /* -------------------------------------------------------------
+         D. Interactive "Brews by the Mood & Hour"
+         ------------------------------------------------------------- */
+      const moodData = {
+        dawn: {
+          badge: "08:00 AM — SUNRISE RITUAL",
+          title: "The Morning Bloom & Cinnamon Twist",
+          desc: "Soft morning sunlight streams through the solarium. We grind light-roasted Ethiopian beans for bright, floral aromatics, paired alongside warm cardamom cinnamon brioche fresh from the morning oven.",
+          brew: "Ethiopia V60 Single Origin",
+          pairing: "Cardamom Morning Bun",
+          vibe: "Lush acoustic guitar & morning calm",
+          nook: "The Glasshouse Solarium",
+          img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=80"
+        },
+        midday: {
+          badge: "13:30 PM — AFTERNOON FOCUS",
+          title: "The Single Origin Pour & Truffle Toast",
+          desc: "High energy, focused deep work hours. Pour-over extractions provide clean, elevated caffeine clarity without espresso crash, accompanied by crusty sourdough tartines.",
+          brew: "Panama Geisha V60 Reserve",
+          pairing: "Truffle Wild Mushroom Tartine",
+          vibe: "Gentle lo-fi jazz & 300 Mbps fiber speed",
+          nook: "The Solo Library Booths",
+          img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80"
+        },
+        dusk: {
+          badge: "18:30 PM — TWILIGHT GOLDEN HOUR",
+          title: "The Matcha Cloud & Pistachio Knot",
+          desc: "The sky turns mauve and charcoal over Gomti Nagar. Lamps are dimmed down, laptops are put away, and velvety ceremonial matcha or cortados set the conversational mood.",
+          brew: "Ceremonial Cloud Matcha Latte",
+          pairing: "Pistachio Rose Brioche Knot",
+          vibe: "Warm candlelight & low vinyl buzz",
+          nook: "The Vinyl Mezzanine Lounge",
+          img: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=900&q=80"
+        },
+        midnight: {
+          badge: "23:00 PM — MIDNIGHT SANCTUARY",
+          title: "The Midnight Affogato & Kyoto Drip",
+          desc: "While the rest of the city winds down, Moonlight opens its arms to night owls. Hot double ristrettos poured over cold gelato, decaf herbal botanicals, and classic 1950s jazz albums.",
+          brew: "Moonlight Kyoto Cold Drip / Affogato",
+          pairing: "Basque Burnt Miso Cheesecake",
+          vibe: "Analog vinyl needle drops & whisper policy",
+          nook: "The Copper Slow Bar",
+          img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=900&q=80"
+        }
+      };
+
+      const hourTabBtns = document.querySelectorAll('.hour-tab-btn');
+      const moodImg = document.getElementById('moodImg');
+      const moodBadge = document.getElementById('moodBadge');
+      const moodTitle = document.getElementById('moodTitle');
+      const moodDesc = document.getElementById('moodDesc');
+      const moodBrew = document.getElementById('moodBrew');
+      const moodPairing = document.getElementById('moodPairing');
+      const moodVibe = document.getElementById('moodVibe');
+      const moodNook = document.getElementById('moodNook');
+
+      hourTabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          hourTabBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+
+          const key = btn.getAttribute('data-hour');
+          const data = moodData[key];
+          if (!data) return;
+
+          // Transition animation
+          const card = document.getElementById('moodShowcase');
+          card.style.opacity = '0.4';
+          card.style.transform = 'scale(0.99)';
+
+          setTimeout(() => {
+            moodImg.src = data.img;
+            moodBadge.textContent = data.badge;
+            moodTitle.textContent = data.title;
+            moodDesc.textContent = data.desc;
+            moodBrew.textContent = data.brew;
+            moodPairing.textContent = data.pairing;
+            moodVibe.textContent = data.vibe;
+            moodNook.textContent = data.nook;
+
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          }, 180);
+        });
+      });
+
+      /* -------------------------------------------------------------
+         E. Menu Category Filtering & Live Search (Zero Inner Border)
+         ------------------------------------------------------------- */
+      const menuCatBtns = document.querySelectorAll('.menu-cat-btn');
+      const cafeCards = document.querySelectorAll('.cafe-card');
+      const menuSearchInput = document.getElementById('menuSearchInput');
+      const menuSearchClear = document.getElementById('menuSearchClear');
+      const menuEmptyNotice = document.getElementById('menuEmptyNotice');
+
+      let activeCategory = 'all';
+      let searchQuery = '';
+
+      function filterMenu() {
+        let visibleCount = 0;
+        const query = searchQuery.trim().toLowerCase();
+
+        cafeCards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          const title = card.getAttribute('data-title').toLowerCase();
+          const notes = card.getAttribute('data-notes').toLowerCase();
+
+          const matchesCat = (activeCategory === 'all' || cat === activeCategory);
+          const matchesQuery = (!query || title.includes(query) || notes.includes(query));
+
+          if (matchesCat && matchesQuery) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (visibleCount === 0) {
+          menuEmptyNotice.style.display = 'block';
+        } else {
+          menuEmptyNotice.style.display = 'none';
+        }
+
+        menuSearchClear.style.display = query ? 'flex' : 'none';
+      }
+
+      menuCatBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          menuCatBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeCategory = btn.getAttribute('data-cat');
+          filterMenu();
+        });
+      });
+
+      menuSearchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        filterMenu();
+      });
+
+      menuSearchClear.addEventListener('click', () => {
+        menuSearchInput.value = '';
+        searchQuery = '';
+        filterMenu();
+        menuSearchInput.focus();
+      });
+
+      /* -------------------------------------------------------------
+         F. Mobile Dedicated Search Overlay (Smooth, Zero Inner Border)
+         ------------------------------------------------------------- */
+      const openSearchBtn = document.getElementById('openSearchBtn');
+      const dockSearch = document.getElementById('dockSearch');
+      const mobileSearchOverlay = document.getElementById('mobileSearchOverlay');
+      const mobileSearchClose = document.getElementById('mobileSearchClose');
+      const mobileSearchInput = document.getElementById('mobileSearchInput');
+      const mobileItemsInjected = document.getElementById('mobileItemsInjected');
+      const searchTagChips = document.querySelectorAll('.search-tag-chip');
+
+      function openMobileSearch() {
+        mobileSearchOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => mobileSearchInput.focus(), 150);
+        renderMobileSearch();
+      }
+
+      function closeMobileSearch() {
+        mobileSearchOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+        mobileSearchInput.value = '';
+      }
+
+      openSearchBtn.addEventListener('click', openMobileSearch);
+      dockSearch.addEventListener('click', openMobileSearch);
+      mobileSearchClose.addEventListener('click', closeMobileSearch);
+
+      function renderMobileSearch(term = '') {
+        mobileItemsInjected.innerHTML = '';
+        const q = term.toLowerCase().trim();
+        let matchCount = 0;
+
+        Object.keys(dishData).forEach(id => {
+          const item = dishData[id];
+          const matches = !q || item.title.toLowerCase().includes(q) || item.notes.toLowerCase().includes(q);
+
+          if (matches && matchCount < 6) {
+            matchCount++;
+            const itemDiv = document.createElement('div');
+            itemDiv.style.cssText = `
+              display: flex;
+              align-items: center;
+              gap: 0.85rem;
+              padding: 0.65rem 0.85rem;
+              background: rgba(255, 255, 255, 0.04);
+              border: 1px solid var(--border-subtle);
+              border-radius: var(--radius-sm);
+              cursor: pointer;
+            `;
+            itemDiv.innerHTML = `
+              <img src="${item.img}" style="width: 46px; height: 46px; border-radius: 6px; object-fit: cover; flex-shrink: 0;" alt="${item.title}">
+              <div style="display: flex; flex-direction: column; flex-grow: 1;">
+                <span style="font-size: 0.86rem; font-weight: 500; color: #FFF;">${item.title}</span>
+                <span style="font-size: 0.72rem; color: var(--moon-gold);">${item.notes}</span>
+              </div>
+              <span style="color: var(--moon-gold); font-size: 0.8rem;">↗</span>
+            `;
+            itemDiv.addEventListener('click', () => {
+              closeMobileSearch();
+              openTastingModal(id);
+            });
+            mobileItemsInjected.appendChild(itemDiv);
+          }
+        });
+
+        if (matchCount === 0) {
+          mobileItemsInjected.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 2rem 0;">No matching brews found. Try "matcha" or "croissant".</p>';
+        }
+      }
+
+      mobileSearchInput.addEventListener('input', (e) => {
+        renderMobileSearch(e.target.value);
+      });
+
+      searchTagChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          const q = chip.getAttribute('data-query');
+          mobileSearchInput.value = q;
+          renderMobileSearch(q);
+        });
+      });
+
+      /* -------------------------------------------------------------
+         G. Tasting Notes Modal Inspector
+         ------------------------------------------------------------- */
+      const tastingModal = document.getElementById('tastingModal');
+      const closeTastingModal = document.getElementById('closeTastingModal');
+      const tastingHeroImg = document.getElementById('tastingHeroImg');
+      const tastingTitle = document.getElementById('tastingTitle');
+      const tastingDesc = document.getElementById('tastingDesc');
+      const tastingOrigin = document.getElementById('tastingOrigin');
+      const tastingProcess = document.getElementById('tastingProcess');
+      const tastingNotes = document.getElementById('tastingNotes');
+      const tastingHour = document.getElementById('tastingHour');
+      const modalReserveLink = document.getElementById('modalReserveLink');
+
+      function openTastingModal(id) {
+        const item = dishData[id];
+        if (!item) return;
+
+        tastingHeroImg.src = item.img;
+        tastingTitle.textContent = item.title;
+        tastingDesc.textContent = item.desc;
+        tastingOrigin.textContent = item.origin;
+        tastingProcess.textContent = item.process;
+        tastingNotes.textContent = item.notes;
+        tastingHour.textContent = item.hour;
+
+        tastingModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      document.querySelectorAll('.btn-card-tasting').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-item-id');
+          openTastingModal(id);
+        });
+      });
+
+      closeTastingModal.addEventListener('click', () => {
+        tastingModal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+
+      tastingModal.addEventListener('click', (e) => {
+        if (e.target === tastingModal) {
+          tastingModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+
+      modalReserveLink.addEventListener('click', () => {
+        tastingModal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+
+      /* -------------------------------------------------------------
+         H. Reservation System Form & Chips
+         ------------------------------------------------------------- */
+      // Set today's date as default min
+      const bookDate = document.getElementById('bookDate');
+      const today = new Date().toISOString().split('T')[0];
+      bookDate.value = today;
+      bookDate.min = today;
+
+      // Nook Selection Chips
+      const nookChips = document.querySelectorAll('.nook-chip');
+      let selectedNook = 'Vinyl Mezzanine';
+
+      nookChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          nookChips.forEach(c => c.classList.remove('selected'));
+          chip.classList.add('selected');
+          selectedNook = chip.querySelector('span:first-child').textContent;
+        });
+      });
+
+      // Quick links from Nook cards to reserve section
+      document.querySelectorAll('[data-reserve-nook]').forEach(card => {
+        card.addEventListener('click', () => {
+          const val = card.getAttribute('data-reserve-nook');
+          const targetChip = document.querySelector(`.nook-chip[data-nook-value="${val}"]`);
+          if (targetChip) {
+            targetChip.click();
+          }
+          document.getElementById('reserve').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Time Slot Chips
+      const timeSlotBtns = document.querySelectorAll('.time-slot-btn');
+      let selectedTime = '21:30 PM';
+
+      timeSlotBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          timeSlotBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          selectedTime = btn.getAttribute('data-time');
+        });
+      });
+
+      // Booking Form Submit
+      const bookingForm = document.getElementById('bookingForm');
+      const bookingModal = document.getElementById('bookingModal');
+      const modalMessage = document.getElementById('modalMessage');
+      const modalRefCode = document.getElementById('modalRefCode');
+      const closeBookingModal = document.getElementById('closeBookingModal');
+
+      bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('bookName').value;
+        const guests = document.getElementById('bookGuests').value;
+        const date = document.getElementById('bookDate').value;
+        const randomRef = Math.floor(1000 + Math.random() * 9000);
+
+        modalMessage.innerHTML = `Thank you, <strong>${name}</strong>. Your table for <strong>${guests} guest(s)</strong> at <strong>${selectedNook}</strong> has been secured for <strong>${date} at ${selectedTime}</strong>.`;
+        modalRefCode.textContent = `REF: #MLC-${randomRef}`;
+
+        bookingModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+
+      closeBookingModal.addEventListener('click', () => {
+        bookingModal.classList.remove('active');
+        document.body.style.overflow = '';
+        bookingForm.reset();
+        bookDate.value = today;
+      });
+
+      bookingModal.addEventListener('click', (e) => {
+        if (e.target === bookingModal) {
+          bookingModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+
+      /* -------------------------------------------------------------
+         I. Ambient Vinyl Interaction (Header & Hero Card)
+         ------------------------------------------------------------- */
+      const headerVinylBtn = document.getElementById('headerVinylBtn');
+      const vinylHeroCard = document.getElementById('vinylHeroCard');
+      let isVinylPlaying = true;
+
+      function toggleVinylVisual() {
+        isVinylPlaying = !isVinylPlaying;
+        const discs = document.querySelectorAll('.vinyl-mini-disc, .vinyl-disc-spin');
+        discs.forEach(d => {
+          d.style.animationPlayState = isVinylPlaying ? 'running' : 'paused';
+        });
+
+        const span = headerVinylBtn.querySelector('span');
+        if (isVinylPlaying) {
+          span.textContent = 'Bill Evans — Peace Piece';
+          headerVinylBtn.style.borderColor = 'var(--moon-gold)';
+        } else {
+          span.textContent = 'Vinyl Paused';
+          headerVinylBtn.style.borderColor = 'var(--border-subtle)';
+        }
+      }
+
+      headerVinylBtn.addEventListener('click', toggleVinylVisual);
+      vinylHeroCard.addEventListener('click', toggleVinylVisual);
+
+    });
+  </script>
+</body>
+</html>
